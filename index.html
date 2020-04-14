@@ -1,528 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-	<title>Tristan Brodeur Portfolio</title>
+	<title>Tristan Brodeur</title>
 	<meta charset="utf-8">
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="/manifest.json">
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="theme-color" content="#ffffff">
+	
+	<!--Stylesheets-->
+	<link href="./assets/fa/css/all.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="./assets/main.css" rel="stylesheet">
+
+	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<style type="text/css">
-		body{
-      font-family:Ubuntu;
-      position: relative;
-    }
-    .title{
-     color: #009933;
-   }
-   .jumbotron{
-     background-image: url("pics/background.png");
-     background-repeat: repeat;
-     background-size: 100%;
-   }
-   .item{
-     width: auto;
-     height: auto;
-   }
-   a:link    {color:#009933; background-color:transparent; text-decoration:none}
-   a:visited {color:#004d1a; background-color:transparent; text-decoration:none}
-   a:hover   {color:#009933; background-color:transparent; text-decoration:underline}
-   #loader-wrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-image: url("pics/background.png");
-  }
-  #loader{
-    display:block;
-    position:relative;
-    left: 50%;
-    top:50%;
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    z-index: 1001;
+	<script src="./assets/particles/particles.min.js"></script>
 
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #006014;
-
-    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
-  }
-  #loader:before{
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #009933;
-
-    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
-  }
-  #loader:after{
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #bfbfbf;
-
-    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
-  }
-  @-webkit-keyframes spin {
-    0%   { 
-      -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-      -ms-transform: rotate(0deg);  /* IE 9 */
-      transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-    100% {
-      -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-      -ms-transform: rotate(360deg);  /* IE 9 */
-      transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-  }
-  @keyframes spin {
-    0%   { 
-      -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-      -ms-transform: rotate(0deg);  /* IE 9 */
-      transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-    100% {
-      -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-      -ms-transform: rotate(360deg);  /* IE 9 */
-      transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-    }
-  }
-  #loader-wrapper .loader-section{
-    position: fixed;
-    top: 0;
-    width: 51%;
-    height: 100%;
-    background: #222;
-    z-index: 1000;
-  }
-  #loader-wrapper .loader-section.section-left{
-    left: 0;
-  }
-  #loader-wrapper .loader-section.section-right{
-    right: 0;
-  }
-  .loaded #loader-wrapper .loader-section.section-left{
-    -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: translateX(-100%));  /* IE 9 */
-transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
-
--webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-}
-.loaded #loader-wrapper .loader-section.section-right{
-  -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-  -ms-transform: translateX(100%));  /* IE 9 */
-transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
-
--webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-}
-.loader #loader{
-  opacity: 0;
-  -webkit-transition: all 0.3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-  transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-}
-.loaded #loader-wrapper{
-  visibility: hidden;
-
-  -webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-  -ms-transform: translateY(-100%));  /* IE 9 */
-transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
-
--webkit-transition: all 0.3s 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-transition: all 0.3s 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-}
-#top-menu {
-  position: fixed;
-  z-index: 1;
-  background: white;
-  left: 0;
-  right: 0;
-  top: 0;
-  list-style: none;
-}
-#top-menu li {
- float: left;
-}
-#top-menu a {
- display: block;
- padding: 5px 25px 7px 25px;
- width: 8em;
- text-align: center;
- -webkit-transition: .5s all ease-out;
- -moz-transition: .5s all ease-out;
- transition: .5s all ease-out;
- border-top: 3px solid white;
- color: #aaa;
- text-decoration: none;
-}
-#top-menu a:hover {
- color: #000;
-}
-#top-menu li.active a {
- border-top: 3px solid #009933;
- color: #009933;
-}
-#top-menu li a:href{
- position: absolute;
- top: auto;
-}
-	</style>
-  <div id="loader-wrapper">
-    <div id="loader">
-
-    </div>
-    <div class="loader-section section-left">
-
-    </div>
-    <div class="loader-section section-right">
-
-    </div>
-  </div>
 </head>
-
-
-
-<body data-spy="scroll" data-target=".nav" data-offset = "10">
-
-  <nav>
-    <ul id="top-menu">
-      <li class="active">
-       <a href="#">Abandoned</a>
-     </li>
-     <li>
-       <a href="#about">About</a>
-     </li>
-     <li>
-       <a href="#skillz">Attributes</a>
-     </li>
-     <li>
-       <a href="#robot">Automation</a>
-     </li>
-     <li>
-       <a href="#projects">Adventure</a>
-     </li>
-   </ul>
- </nav>
- <div class = "container" id="navigation">
-	<!--<nav class="navbar navbar-inverse navbar-fixed-top">
-  		<ul class="nav navbar-nav">
-    		<li><a href="#about">About</a></li>
-    		<li><a href="#skills">Hireable?</a></li>
-    	</ul>
-    </nav>-->
-    <div class = "jumbotron" style="margin-top:40px;">
-      <center>
-        <h1 class="text-primary">Tristan Brodeur</h1>
-        <h3><bold><em><small>Looking to create some cool sh*t</small></em></bold></h3>
-        <img src = "pics/NWRobotics.jpg" class="img-thumbnail img-rounded">
-      </center>
-      <div class="row" style="margin: 0 auto" >
-       <div class="col-sm-2"></div>
-       <a id="about"></a>
-       <div class="col-sm-8" style="margin: 20px auto">
-         <h2>About Tristan:</h2>
-         <p style="font-size:1.1em;">I am a recent high school graduate. I have self taught myself all of the languages listed, and currently teaching myself machine learning via <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a> documentation and online courses including <a href = "http://coursera.org/" target="_blank">coursera.org</a>, <a href="https://www.edx.org/" target="_blank">edx.org</a>, etc. I myself don't know whether it is enough to learn machine learning and other techniques under the umbrella of artificial intelligence via self-teaching, so I am currently contemplating on returning to university after working at innovative companies for awhile. I have built many small hardware and software projects throughout the years, with my largest one being a robotics project I hope to capitalize on. I was recently laid off from my job as a quality assurance engineer @ White Rabbit Group (they outsourced their software team to Guadalajara, Mexico) and now looking for new opportunities to create. </p>
-         <h3>Previous hire: </h3>
-         <ul>
-          <li>Quality Assurance Engineer @ <a href = "http://www.whiterabbit.is/" target="_blank"> White Rabbit Group</a> in Reno, Nevada</li>
-        </ul>
-        <a id = "skillz"></a>
-        <h2>Skills/Knowledge:</h2>
-        <ul class="list-group" style="margin-left: 35px;">
-          <li class="title"><strong>Python</strong></li>
-          <ul class="list-group">
-            <li>The Basics(re, os, sys, etc.)</li>
-            <li>Django Web Framework</li>
-            <li>Currently learning SciPy/NumPy libraries in conjunction with MatPlotLib via side-projects</li>
-            <li>Machine Learning w/ TensorFlow</li>
-          </ul>
-          <li class="title"><strong>Java</strong></li>
-          <ul class="list-group">
-           <li>Wrote code for school robots with Java</li>
-           <li>Made GUI program to calculate &#x0394 V calculations </li>
-           <li>Other small programs</li>
-         </ul>
-         <li class="title"><strong>C++</strong></li>
-         <ul class="list-group">
-          <li>Small projects to learn STL and other libraries</li>
-          <li>Used C++ to build a small chess program (my first program!)</li>
-          <li>Other small projects</li>
-        </ul>
-        <li class="title"><strong>C</strong></li>
-        <ul class="list-group">
-         <li>Writing code for robot projects in C and will convert to assembly via Atmel Studio</li>
-         <li>Other small projects</li>
-       </ul>
-       <li class="title"><strong>Drafting</strong></li>
-       <ul class="list-group">
-         <li>AutoDesk AutoCAD</li>
-         <li>AutoDesk Revit</li>
-         <li>AutoDesk Inventor</li>
-         <li>SolidWorks</li>
-       </ul>
-       <li class="title"><strong>Plan_on_learning</strong></li>
-       <ul class="list-group">
-         <li>JavaScript</li>
-         <li>SQL</li>
-         <li>EagleCAD</li>
-         <li>PhotoShop</li>
-       </ul>
-
-     </ul>
-     <blockquote class="nav nav-tabs" role="tablist">
-      <p>"If there's anything more important than my ego around, I want it caught and shot now."</p>
-      <footer class="title">The Almighty <a href="http://hitchhikers.wikia.com/wiki/Zaphod_Beeblebrox" target="_blank">Zaphod</a></footer>
-    </blockquote>
-
-  </div>
-  <div class="col-sm-2"></div>
-</div>
-<hr>
-<div>
-  <center>
-    <a id = "robot"></a>
-    <h1>Personal Robot Project</h1>
-    <div id="Carousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#Carousel" data-slide-to="1"></li>
-        <li data-target="#Carousel" data-slide-to="2"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="pics/img_1.jpg">
-          <div class="carousel-caption">
-           <h3>Personal Robot</h3>
-           <p>What the cover will look like.</p>
-         </div>
-       </div>
-       <div class="item">
-        <img src="pics/img_2.jpg">
-        <div class="carousel-caption">
-         <h3>Personal Robot</h3>
-         <p>Internals ripped out for soldering.</p>
-       </div>
-     </div>
-     <div class="item">
-      <img src="pics/img_3.jpg">
-      <div class="carousel-caption">
-      	<h3>Personal Robot</h3>
-      	<p>Dat a**</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#Carousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#Carousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</center>
-</div>
-<hr>
-
-<div>
-  <center>
-    <a id = "projects"></a>
-    <h1>Other Engineering Projects</h1>
-    <!--Other engineering stuff-->
-    <div id="otherCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#otherCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#otherCarousel" data-slide-to="1"></li>
-        <li data-target="#otherCarousel" data-slide-to="2"></li>
-        <li data-target="#otherCarousel" data-slide-to="3"></li>
-        <li data-target="#otherCarousel" data-slide-to="4"></li>
-        <li data-target="#otherCarousel" data-slide-to="5"></li>
-        <li data-target="#otherCarousel" data-slide-to="6"></li>
-        <li data-target="#otherCarousel" data-slide-to="7"></li>
-        <li data-target="#otherCarousel" data-slide-to="8"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active img-rounded">
-          <img src="pics/Revit_1.jpg">
-          <div class="carousel-caption">
-           <h3>Revit Architecture Competition</h3>
-         </div>
-       </div>
-       <div class="item">
-        <img src="pics/Revit_2.jpg" class="">
-        <div class="carousel-caption">
-         <h3>Revit Architecture Competition</h3>
-       </div>
-     </div>
-     <div class="item">
-      <img src="pics/Robot_1.jpg">
-      <div class="carousel-caption">
-      	<h3>School Robotics</h3>
-      </div>
-    </div>
-    <div class="item">
-      <img src="pics/Robotics.jpg">
-      <div class="carousel-caption">
-      	<h3>School Robotics</h3>
-      </div>
-    </div>
-    <div class="item">
-      <img src="pics/Robot_3.jpg">
-      <div class="carousel-caption">
-      	<h3>School Robotics</h3>
-      </div>
-    </div>
-    <div class="item">
-      <img src="pics/Robot.jpg">
-      <div class="carousel-caption">
-      	<h3>School Robotics</h3>
-      </div>
-    </div>
-    <div class="item">
-      <img src="pics/Robot1.jpg">
-      <div class="carousel-caption">
-      	<h3>School Robotics</h3>
-      </div>
-    </div>
-    <div class="item">
-      <img src="pics/Robot2.jpg">
-      <div class="carousel-caption">
-      	<h3>School Robotics</h3>
-      </div>
-    </div>
-    <div class="item">
-      <img src="pics/House_2.jpg">
-      <div class="carousel-caption">
-      	<h3>Civil_Engineering Project</h3>
-      </div>
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#otherCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#otherCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</center>
-</div>
-  <!--<div class="col-md-4">
-    <a href="IMG_3782.JPG" class="thumbnail">
-      <p>What a possible iteration for the cover will look like.</p>
-      <img src="pulpitrock.jpg" alt="" style="width:150px;height:150px">
-    </a>
-  </div>
-  <div class="col-md-4">
-    <a href="IMG_3783.JPG" class="thumbnail">
-      <p>Robot stripped of circuits.</p>
-      <img src="moustiers-sainte-marie.jpg" alt="" style="width:100px;height:100px">
-    </a>
-  </div>
-  <div class="col-md-4">
-    <a href="IMG_3787.JPG" class="thumbnail">
-      <p>Dat a**.</p> 
-      <img src="cinqueterre.jpg" alt="" style="width:150px;height:150px">
-    </a>
-  </div>-->
-</div>
-</div>
-</div>
-<hr>
-<center>
-	<p>Written and coded by <a href="#">Tristan Brodeur</a>.</p>
-</center>
+<body>
+	
+	<div id="particles-js"></div>
+	<div id="navbar">
+		<!-- <img src="./pics/tristan.jpeg" id="profile-picture"> -->
+		<a id="logo">Tristan Brodeur</a>
+		<div id="navbar-right">
+			<a class="active" href="#home">Profile</a>
+			<a href="#work">Work Experience</a>
+			<a href="#research">Research</a>
+			<a href="#projects">Projects</a>
+			<a href="#extracurricular">Extra-Curricular</a>
+			<a></a>
+		</div>
+	</div>
+	<div id="profile">
+		<!-- <video autoplay muted loop id="headerVideo">
+			<source src="./pics/forest.mp4" type="video/mp4">
+		</video> -->
+		<div class="profile-sect">
+			<img src="./pics/tristan2.jpeg" id="profile-img">
+			<p class="header">Tristan Brodeur</p>
+		</div>
+		<div class="links">
+			<div class="fab fa-github-square fa-3x">
+				<a href="https://github.com/twbot" class="link">Github</a>
+			</div>
+			<div class="fab fa-linkedin fa-3x">
+				<a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" class="link">LinkedIn</a>
+			</div>
+			<div class="fab fa-facebook-square fa-3x">
+				<a href="https://www.facebook.com/tristan.brodeur.12" class="link">Facebook</a>
+			</div>
+			<div class="fab fa-researchgate fa-3x">
+				<a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" class="link">Research</a>
+			</div>
+		</div>
+	</div>
+	<div class="about">
+		<hr class="divider">
+		<div class="about-paragraph">
+			<div class="about-detail">
+				<h2 class="header">About</h2>
+			</div>
+			<div class="about-detail">
+				<p>
+				Studying 
+				I am a recent high school graduate. I have self taught myself all of the languages listed, and currently teaching myself machine learning via <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a> documentation and online courses including <a href = "http://coursera.org/" target="_blank">coursera.org</a>, <a href="https://www.edx.org/" target="_blank">edx.org</a>, etc. I myself don't know whether it is enough to learn machine learning and other techniques under the umbrella of artificial intelligence via self-teaching, so I am currently contemplating on returning to university after working at innovative companies for awhile. I have built many small hardware and software projects throughout the years, with my largest one being a robotics project I hope to capitalize on. I was recently laid off from my job as a quality assurance engineer @ White Rabbit Group (they outsourced their software team to Guadalajara, Mexico) and now looking for new opportunities to create. </p>
+			</div>
+		</div>
+	</div>
+	<div class="skills">
+		<div class="skill-paragraph">
+			<div class="about-detail">
+				<h2 class="header">Skills At A Glance</h2>
+			</div>
+			<div class="skill-detail">
+				<div class="skill-list">
+					<p>hardware</p>
+					<ul>
+						<li>microcontrollers & embedded systems</li>
+						<li>bus protocols: I2C, SPI, UART</li>
+						<li>RTOS and Linux/Unix OS</li>
+						<li>schematic design & PCB layout (EagleCAD, KiCAD)</li>
+						<li>wireless communication: 802.11 Wi-Fi, ZigBee, BLE</li>
+						<li>programming FPGAs in Verilog</li>
+					</ul>
+				</div>
+				<div class="skill-list">
+					<p>software</p>
+					<ul>
+						<li>Experienced: C, Python, Java</li>
+						<li>Proficient: C++, MATLAB</li>
+						<li>UNIX/Linux command line</li>
+						<li>network programming: sockets, TCP/IP</li>
+						<li>version control: git</li>
+						<li>development environment: docker</li>
+						<li>Design/Layout: AutoDesk Fusion 360, SolidWorks, AutoDesk Revit</li>
+					</ul>
+				</div>
+				<div class="skill-list">
+					<p>web</p>
+					<ul>
+						<li>Front-End Web Frameworks: Angular, React, Django</li>
+						<li>Back-End Web Frameworks: Django, Springboot, ExpressJS</li>
+						<li>Languages: Javascript/Typescript, Java, Python</li>
+						<li>Package Managers: NPM, yarn</li>
+						<li>etcetera: jQuery, CSS, Sass/Less, Webpack, ES6, NodeJS</li>
+						<li>DataBase: PostgreSQL, MySQL</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-<script>
-  $(document).ready(function(){
-    setTimeout(function(){
-      $('body').addClass('loaded');
-    }, 2000)
-  });
 
-  $('.carousel').carousel({
-    interval: 2000
-  })
-	//thanks to Marcus Ekwall for minimalistic scrollbar
-	var lastId,
- topMenu = $("#top-menu"),
- topMenuHeight = topMenu.outerHeight()+15,
-    	// All list items
-    	menuItems = topMenu.find("a"),
-    	// Anchors corresponding to menu items
-    	scrollItems = menuItems.map(function(){
-        var item = $($(this).attr("href"));
-        if (item.length) { return item; }
-      });
-// Bind click handler to menu items
-// so we can get a fancy scroll animation
-menuItems.click(function(e){
-  var href = $(this).attr("href"),
-  offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
-  $('html, body').stop().animate({ 
-    scrollTop: offsetTop
-  }, 300);
-  e.preventDefault();
-});
-// Bind to scroll
-$(window).scroll(function(){
-   		// Get container scroll position
-      var fromTop = $(this).scrollTop()+topMenuHeight;
-   		// Get id of current scroll item
-      var cur = scrollItems.map(function(){
-        if ($(this).offset().top < fromTop)
-         return this;
-     });
-   // Get the id of the current element
-   cur = cur[cur.length-1];
-   var id = cur && cur.length ? cur[0].id : "";
-   if (lastId !== id) {
-     lastId = id;
-       		// Set/remove active class
-       		menuItems
-          .parent().removeClass("active")
-          .end().filter("[href='#"+id+"']").parent().addClass("active");
-        }                   
-      });
-    </script>
-    </html>
+<script type="text/javascript">
+	window.onload = function()  {particlesJS.load('particles-js', './assets/particles/particles.json', function() {
+	  console.log('callback - particles.js config loaded');
+	});};
+	window.onscroll = function() {scrollFunction()};
 
+	function scrollFunction() {
+		if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+			document.getElementById("navbar").style.padding = "30px 10px";
+			document.getElementById("logo").style.fontSize = "25px";
+			document.getElementById("profile").style.marginTop = "180px";
+			document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,0.8)";
+		} else {
+			document.getElementById("navbar").style.padding = "50px 10px";
+			document.getElementById("logo").style.fontSize = "35px";
+			document.getElementById("profile").style.marginTop = "180px";
+			document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,1)";
+		}
+	}
+	/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+	
+</script>
+</html>
