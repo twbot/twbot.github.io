@@ -1483,16 +1483,19 @@ window.particlesJS = function(tag_id, params){
     params = tag_id;
     tag_id = 'particles-js';
   }
-
+  console.log("here");
+  console.log(tag_id);
   /* no id? set the id to default id */
   if(!tag_id){
     tag_id = 'particles-js';
   }
+  console.log(tag_id)
 
   /* pJS elements */
-  var pJS_tag = document.getElementById(tag_id),
-      pJS_canvas_class = 'particles-js-canvas-el',
-      exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
+  var pJS_tag = document.getElementById(tag_id);
+  console.log(pJS_tag);
+  var pJS_canvas_class = 'particles-js-canvas-el';
+  var exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
 
   /* remove canvas if exists into the pJS target tag */
   if(exist_canvas.length){

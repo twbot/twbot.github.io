@@ -20,21 +20,20 @@
 
 	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="./assets/particles/particles.min.js"></script>
-
+	<script src="./assets/particles/particles.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
+	<script src="./assets/app.js"></script>
 </head>
 <body>
-	
-	<div id="particles-js"></div>
+	<!-- <div id="particles-js"></div> -->
 	<div id="navbar">
-		<!-- <img src="./pics/tristan.jpeg" id="profile-picture"> -->
 		<a id="logo">Tristan Brodeur</a>
 		<div id="navbar-right">
-			<a class="active" href="#home">Profile</a>
-			<a href="#work">Work Experience</a>
-			<a href="#research">Research</a>
-			<a href="#projects">Projects</a>
-			<a href="#extracurricular">Extra-Curricular</a>
+			<a class="active" href="#profile" onclick="showPage(event, 'profile', this); return false;">Profile</a>
+			<a href="#work" onclick="showPage('answer1', 'text1', this); return false;">Work Experience</a>
+			<a href="#research" onclick="showPage('answer1', 'text1', this); return false;">Research</a>
+			<a href="#projects" onclick="showPage('answer1', 'text1', this); return false;">Projects</a>
+			<a href="#extracurricular" onclick="showPage('answer1', 'text1', this); return false;">Extra-Curricular</a>
 			<a></a>
 		</div>
 	</div>
@@ -45,6 +44,8 @@
 		<div class="profile-sect">
 			<img src="./pics/tristan2.jpeg" id="profile-img">
 			<p class="header">Tristan Brodeur</p>
+			<p class="underheader">Researcher, Web Developer, & Mountain Biker</p>
+			<p class="underheader">Bachelor of Science: Major in Mathematics, Minor in Neuroscience</p>
 		</div>
 		<div class="links">
 			<div class="fab fa-github-square fa-3x">
@@ -69,8 +70,18 @@
 			</div>
 			<div class="about-detail">
 				<p>
-				Studying 
-				I am a recent high school graduate. I have self taught myself all of the languages listed, and currently teaching myself machine learning via <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a> documentation and online courses including <a href = "http://coursera.org/" target="_blank">coursera.org</a>, <a href="https://www.edx.org/" target="_blank">edx.org</a>, etc. I myself don't know whether it is enough to learn machine learning and other techniques under the umbrella of artificial intelligence via self-teaching, so I am currently contemplating on returning to university after working at innovative companies for awhile. I have built many small hardware and software projects throughout the years, with my largest one being a robotics project I hope to capitalize on. I was recently laid off from my job as a quality assurance engineer @ White Rabbit Group (they outsourced their software team to Guadalajara, Mexico) and now looking for new opportunities to create. </p>
+					Passionate creator of beautiful & functional websites. Researcher in the fields of robotics & computational neuroscience.
+				</p>
+				<p>
+					The Plunge into Web Development: My interest in web development initially came from my readings of the textbook "Hacking: The Art of Exploitation" in middle school. The book entranced me, giving me an overall view of networking, cryptology, and exploitation. It was at this point that I started to connect with other "hackers" on online chat rooms. These "confidants" gave me tips on ways to improve my hacking skills, which for a large part included learning technologies such as javascript, SQL, and other common web technologies. It was my learning of these technologies that allowed me to start building out websites for local clients, providing me with job opportunities and allowing me to realise another aspect of web development that I've come to love: design. It's been my goal now to not only provide for my clients a website that's safe from vulnerabilities, but a website thats both functional and beautiful.
+				</p>
+				<p>
+					The Plunge into Robotics: As a child I would build a variety of scale model machines from Erector Sets I had recieved from holiday gatherings and birthdays. These kits allowed me to understand the inner workings (at least to a minor extent) of common machines including bulldozers, cars, and construction cranes. One particularly defining moment in my pursuit of robotics was the first time I had recieved a Vex Robotics kit, allowing me to build, program, and control a mini robotic rover of my own. Two years later, a group of fellow robotics enthusiasts and I helped start the first FRC (FIRST Robotics Compeitition) & FTC (FIRST Tech Challenge) robotics clubs at my high school, obtaining a Rookie All-Star Award in our first year of the FRC competition. Since then I've done research in path planning for multi-robotic systems, robotic networking, and human-aware navigation.
+				</p>
+				<p>
+					The Plunge into Neuroscience: The first year of university I'd been dorm-matched with a neuroscience major who was aiming to become a neurosurgeon. He'd converse with me through the night, nearly every night, about the inner workings of the brain, and in return I gave him some insight into robotics and machine intelligence. It was through these conversations that I'd come to realise that, in order to build more intelligent machines, it's necessary I first learn about the source of intelligence of our own species and extrapolate from there. I've since assisted in research papers within the field of computational neuroscience for a neuroscience lab at my university, where we researched gamma & theta wave modulation between the anterior cingulate cortex (ACC) and the hippocampus, assisting the field in its understanding of long-term memory consolidation.
+				</p>
+				
 			</div>
 		</div>
 	</div>
@@ -118,27 +129,4 @@
 		</div>
 	</div>
 </body>
-
-<script type="text/javascript">
-	window.onload = function()  {particlesJS.load('particles-js', './assets/particles/particles.json', function() {
-	  console.log('callback - particles.js config loaded');
-	});};
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-		if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-			document.getElementById("navbar").style.padding = "30px 10px";
-			document.getElementById("logo").style.fontSize = "25px";
-			document.getElementById("profile").style.marginTop = "180px";
-			document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,0.8)";
-		} else {
-			document.getElementById("navbar").style.padding = "50px 10px";
-			document.getElementById("logo").style.fontSize = "35px";
-			document.getElementById("profile").style.marginTop = "180px";
-			document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,1)";
-		}
-	}
-	/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-	
-</script>
 </html>
