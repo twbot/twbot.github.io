@@ -20,6 +20,10 @@ body{
   background-size: cover;
 }
 
+.tab {
+  cursor: pointer;
+}
+
 #navbar {
   overflow: hidden;
   background-color: whitesmoke;
@@ -36,6 +40,7 @@ body{
   color: black;
   text-align: center;
   padding: 12px;
+  margin-right: 5px;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
@@ -91,7 +96,7 @@ body{
     top: 44px;
 }
 
-#profile {
+#profileContent {
   height: 100px;
   width: 100%;
   margin-top: 180px;
@@ -274,4 +279,96 @@ body{
   font-size: 15px;
   color: #2d7254;
   margin: 20px;
+}
+
+.card-holder {
+  width: 90%;
+  margin: 180px auto;
+  /*border: 1px solid red;*/
+}
+
+.card {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  background-color: whitesmoke;
+  /*height: 225px;*/
+  margin-bottom: 35px;
+}
+
+.detail-container {
+  /*padding: 15px;*/
+  width: 48%;
+  /*border: 1px solid red;*/
+  display: inline-block;
+  height: 200px;
+}
+
+.img-container {
+  width: 48%;
+  height: 200px;
+  /*border: 1px solid blue;*/
+  display: inline-block;
+}
+
+.description-container {
+  width: 48200px
+  height: inherit;
+  /*border: 1px solid green;*/
+  display: inline-block;
+  vertical-align: top;
+}
+
+.workImg {
+  margin: auto;
+  height: inherit;
+  display: block;
+  border-radius: 50%;
+}
+
+.addedBg {
+  background-color: #000;
+}
+
+.info-container {
+  /*padding: 15px;*/
+  width: 48%;
+  vertical-align: top;
+  /*border: 1px solid blue;*/
+  display: inline-block;
+  height: 200px;
+  overflow-y: auto;
+}
+
+.companyName {
+  font-size: 30px;
+  color: #2d7254;
+  vertical-align: top;
+}
+
+.companyNameSmaller {
+  font-size: 25px;
+  color: #2d7254;
+  vertical-align: top;
+}
+
+.infoText {
+  font-size: 17px;
+  color: #000;
+  vertical-align: top;
+}
+
+.expand-container {
+  width: 100%;
+  display: inline-block;
+  height: 25px;
+}
+
+.fa-chevron-down {
+  color: #2d7254;
+  text-align: center;
+  cursor: pointer;
 }

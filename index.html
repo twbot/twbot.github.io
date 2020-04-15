@@ -29,104 +29,265 @@
 	<div id="navbar">
 		<a id="logo">Tristan Brodeur</a>
 		<div id="navbar-right">
-			<a class="active" href="#profile" onclick="showPage(event, 'profile', this); return false;">Profile</a>
-			<a href="#work" onclick="showPage('answer1', 'text1', this); return false;">Work Experience</a>
-			<a href="#research" onclick="showPage('answer1', 'text1', this); return false;">Research</a>
-			<a href="#projects" onclick="showPage('answer1', 'text1', this); return false;">Projects</a>
-			<a href="#extracurricular" onclick="showPage('answer1', 'text1', this); return false;">Extra-Curricular</a>
+			<a class="tab" id="defaultOpen" onclick="showPage(event, 'profile', this); return false;">Profile</a>
+			<a class="tab" onclick="showPage(event, 'work', this); return false;">Work Experience</a>
+			<a class="tab" onclick="showPage(event, 'research', this); return false;">Research</a>
+			<a class="tab" onclick="showPage(event, 'projects', this); return false;">Projects</a>
+			<a class="tab" onclick="showPage(event, 'extracurricular', this); return false;">Extra-Curricular</a>
 			<a></a>
 		</div>
 	</div>
-	<div id="profile">
-		<!-- <video autoplay muted loop id="headerVideo">
-			<source src="./pics/forest.mp4" type="video/mp4">
-		</video> -->
-		<div class="profile-sect">
-			<img src="./pics/tristan2.jpeg" id="profile-img">
-			<p class="header">Tristan Brodeur</p>
-			<p class="underheader">Researcher, Web Developer, & Mountain Biker</p>
-			<p class="underheader">Bachelor of Science: Major in Mathematics, Minor in Neuroscience</p>
+	<div id="profile" class="content">
+		<div id="profileContent">
+			<!-- <video autoplay muted loop id="headerVideo">
+				<source src="./pics/forest.mp4" type="video/mp4">
+			</video> -->
+			<div class="profile-sect">
+				<img src="./pics/tristan2.jpeg" id="profile-img">
+				<p class="header">Tristan Brodeur</p>
+				<p class="underheader">Researcher, Web Developer, & Mountain Biker</p>
+				<p class="underheader">Bachelor of Science: Major in Mathematics, Minor in Neuroscience</p>
+			</div>
+			<div class="links">
+				<div class="fab fa-github-square fa-3x">
+					<a href="https://github.com/twbot" class="link">Github</a>
+				</div>
+				<div class="fab fa-linkedin fa-3x">
+					<a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" class="link">LinkedIn</a>
+				</div>
+				<div class="fab fa-facebook-square fa-3x">
+					<a href="https://www.facebook.com/tristan.brodeur.12" class="link">Facebook</a>
+				</div>
+				<div class="fab fa-researchgate fa-3x">
+					<a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" class="link">Research</a>
+				</div>
+			</div>
 		</div>
-		<div class="links">
-			<div class="fab fa-github-square fa-3x">
-				<a href="https://github.com/twbot" class="link">Github</a>
+		<div class="about">
+			<hr class="divider">
+			<div class="about-paragraph">
+				<div class="about-detail">
+					<h2 class="header">About</h2>
+				</div>
+				<div class="about-detail">
+					<p>
+						Passionate creator of beautiful & functional websites. Researcher in the fields of robotics & computational neuroscience.
+					</p>
+					<p>
+						The Plunge into Web Development: My interest in web development initially came from my readings of the textbook "Hacking: The Art of Exploitation" in middle school. The book entranced me, giving me an overall view of networking, cryptology, and exploitation. It was at this point that I started to connect with other "hackers" on online chat rooms. These "confidants" gave me tips on ways to improve my hacking skills, which for a large part included learning technologies such as javascript, SQL, and other common web technologies. It was my learning of these technologies that allowed me to start building out websites for local clients, providing me with job opportunities and allowing me to realise another aspect of web development that I've come to love: design. It's been my goal now to not only provide for my clients a website that's safe from vulnerabilities, but a website thats both functional and beautiful.
+					</p>
+					<p>
+						The Plunge into Robotics: As a child I would build a variety of scale model machines from Erector Sets I had recieved from holiday gatherings and birthdays. These kits allowed me to understand the inner workings (at least to a minor extent) of common machines including bulldozers, cars, and construction cranes. One particularly defining moment in my pursuit of robotics was the first time I had recieved a Vex Robotics kit, allowing me to build, program, and control a mini robotic rover of my own. Two years later, a group of fellow robotics enthusiasts and I helped start the first FRC (FIRST Robotics Compeitition) & FTC (FIRST Tech Challenge) robotics clubs at my high school, obtaining a Rookie All-Star Award in our first year of the FRC competition. Since then I've done research in path planning for multi-robotic systems, robotic networking, and human-aware navigation.
+					</p>
+					<p>
+						The Plunge into Neuroscience: The first year of university I'd been dorm-matched with a neuroscience major who was aiming to become a neurosurgeon. He'd converse with me through the night, nearly every night, about the inner workings of the brain, and in return I gave him some insight into robotics and machine intelligence. It was through these conversations that I'd come to realise that, in order to build more intelligent machines, it's necessary I first learn about the source of intelligence of our own species and extrapolate from there. I've since assisted in research papers within the field of computational neuroscience for a neuroscience lab at my university, where we researched gamma & theta wave modulation between the anterior cingulate cortex (ACC) and the hippocampus, assisting the field in its understanding of long-term memory consolidation.
+					</p>
+					
+				</div>
 			</div>
-			<div class="fab fa-linkedin fa-3x">
-				<a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" class="link">LinkedIn</a>
-			</div>
-			<div class="fab fa-facebook-square fa-3x">
-				<a href="https://www.facebook.com/tristan.brodeur.12" class="link">Facebook</a>
-			</div>
-			<div class="fab fa-researchgate fa-3x">
-				<a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" class="link">Research</a>
+		</div>
+		<div class="skills">
+			<div class="skill-paragraph">
+				<div class="about-detail">
+					<h2 class="header">Skills At A Glance</h2>
+				</div>
+				<div class="skill-detail">
+					<div class="skill-list">
+						<p>hardware</p>
+						<ul>
+							<li>microcontrollers & embedded systems</li>
+							<li>bus protocols: I2C, SPI, UART</li>
+							<li>RTOS and Linux/Unix OS</li>
+							<li>schematic design & PCB layout (EagleCAD, KiCAD)</li>
+							<li>wireless communication: 802.11 Wi-Fi, ZigBee, BLE</li>
+							<li>programming FPGAs in Verilog</li>
+						</ul>
+					</div>
+					<div class="skill-list">
+						<p>software</p>
+						<ul>
+							<li>Experienced: C, Python, Java</li>
+							<li>Proficient: C++, MATLAB</li>
+							<li>UNIX/Linux command line</li>
+							<li>network programming: sockets, TCP/IP</li>
+							<li>version control: git</li>
+							<li>development environment: docker</li>
+							<li>Design/Layout: AutoDesk Fusion 360, SolidWorks, AutoDesk Revit</li>
+						</ul>
+					</div>
+					<div class="skill-list">
+						<p>web</p>
+						<ul>
+							<li>Front-End Web Frameworks: Angular, React, Django</li>
+							<li>Back-End Web Frameworks: Django, Springboot, ExpressJS</li>
+							<li>Languages: Javascript/Typescript, Java, Python</li>
+							<li>Package Managers: NPM, yarn</li>
+							<li>etcetera: jQuery, CSS, Sass/Less, Webpack, ES6, NodeJS</li>
+							<li>DataBase: PostgreSQL, MySQL</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="about">
-		<hr class="divider">
-		<div class="about-paragraph">
-			<div class="about-detail">
-				<h2 class="header">About</h2>
+	<div id="work" class="content">
+		<div class="card-holder">
+			<div class="card">
+				<div class="detail-container">
+					<div class="img-container">
+						<img src="./pics/wr.png" class="workImg">
+					</div>
+					<div class="description-container">
+						<p class="companyName">
+							White Rabbit
+						</p>
+						<p class="companyPosition">
+							Quality Assurance Engineer
+						</p>
+						<p class="companyTime">
+							Aug 2015 - Feb 2016
+						</p>
+						<p class="companyLocation">
+							Reno, Nevada
+						</p>
+					</div>
+				</div>
+				<div class="info-container">
+					<p class="infoText">
+						White Rabbit is a Full-Service Agency & Venture Studio with a team composed of high-level diversified talent that is necessary to take an idea through development and into scale. We question common beliefs to solve our clients' and partners' toughest challenges. We are thinkers, creators, artists, philosophers, entrepreneurs, innovators, and mind readers that work in all trades and generate results that revolutionize their industries.
+					</p>
+				</div>
+				<div class="fas fa-chevron-down fa-lg expand-container">
+				</div>
 			</div>
-			<div class="about-detail">
-				<p>
-					Passionate creator of beautiful & functional websites. Researcher in the fields of robotics & computational neuroscience.
-				</p>
-				<p>
-					The Plunge into Web Development: My interest in web development initially came from my readings of the textbook "Hacking: The Art of Exploitation" in middle school. The book entranced me, giving me an overall view of networking, cryptology, and exploitation. It was at this point that I started to connect with other "hackers" on online chat rooms. These "confidants" gave me tips on ways to improve my hacking skills, which for a large part included learning technologies such as javascript, SQL, and other common web technologies. It was my learning of these technologies that allowed me to start building out websites for local clients, providing me with job opportunities and allowing me to realise another aspect of web development that I've come to love: design. It's been my goal now to not only provide for my clients a website that's safe from vulnerabilities, but a website thats both functional and beautiful.
-				</p>
-				<p>
-					The Plunge into Robotics: As a child I would build a variety of scale model machines from Erector Sets I had recieved from holiday gatherings and birthdays. These kits allowed me to understand the inner workings (at least to a minor extent) of common machines including bulldozers, cars, and construction cranes. One particularly defining moment in my pursuit of robotics was the first time I had recieved a Vex Robotics kit, allowing me to build, program, and control a mini robotic rover of my own. Two years later, a group of fellow robotics enthusiasts and I helped start the first FRC (FIRST Robotics Compeitition) & FTC (FIRST Tech Challenge) robotics clubs at my high school, obtaining a Rookie All-Star Award in our first year of the FRC competition. Since then I've done research in path planning for multi-robotic systems, robotic networking, and human-aware navigation.
-				</p>
-				<p>
-					The Plunge into Neuroscience: The first year of university I'd been dorm-matched with a neuroscience major who was aiming to become a neurosurgeon. He'd converse with me through the night, nearly every night, about the inner workings of the brain, and in return I gave him some insight into robotics and machine intelligence. It was through these conversations that I'd come to realise that, in order to build more intelligent machines, it's necessary I first learn about the source of intelligence of our own species and extrapolate from there. I've since assisted in research papers within the field of computational neuroscience for a neuroscience lab at my university, where we researched gamma & theta wave modulation between the anterior cingulate cortex (ACC) and the hippocampus, assisting the field in its understanding of long-term memory consolidation.
-				</p>
-				
+			<div class="card">
+				<div class="detail-container">
+					<div class="img-container">
+						<img src="./pics/atlaswhite.png" class="workImg addedBg">
+					</div>
+					<div class="description-container">
+						<p class="companyName">
+							Atlas Group LC
+						</p>
+						<p class="companyPosition">
+							Full Stack Developer
+						</p>
+						<p class="companyTime">
+							Mar 2016 - Jul 2017
+						</p>
+						<p class="companyLocation">
+							Las Vegas, Nevada
+						</p>
+					</div>
+				</div>
+				<div class="info-container">
+					<p class="infoText">
+						Atlas Group specializes in residential property management. Successful landlords rely on us to manage more than 1500 single family homes, townhomes, condominiums, and apartment units throughout Las Vegas, North Las Vegas, and Henderson.
+					</p>
+					<p class="infoText">
+						Since 1995, Atlas Group LC has established itself as one of the pioneers in the Las Vegas property management market. Before you entrust your real estate investments to a Las Vegas property management company, make sure they have the experience and professionalism necessary to reduce your operational risks and protect your real estate assets. Our experienced team will market your property to the most qualified tenants, aggressively collect rents, and ensure that your property is maintained while keeping operating costs under control.
+					</p>
+				</div>
+				<div class="fas fa-chevron-down fa-lg expand-container">
+				</div>
+			</div>
+			<div class="card">
+				<div class="detail-container">
+					<div class="img-container">
+						<img src="./pics/terbine.png" class="workImg">
+					</div>
+					<div class="description-container">
+						<p class="companyName">
+							Terbine 
+						</p>
+						<p class="companyPosition">
+							Front End Developer
+						</p>
+						<p class="companyTime">
+							Oct 2017 - Mar 2020
+						</p>
+						<p class="companyLocation">
+							Las Vegas, Nevada
+						</p>
+					</div>
+				</div>
+				<div class="info-container">
+					<p class="infoText">
+						Terbine is evolving the first large-scale exchange for machine-generated data – things like vehicle counters, sound levels, powerline loading, carbon emissions and crop density. Terbine’s highly curated data handling system makes sensor information accessible, actionable, and trustworthy for applications across a broad range of industries including government agencies, and provides for data monetization where applicable. Our initial focus is on Intelligent Transportation and Logistics, with many more to come.
+					</p>
+				</div>
+				<div class="fas fa-chevron-down fa-lg expand-container">
+				</div>
+			</div>
+			<div class="card">
+				<div class="detail-container">
+					<div class="img-container">
+						<img src="./pics/hrg.png" class="workImg">
+					</div>
+					<div class="description-container">
+						<p class="companyNameSmaller">
+							Hickory Ridge Group 
+						</p>
+						<p class="companyPosition">
+							Research Analyst
+						</p>
+						<p class="companyTime">
+							Oct 2019 - Dec 2019
+						</p>
+						<p class="companyLocation">
+							Las Vegas, Nevada
+						</p>
+					</div>
+				</div>
+				<div class="info-container">
+					<p class="infoText">
+						Hickory Ridge Group LLC (“HRG”) was founded in 2016 by Dr. Heather Monteiro in Las Vegas, Nevada, and is known for high-quality work, transparency, and integrity. HRG is a woman-owned, certified Disadvantaged Business Enterprise (“DBE”) and performs transportation economics research, focusing on but not limited to freight-related economic impact analysis, benefit-cost analysis, market analysis, and business plan development. Dr. Monteiro has worked for public and private sector clients, and has presented research results to executive oversight committees and public steering committees for MPOs.
+					</p>
+					<p class="infoText">
+						HRG’s research areas include transportation economics, big data analysis, transit topics, intermodal/ multimodal freight, intermodal site selection, behavioral transit studies, transport-specific law enforcement, the relationship between freight data and economic development, and transit industry studies.
+					</p>
+				</div>
+				<div class="fas fa-chevron-down fa-lg expand-container">
+				</div>
+			</div>
+			<div class="card">
+				<div class="detail-container">
+					<div class="img-container">
+						<img src="./pics/aptiv.png" class="workImg">
+					</div>
+					<div class="description-container">
+						<p class="companyName">
+							Aptiv 
+						</p>
+						<p class="companyPosition">
+							Autonomous Driving Test Engineer
+						</p>
+						<p class="companyTime">
+							November 2019 - Mar 2020
+						</p>
+						<p class="companyLocation">
+							Las Vegas, Nevada
+						</p>
+					</div>
+				</div>
+				<div class="info-container">
+					<p class="infoText">
+						Aptiv is a global technology leader, with more than 160,000 people across 126 manufacturing facilities and 15 major technical centers worldwide. With a presence in 44 countries, we address mobility’s toughest challenges through our deep software and systems integration expertise, delivering market relevant solutions for our customers.
+					</p>
+					<p class="infoText">
+						Aptiv holds a leading position as a technology company innovating at the intersection of disruptive trends in the mobility industries. We use our portfolio of technologies to make vehicles safer, greener and more connected and enable the future of mobility.
+					</p>
+				</div>
+				<div class="fas fa-chevron-down fa-lg expand-container">
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="skills">
-		<div class="skill-paragraph">
-			<div class="about-detail">
-				<h2 class="header">Skills At A Glance</h2>
-			</div>
-			<div class="skill-detail">
-				<div class="skill-list">
-					<p>hardware</p>
-					<ul>
-						<li>microcontrollers & embedded systems</li>
-						<li>bus protocols: I2C, SPI, UART</li>
-						<li>RTOS and Linux/Unix OS</li>
-						<li>schematic design & PCB layout (EagleCAD, KiCAD)</li>
-						<li>wireless communication: 802.11 Wi-Fi, ZigBee, BLE</li>
-						<li>programming FPGAs in Verilog</li>
-					</ul>
-				</div>
-				<div class="skill-list">
-					<p>software</p>
-					<ul>
-						<li>Experienced: C, Python, Java</li>
-						<li>Proficient: C++, MATLAB</li>
-						<li>UNIX/Linux command line</li>
-						<li>network programming: sockets, TCP/IP</li>
-						<li>version control: git</li>
-						<li>development environment: docker</li>
-						<li>Design/Layout: AutoDesk Fusion 360, SolidWorks, AutoDesk Revit</li>
-					</ul>
-				</div>
-				<div class="skill-list">
-					<p>web</p>
-					<ul>
-						<li>Front-End Web Frameworks: Angular, React, Django</li>
-						<li>Back-End Web Frameworks: Django, Springboot, ExpressJS</li>
-						<li>Languages: Javascript/Typescript, Java, Python</li>
-						<li>Package Managers: NPM, yarn</li>
-						<li>etcetera: jQuery, CSS, Sass/Less, Webpack, ES6, NodeJS</li>
-						<li>DataBase: PostgreSQL, MySQL</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	<div id="research" class="content">
+	</div>
+	<div id="projects" class="content">
+	</div>
+	<div id="extracurricular" class="content">
 	</div>
 </body>
 </html>

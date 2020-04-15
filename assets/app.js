@@ -99,7 +99,10 @@ const particlesJSON = {
     },
     "retina_detect": true
 }
-window.onload = function()  {particlesJS("particles-js", particlesJSON)};
+window.onload = function()  {
+    document.getElementById("defaultOpen").click();
+    particlesJS("particles-js", particlesJSON);
+};
 
 window.onscroll = function() {scrollFunction()};
 
@@ -107,32 +110,27 @@ function scrollFunction() {
 	if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
 		document.getElementById("navbar").style.padding = "30px 10px";
 		document.getElementById("logo").style.fontSize = "25px";
-		document.getElementById("profile").style.marginTop = "180px";
 		document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,0.8)";
 	} else {
 		document.getElementById("navbar").style.padding = "50px 10px";
 		document.getElementById("logo").style.fontSize = "35px";
-		document.getElementById("profile").style.marginTop = "180px";
 		document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,1)";
 	}
 }
 
-function showPage(id, text) {
-    var i, tabcontent, links;
+function showPage(event, tab) {
+    var i, tabcontent, tablinks;
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName("content");
     for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+        tabcontent[i].style.display = "none";
     }
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName("tab");
     for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+    document.getElementById(tab).style.display = "block";
+    event.currentTarget.className += " active";
 }
