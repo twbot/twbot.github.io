@@ -99,12 +99,44 @@ const particlesJSON = {
     },
     "retina_detect": true
 }
+
+var viewable = [true, true, true, true, true];
+
+var pdfState = {
+    pdf: null,
+    currentPage: 1,
+    zoom: 1
+}
+
 window.onload = function()  {
     document.getElementById("defaultOpen").click();
+    this.loadPdf();
     particlesJS("particles-js", particlesJSON);
 };
 
 window.onscroll = function() {scrollFunction()};
+
+
+function loadPdf() {
+    pdfjsLib.getDocument('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf').then((pdf) => {
+     pdfState.pdf = pdf;
+     render();
+    });
+}
+
+function render() {
+    pdfState.pdf.getPage(pdfState.currentPage).then((page) => {
+        var canvas = document.getElementById("pdf_renderer");
+        var ctx = canvas.getContext('2d');
+        var viewport = page.getViewport(pdfState.zoom);
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        page.render({
+            canvasContext: ctx,
+            viewport: viewport
+        });
+    });
+}
 
 function scrollFunction() {
 	if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -116,6 +148,32 @@ function scrollFunction() {
 		document.getElementById("logo").style.fontSize = "35px";
 		document.getElementById("navbar").style.backgroundColor = "rgba(245,245,245,1)";
 	}
+}
+
+function flipCard(id) {
+    var viewBack, viewFront, dir;
+    if(viewable[id]) {
+        viewBack = 'block';
+        viewFront = 'none';
+        dir = 'rotateX(180deg)'
+    } else {
+        viewBack = 'none';
+        viewFront = 'block';
+        dir = 'rotateX(0deg)'
+    }
+    cardId = 'card-inner-' + id.toString();
+    cardFront = 'card-front-' + id.toString();
+    cardBack = 'card-back-' + id.toString();
+    expand = 'expand-' + id.toString();
+    document.getElementById(cardId).style.transform = dir;
+    document.getElementById(cardId).style.transform = dir;
+    function styleChange() {
+        document.getElementById(expand).style.transform = dir;
+        document.getElementById(cardFront).style.display = viewFront;
+        document.getElementById(cardBack).style.display = viewBack;
+    }
+    setTimeout(styleChange, 225);
+    viewable[id] = !viewable[id];
 }
 
 function showPage(event, tab) {
