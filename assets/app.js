@@ -110,33 +110,10 @@ var pdfState = {
 
 window.onload = function()  {
     document.getElementById("defaultOpen").click();
-    this.loadPdf();
     particlesJS("particles-js", particlesJSON);
 };
 
 window.onscroll = function() {scrollFunction()};
-
-
-function loadPdf() {
-    pdfjsLib.getDocument('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf').then((pdf) => {
-     pdfState.pdf = pdf;
-     render();
-    });
-}
-
-function render() {
-    pdfState.pdf.getPage(pdfState.currentPage).then((page) => {
-        var canvas = document.getElementById("pdf_renderer");
-        var ctx = canvas.getContext('2d');
-        var viewport = page.getViewport(pdfState.zoom);
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        page.render({
-            canvasContext: ctx,
-            viewport: viewport
-        });
-    });
-}
 
 function scrollFunction() {
 	if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -191,4 +168,12 @@ function showPage(event, tab) {
 
     document.getElementById(tab).style.display = "block";
     event.currentTarget.className += " active";
+}
+
+
+function download(file) {
+    var link = document.createElement('a');
+    link.href = './assets/pdfs/'+file.toString();
+    link.download = file;
+    link.dispatchEvent(new MouseEvent('click')); 
 }
