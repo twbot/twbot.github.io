@@ -7,6 +7,13 @@ body{
   background-size: cover;*/
 }
 
+#background {
+  z-index: -1; 
+  bottom: -30px;
+  position: fixed
+  opacity: 0.7;
+}
+
 .col-5 {
   width: 41%;
   display: inline-block;
@@ -308,6 +315,10 @@ body{
   margin: 180px auto;
 }
 
+#work {
+  height: auto;
+}
+
 /*@keyframes showCards {
   0% {top: -1300px;}
   100% {top: 0px;}
@@ -424,6 +435,12 @@ body{
   height: 200px;
 }
 
+.detail-container-lab {
+  width: 59%;
+  display: inline-block;
+  height: 200px;
+}
+
 .detail-container-back {
   width: 48%;
   display: inline-block;
@@ -436,7 +453,20 @@ body{
   display: inline-block;
 }
 
+.img-container-lab {
+  width: 39%;
+  height: 200px;
+  display: inline-block;
+}
+
 .description-container {
+  width: 48200px
+  height: inherit;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.description-container-lab {
   width: 48200px
   height: inherit;
   display: inline-block;
@@ -462,6 +492,16 @@ body{
   height: 200px;
   overflow-y: auto;
 }
+
+.info-container-lab {
+  /*padding: 15px;*/
+  width: 39%;
+  vertical-align: top;
+  display: inline-block;
+  height: 200px;
+  overflow-y: auto;
+}
+
 
 .info-container-back {
   width: 48%;
@@ -575,6 +615,16 @@ body{
   background-color: whitesmoke;
 }
 
+.card-inner-lab {
+  padding-top: 25px;
+  padding-bottom: 35px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.8s;
+  border-radius: 6px;
+  background-color: whitesmoke;
+}
+
 .paper-title {
   text-align: center;
   font-family: Ubuntu;
@@ -629,4 +679,40 @@ body{
   font-family: Ubuntu;
   font-size: 30px;
   color: #2d7254;
+}
+
+::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+}
+
+::-mozkit-scrollbar {
+    height: 4px;
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+
+::-mozkit-scrollbar-track {
+    background: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d7254; 
+    border-radius: 10px;
+}
+
+::-mozkit-scrollbar-thumb {
+    background: #2d7254;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2d7254; 
+}
+
+::-mozkit-scrollbar-thumb:hover {
+    background: #2d7254;
 }
