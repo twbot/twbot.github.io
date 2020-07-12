@@ -87,14 +87,82 @@
     height: 25vh;
     top: 80px;
   }
+
   #profileContent {
     width: 95%;
     margin-top: 170px;
   }
+
   .about-paragraph {
     width: 95%;
     margin: auto;
     margin-top: 20px;
+  }
+
+  .skill-paragraph {
+    width: 95%;
+  }
+
+/*  #hardware-icon {
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;
+  }
+
+  #software-icon {
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;
+  }
+
+  #web-icon {
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;
+  }*/
+
+  /*.skill-detail div{
+    display: block;
+  }*/
+
+  .expand-container-skills {
+    width: 100%;
+    display: block;
+    height: 25px;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .expand-container-skills div{
+    display: inline-block;
   }
 }
 
@@ -150,10 +218,65 @@
     width: 80%;
     margin-top: 250px;
   }
+
   .about-paragraph {
     width: 80%;
     margin: auto;
     margin-top: 20px;
+  }
+
+/*  #hardware-icon {
+    width: 33%;
+    height: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;
+  }
+
+  #software-icon {
+    width: 33%;
+    height: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;
+  }
+
+  #web-icon {
+    width: 33%;
+    height: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;
+  }*/
+
+  .skill-paragraph {
+    width: 80%;
+  }
+
+/*  .skill-detail div{
+    display: inline-block;
+  }*/
+
+  .expand-container-skills {
+    width: 100%;
+    display: inline-block;
+    height: 25px;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
@@ -186,6 +309,11 @@ body{
   opacity: 0.7;
 }
 
+.col-6 {
+  width: 50%;
+  display: inline-block;
+}
+
 .col-5 {
   width: 41%;
   display: inline-block;
@@ -193,6 +321,11 @@ body{
 
 .col-4 {
   width: 32%;
+  display: inline-block;
+}
+
+.col-3 {
+  width: 25%;
   display: inline-block;
 }
 
@@ -328,7 +461,6 @@ body{
   position: relative;
   overflow: hidden;
   display: block;
-  /*border: 1px solid red;*/
 }
 
 .fab, .fas {
@@ -344,8 +476,8 @@ body{
   color: #0072b1;
 }
 
-.fa-facebook-square {
-  color: #39569c;
+.fa-twitter-square {
+  color: #00acee;
 }
 
 .fa-researchgate {
@@ -395,6 +527,7 @@ body{
   position: relative;
   display: block;
   overflow: hidden;
+  margin-top: 65px;
 }
 
 .about-paragraph {
@@ -410,8 +543,6 @@ body{
 
 .skill-paragraph {
   border: 1px solid #2d7254;
-  /*background-color: whitesmoke;*/
-  width: 80%;
   margin: auto;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -434,11 +565,28 @@ body{
   margin: auto;
 }
 
-.skill-list {
+.skill-list-container {
+  border: 1px solid red;
+  vertical-align: top;
   display: inline-block;
-  width: 32.5%;
-  /*border: 1px solid #2d7254;*/
-  /*border-radius: 6px;*/
+  height: 226px;
+}
+
+.skill-list-container p{
+  text-decoration: underline;
+  font-family: Ubuntu;
+  font-size: 20px;
+  color: #2d7254;
+}
+
+.skill-list {
+  display: block;
+  width: 100%;
+  height: 220px;
+  overflow-y: scroll;
+  border: 1px solid #2d7254;
+  border-radius: 6px;
+  position: relative;
 }
 
 .skill-list p {
@@ -461,7 +609,6 @@ body{
 }
 
 .about-detail p {
-  /*font-family: Ubuntu;*/
   font-size: 16px;
   line-height: 30px;
 }
@@ -469,7 +616,7 @@ body{
 .about-learn-more p {
   font-size: 16px;
   line-height: 30px;
-  text-align: center;
+  text-align: left;
   color: #2d7254;
 }
 
@@ -528,6 +675,33 @@ body{
   perspective: 1000px;
   animation-timing-function: ease-out;
 }
+
+.skill-card {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  height: 226px;
+  background-color: transparent;
+  animation-name: showCards;
+  animation-duration: 1.8s;
+  animation-fill-mode: forwards;
+  perspective: 1000px;
+}
+/*
+width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    -moz-box-shadow:    0 10px 10px -5px #989898;
+    -webkit-box-shadow: 0 10px 10px -5px #989898;
+    box-shadow:         0 10px 10px -5px #989898;*/
 
 .research-card {
   padding-top: 20px;
@@ -701,6 +875,18 @@ body{
   overflow-y: auto;
 }
 
+.skill-container-back {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  vertical-align: top;
+  display: inline-block;
+  height: 220px;
+  overflow-y: auto;
+  border: 1px solid #2d7254;
+  border-radius: 6px;
+}
+
 .info-container-back > p {
   text-align: left;
 }
@@ -791,14 +977,31 @@ body{
 }
 
 .card-front, .card-back {
+  -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.skill-card-front, .skill-card-back {
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.skill-card-back {
+  transform: rotateX(180deg);
+  display: none;
 }
 
 .card-back {
   display: none;
   transform: rotateX(180deg);
-  border: 1px solid blue;
+}
+
+.skill-card-front {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .card-inner {
@@ -809,6 +1012,23 @@ body{
   transition: transform 0.8s;
   border-radius: 6px;
   background-color: whitesmoke;
+}
+
+.skill-card-inner {
+  position: relative;
+  transition: transform 0.8s;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: whitesmoke;
+  border-radius: 6px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+  -moz-box-shadow:    0 10px 10px -5px #989898;
+  -webkit-box-shadow: 0 10px 10px -5px #989898;
+  box-shadow:         0 10px 10px -5px #989898; 
 }
 
 .card-inner-lab {
@@ -898,20 +1118,13 @@ body{
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  border: 1px solid #2d7254;
-  /*z-index: 10;*/
+  border: 4px solid #2d7254;
 }
 
 .circle-evergreen {
   height: 200px;
   width: 200px;
-/*  background: url('../pics/Evergreen-Logo.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   background: url('../pics/Evergreen-Logo-Small.png') no-repeat center center;
-  /*background-color: yellow;*/
   border-radius: 50%;
   margin-top: 5px;
   left: 0;
@@ -919,8 +1132,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  border: 1px solid #2d7254;
-  /*z-index: 10;*/
+  /*border: 1px solid #2d7254;*/
 }
 
 .rectangle-web {
@@ -933,7 +1145,6 @@ body{
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  /*opacity: 0.5;*/
   cursor: pointer;
   color: #fff;
   text-align: center;
@@ -941,6 +1152,7 @@ body{
   font-size: 25px;
   font-style: normal;
   line-height: 65px;
+  border-radius: 6px;
 }
 
 .rectangle-neuro {
@@ -953,7 +1165,6 @@ body{
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  /*opacity: 0.9;*/
   cursor: pointer;
   color: #fff;
   text-align: center;
@@ -961,6 +1172,7 @@ body{
   font-size: 25px;
   font-style: normal;
   line-height: 65px;
+  border-radius: 6px;
 }
 
 .rectangle-robot {
@@ -973,7 +1185,6 @@ body{
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  /*opacity: 0.9;*/
   cursor: pointer;
   color: #fff;
   text-align: center;
@@ -981,10 +1192,25 @@ body{
   font-size: 25px;
   font-style: normal;
   line-height: 65px;
+  border-radius: 6px;
 }
 
 .about-text {
   display: none;
+}
+
+.skill-title {
+  text-align: center;
+  color: #2d7254;
+  font-family: Ubuntu;
+  font-size: 25px;
+}
+
+#skill-icon {
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ::-webkit-scrollbar {

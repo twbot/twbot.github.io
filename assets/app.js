@@ -100,7 +100,7 @@ const particlesJSON = {
     "retina_detect": true
 }
 
-var viewable = [true, true, true, true, true];
+var viewable = [true, true, true, true, true, true, true, true];
 
 var textViewable = [false, false, false];
 
@@ -222,9 +222,11 @@ function showText(event, tab) {
         textViewable[0] = !textViewable[0];
         if(textViewable[0]){
             rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (185) + "px)";
+            rectangle.style.transition = "all 1s"
             text.style.display = 'block';
         } else {
             rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (-25) + "px)";
+            rectangle.style.transition = "all 1s"
             text.style.display = 'none';
         }
     }
@@ -234,9 +236,11 @@ function showText(event, tab) {
         textViewable[1] = !textViewable[1];
         if(textViewable[1]){
             rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (-225) + "px)";
+            rectangle.style.transition = "all 1s"
             text.style.display = 'block';
         } else {
             rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (-5) + "px)";
+            rectangle.style.transition = "all 1s"
             text.style.display = 'none';
         }
     }
@@ -246,9 +250,11 @@ function showText(event, tab) {
         textViewable[2] = !textViewable[2];
         if(textViewable[2]){
             rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (225) + "px)";
+            rectangle.style.transition = "all 1s"
             text.style.display = 'block';
         } else {
             rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (25) + "px)";
+            rectangle.style.transition = "all 1s"
             text.style.display = 'none';
         }
     }
