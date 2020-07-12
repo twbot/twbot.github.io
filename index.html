@@ -27,7 +27,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="./assets/particles/particles.js"></script>
 	<script type="text/javascript" src="./assets/pdfjs/build/pdf.js"></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
 	<script src="./assets/anime-master/lib/anime.min.js"></script>
 	<script src="./assets/app.js"></script>
 </head>
@@ -101,7 +100,8 @@
 				<img src="./pics/tristan2.jpeg" id="profile-img">
 				<p class="header">Tristan Brodeur</p>
 				<p class="underheader">Researcher, Web Developer, & Mountain Biker</p>
-				<p class="underheader">S.B. : Major in Mathematics, Economics; Minor in Neuroscience</p>
+				<p class="underheader">S.B. : Major in Mathematics, Economics</p>
+				<p class="underheader">Minor in Neuroscience</p>
 			</div>
 			<div class="links">
 				<a href="https://github.com/twbot" class="link"><div><i class="fab fa-github-square fa-3x"></i></div></a>
@@ -112,7 +112,6 @@
 			<!-- <img src="pics/topo.svg" style="margin-top: -130px"> -->
 		</div>
 		<div class="about">
-			<!-- <hr class="divider"> -->
 			<div class="about-paragraph">
 				<div class="about-detail">
 					<h2 class="header">About</h2>
@@ -122,23 +121,32 @@
 						Passionate creator of beautiful & functional websites.
 					</p>
 					<p>
-						Researcher in the fields of robotics & computational neuroscience.
+						Published researcher in the fields of robotics & computational neuroscience.
 					</p>
+				</div>
+				<div class="about-learn-more">
 					<p>
+						Click on the segments below to learn more about my beginnings:
+					</p>
+				</div>
+				<div class="information-circle">
+					<div class="circle"></div>
+					<div class="circle-evergreen"></div>
+					<div class="rectangle-web" onclick="showText(this,'web')">WEB</div>
+					<div class="rectangle-neuro" onclick="showText(this,'neuro')">NEUROSCIENCE</div>
+					<div class="rectangle-robot" onclick="showText(this,'robotics')">ROBOTICS</div>
+				</div>
+				<div class="about-detail">
+					<p class="about-text" id="web-text">
 						The Plunge into Web Development: My interest in web development initially came from my readings of the textbook "Hacking: The Art of Exploitation" in middle school. The book entranced me, giving me an overall view of networking, cryptology, and exploitation. It was at this point that I started to connect with other "hackers" via online chat rooms. These "confidants" gave me tips on ways to improve my hacking skills, which for a large part included learning technologies such as javascript, SQL, and other common web technologies. It was my learning of these technologies that allowed me to start building out websites for local clients, providing me with job opportunities and allowing me to realise another aspect of web development that I've come to love: design. It's been my goal now to not only provide for my clients a website that's safe from vulnerabilities, but a website that's both functional and beautiful.
 					</p>
-					<p>
+					<p class="about-text" id="robotics-text">
 						The Plunge into Robotics: As a child I would build a variety of scale model machines from Erector Sets I had recieved from holiday gatherings and birthdays. These kits allowed me to understand the inner workings (at least to a minor extent) of common machines including bulldozers, cars, and construction cranes. One particularly defining moment in my pursuit of robotics was the first time I had recieved a Vex Robotics kit, allowing me to build, program, and control a mini robotic rover of my own. Two years later, a group of fellow robotics enthusiasts and I helped start the first FRC (FIRST Robotics Compeitition) & FTC (FIRST Tech Challenge) robotics clubs at my high school, obtaining a Rookie All-Star Award in our first year of the FRC competition. Since then I've done research in path planning for multi-robotic systems, robotic networking, and human-aware navigation.
 					</p>
-					<p>
+					<p class="about-text" id="neuro-text">
 						The Plunge into Neuroscience: The first year of university I'd been dorm-matched with a neuroscience major who was aiming to become a neurosurgeon. He'd converse with me through the night, nearly every night, about the inner workings of the brain, and in return I gave him some insight into robotics and machine intelligence. It was through these conversations that I'd come to realise that, in order to build more intelligent machines, it's necessary I first learn about the source of intelligence of our own species and extrapolate from there. I've since assisted in research papers within the field of computational neuroscience for a neuroscience lab at my university, where we researched gamma & theta wave modulation between the anterior cingulate cortex (ACC) and the hippocampus, assisting the field in its understanding of long-term memory consolidation.
 					</p>
 				</div>
-				<!-- <div>
-					<div class="rectangle-web"></div>
-					<div class="rectangle-robot"></div>
-					<div class="rectangle-neuro"></div>
-				</div> -->
 		</div>
 		<div class="skills">
 			<div class="skill-paragraph">

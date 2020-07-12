@@ -88,7 +88,13 @@
     top: 80px;
   }
   #profileContent {
+    width: 95%;
     margin-top: 170px;
+  }
+  .about-paragraph {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
   }
 }
 
@@ -141,32 +147,14 @@
   }
 
   #profileContent {
+    width: 80%;
     margin-top: 250px;
   }
-}
-
-.rectangle-web {
-  height: 50px;
-  width: 150px;
-  margin-top: 15px;
-  background-color: #2d7254;
-  transform: rotateZ(-15deg);
-}
-
-.rectangle-robot {
-  height: 50px;
-  width: 150px;
-  margin-top: 15px;
-  background-color: blue;
-  transform: rotateZ(-15deg);
-}
-
-.rectangle-neuro {
-  height: 50px;
-  width: 150px;
-  margin-top: 15px;
-  background-color: red;
-  transform: rotateZ(-15deg);
+  .about-paragraph {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
 }
 
 body{
@@ -311,9 +299,16 @@ body{
 }
 
 #profileContent {
-  height: 100px;
-  width: 100%;
+  height: 500px;
   transition: 0.4s;
+  background-color: whitesmoke;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  padding-top: 20px;
+  -moz-box-shadow:    0 10px 10px -5px #989898;
+  -webkit-box-shadow: 0 10px 10px -5px #989898;
+  box-shadow:         0 10px 10px -5px #989898;
 }
 
 #researchContent {
@@ -373,10 +368,10 @@ body{
   width: 200px;
   height: 200px;
   margin-top: 10px;
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  /*-moz-box-shadow:    3px 3px 5px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow:         3px 3px 5px 6px #ccc;
-}
+*/}
 
 #heading {
   text-align: center;
@@ -393,7 +388,7 @@ body{
   position: relative;
   display: block;
   overflow: hidden;
-  margin-top: 350px;
+  margin-top: 50px;
 }
 
 .skills {
@@ -404,12 +399,13 @@ body{
 
 .about-paragraph {
   background-color: whitesmoke;
-  width: 80%;
-  margin: auto;
   padding-top: 25px;
   padding-bottom: 25px;
   margin-bottom: 35px;
   border-radius: 6px;
+  -moz-box-shadow:    0 10px 10px -5px #989898;
+  -webkit-box-shadow: 0 10px 10px -5px #989898;
+  box-shadow:         0 10px 10px -5px #989898;
 }
 
 .skill-paragraph {
@@ -424,6 +420,11 @@ body{
 }
 
 .about-detail{
+  width: 80%;
+  margin: auto;
+}
+
+.about-learn-more {
   width: 80%;
   margin: auto;
 }
@@ -463,6 +464,13 @@ body{
   /*font-family: Ubuntu;*/
   font-size: 16px;
   line-height: 30px;
+}
+
+.about-learn-more p {
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: #2d7254;
 }
 
 .divider {
@@ -867,6 +875,116 @@ body{
   font-family: Ubuntu;
   font-size: 30px;
   color: #2d7254;
+}
+
+.information-circle {
+  width: 100%;
+  height: 250px;
+  margin-top: 60px;
+}
+
+.circle {
+  height: 200px;
+  width: 200px;
+  background: url('../pics/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-radius: 50%;
+  margin-top: 5px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  border: 1px solid #2d7254;
+  /*z-index: 10;*/
+}
+
+.circle-evergreen {
+  height: 200px;
+  width: 200px;
+/*  background: url('../pics/Evergreen-Logo.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: url('../pics/Evergreen-Logo-Small.png') no-repeat center center;
+  /*background-color: yellow;*/
+  border-radius: 50%;
+  margin-top: 5px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  border: 1px solid #2d7254;
+  /*z-index: 10;*/
+}
+
+.rectangle-web {
+  height: 65px;
+  width: 200px;
+  margin-top: 40px;
+  background-color: #2d7254;
+  transform: rotateZ(-15deg) translateX(-25px);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /*opacity: 0.5;*/
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-style: normal;
+  line-height: 65px;
+}
+
+.rectangle-neuro {
+  height: 65px;
+  width: 240px;
+  margin-top: 7px;
+  background-color: #2d7254;
+  transform: rotateZ(-15deg) translateX(-5px);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /*opacity: 0.9;*/
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-style: normal;
+  line-height: 65px;
+}
+
+.rectangle-robot {
+  height: 65px;
+  width: 200px;
+  margin-top: 7px;
+  background-color: #2d7254;
+  transform: rotateZ(-15deg) translateX(25px);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /*opacity: 0.9;*/
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-style: normal;
+  line-height: 65px;
+}
+
+.about-text {
+  display: none;
 }
 
 ::-webkit-scrollbar {

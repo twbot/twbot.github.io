@@ -102,6 +102,8 @@ const particlesJSON = {
 
 var viewable = [true, true, true, true, true];
 
+var textViewable = [false, false, false];
+
 var pdfState = {
     pdf: null,
     currentPage: 1,
@@ -211,6 +213,45 @@ function showPage(event, tab) {
 
     document.getElementById(tab).style.display = "block";
     event.currentTarget.className += " active";
+}
+
+function showText(event, tab) {
+    if(tab === 'web') {
+        var text = document.getElementById('web-text');
+        var rectangle = document.getElementsByClassName('rectangle-web')[0];
+        textViewable[0] = !textViewable[0];
+        if(textViewable[0]){
+            rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (185) + "px)";
+            text.style.display = 'block';
+        } else {
+            rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (-25) + "px)";
+            text.style.display = 'none';
+        }
+    }
+    if(tab === 'neuro') {
+        var text = document.getElementById('neuro-text');
+        var rectangle = document.getElementsByClassName('rectangle-neuro')[0];
+        textViewable[1] = !textViewable[1];
+        if(textViewable[1]){
+            rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (-225) + "px)";
+            text.style.display = 'block';
+        } else {
+            rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (-5) + "px)";
+            text.style.display = 'none';
+        }
+    }
+    if(tab === 'robotics') {
+        var text = document.getElementById('robotics-text');
+        var rectangle = document.getElementsByClassName('rectangle-robot')[0];
+        textViewable[2] = !textViewable[2];
+        if(textViewable[2]){
+            rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (225) + "px)";
+            text.style.display = 'block';
+        } else {
+            rectangle.style.transform = "rotateZ(" + (-15) + "deg) translateX(" + (25) + "px)";
+            text.style.display = 'none';
+        }
+    }
 }
 
 
