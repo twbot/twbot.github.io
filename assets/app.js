@@ -122,6 +122,7 @@ var showSubMenu = false;
 
 window.onload = function()  {
     if(window.innerWidth < 950) {
+        this.showSubMenu = !this.showSubMenu;
         document.getElementById("defaultPhoneOpen").click();
     }
     else {
@@ -193,6 +194,8 @@ function flipCard(id) {
         document.getElementById(expand).style.transform = dir;
         document.getElementById(cardFront).style.display = viewFront;
         document.getElementById(cardBack).style.display = viewBack;
+        document.getElementById(cardBack).style.height = '230px';
+        document.getElementById(cardBack).style.position = 'relative';
     }
     setTimeout(styleChange, 225);
     viewable[id] = !viewable[id];
@@ -213,6 +216,9 @@ function showPage(event, tab) {
 
     document.getElementById(tab).style.display = "block";
     event.currentTarget.className += " active";
+    if(window.innerWidth < 950) {
+        this.showMenu();
+    }
 }
 
 function showText(event, tab) {

@@ -103,54 +103,6 @@
     width: 95%;
   }
 
-/*  #hardware-icon {
-    width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    margin-bottom: 15px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;
-  }
-
-  #software-icon {
-    width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    margin-bottom: 15px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;
-  }
-
-  #web-icon {
-    width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;
-  }*/
-
-  /*.skill-detail div{
-    display: block;
-  }*/
-
   .expand-container-skills {
     width: 100%;
     display: block;
@@ -163,6 +115,13 @@
 
   .expand-container-skills div{
     display: inline-block;
+  }
+
+  .skill-card {
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-bottom: 50px;
   }
 }
 
@@ -225,49 +184,9 @@
     margin-top: 20px;
   }
 
-/*  #hardware-icon {
-    width: 33%;
-    height: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;
-  }
-
-  #software-icon {
-    width: 33%;
-    height: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;
-  }
-
-  #web-icon {
-    width: 33%;
-    height: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;
-  }*/
-
   .skill-paragraph {
     width: 80%;
   }
-
-/*  .skill-detail div{
-    display: inline-block;
-  }*/
 
   .expand-container-skills {
     width: 100%;
@@ -277,6 +196,11 @@
     background-color: whitesmoke;
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+
+  .skill-card {
+    width: 33%;
+    display: inline-block;
   }
 }
 
@@ -563,6 +487,7 @@ body{
 .skill-detail{
   width: 90%;
   margin: auto;
+  margin-bottom: 25px;
 }
 
 .skill-list-container {
@@ -680,8 +605,6 @@ body{
   padding-top: 20px;
   padding-bottom: 15px;
   position: relative;
-  display: inline-block;
-  width: 33%;
   height: 226px;
   background-color: transparent;
   animation-name: showCards;
@@ -689,19 +612,6 @@ body{
   animation-fill-mode: forwards;
   perspective: 1000px;
 }
-/*
-width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: whitesmoke;
-    border-radius: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    margin-bottom: 15px;
-    -moz-box-shadow:    0 10px 10px -5px #989898;
-    -webkit-box-shadow: 0 10px 10px -5px #989898;
-    box-shadow:         0 10px 10px -5px #989898;*/
 
 .research-card {
   padding-top: 20px;
@@ -866,7 +776,6 @@ width: 60%;
   text-align: left;
 }
 
-
 .info-container-back {
   width: 48%;
   vertical-align: top;
@@ -883,7 +792,6 @@ width: 60%;
   display: inline-block;
   height: 220px;
   overflow-y: auto;
-  border: 1px solid #2d7254;
   border-radius: 6px;
 }
 
@@ -912,6 +820,12 @@ width: 60%;
 .infoText {
   font-size: 17px;
   color: #000;
+  vertical-align: top;
+}
+
+.skillText {
+  font-size: 12px;
+  color: #2d7254;
   vertical-align: top;
 }
 
