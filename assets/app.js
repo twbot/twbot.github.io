@@ -121,7 +121,7 @@ var showSubMenu = false;
 // };
 
 window.onload = function()  {
-    if(window.innerWidth < 950) {
+    if(window.innerWidth < 1000) {
         this.showSubMenu = !this.showSubMenu;
         document.getElementById("defaultPhoneOpen").click();
     }
@@ -141,7 +141,7 @@ window.onresize = function() {
 
 function determineMenu() {
 
-    if(window.innerWidth < 950) {
+    if(window.innerWidth < 1000) {
         document.getElementById("navbar-right").classList.add('noShow');
         document.getElementById("navbar-right-small").classList.remove('noShow');
     }
@@ -173,8 +173,41 @@ function scrollFunction() {
 	}
 }
 
+
+function determineBackCardHeight(elDet, elFind, addHeight) {
+    if(window.innerWidth < 1000) {
+        var height = elDet.offsetHeight;
+        height = height + addHeight.offsetHeight;
+        console.log(height);
+        let childEls = elFind.children;
+        let childElsHeight = childEls.length;
+        for (var i = 0; i < childElsHeight; i++) {
+            // console.log(childEls[i]);
+            // console.log(childElsHeight)
+            // console.log(height/childElsHeight)
+            console.log(height/childElsHeight);
+            // childEls[i].style.height = height;
+            // console.log(childEls[i].style.height);
+        }
+
+    }
+}
+
 function flipCard(id) {
     var viewBack, viewFront, dir;
+    cardId = 'card-inner-' + id.toString();
+    cardFront = 'card-front-' + id.toString();
+    cardBack = 'card-back-' + id.toString();
+    expand = 'expand-' + id.toString();
+
+    var frontCard = document.getElementById(cardFront);
+    var backCard = document.getElementById(cardBack);
+    var cardIdClassList = document.getElementById(cardId).classList;
+    var expandEl = document.getElementById(expand);
+
+    this.determineBackCardHeight(frontCard, backCard, expandEl);
+
+
     if(viewable[id]) {
         viewBack = 'block';
         viewFront = 'none';
@@ -182,20 +215,29 @@ function flipCard(id) {
     } else {
         viewBack = 'none';
         viewFront = 'block';
-        dir = 'rotateX(0deg)'
+        dir = 'rotateX(0deg)';
     }
-    cardId = 'card-inner-' + id.toString();
-    cardFront = 'card-front-' + id.toString();
-    cardBack = 'card-back-' + id.toString();
-    expand = 'expand-' + id.toString();
-    document.getElementById(cardId).style.transform = dir;
+    
+    if(window.innerWidth < 1000) {
+        let height = frontCard.height;
+
+    }
+
     document.getElementById(cardId).style.transform = dir;
     function styleChange() {
-        document.getElementById(expand).style.transform = dir;
-        document.getElementById(cardFront).style.display = viewFront;
-        document.getElementById(cardBack).style.display = viewBack;
-        document.getElementById(cardBack).style.height = '230px';
-        document.getElementById(cardBack).style.position = 'relative';
+        
+        expandEl.style.transform = dir;
+        frontCard.style.display = viewFront;
+        backCard.style.display = viewBack;
+        // backCard.style.height = '230px';
+        backCard.style.position = 'relative';
+        if(viewable[id]) {
+            cardIdClassList.remove('card-box-shadow-top');
+            cardIdClassList.add('card-box-shadow-bottom');
+        } else {
+            cardIdClassList.add('card-box-shadow-top');
+            cardIdClassList.remove('card-box-shadow-bottom');
+        }
     }
     setTimeout(styleChange, 225);
     viewable[id] = !viewable[id];
