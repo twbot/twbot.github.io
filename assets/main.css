@@ -175,24 +175,27 @@
   }
 
   .detail-container-back {
-    width: 100%;
+    width: 95%;
     display: block;
-    height: 280px;
+    vertical-align: top;
+    height: 240px;
+    margin: auto;
     margin-bottom: 0px;
+    background-color: #404040;
   }
 
   .info-container-back {
-    width: 100%;
+    width: 95%;
     vertical-align: top;
     display: block;
-    height: 280px;
+    height: 260px;
     overflow-y: auto;
+    margin: auto;
     margin-bottom: 0;
   }
 
   .card-inner {
     height: auto;
-    border: 1px solid red;
   }
 }
 
@@ -320,20 +323,31 @@
 
   .detail-container-back {
     width: 48%;
+    vertical-align: top;
     display: inline-block;
-    height: 240px;
-    margin-bottom: 0px;
+    height: 210px;
+    overflow-y: auto;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 6px;
   }
 
   .info-container-back {
     width: 48%;
     vertical-align: top;
     display: inline-block;
-    height: 240px;
-    border: 1px solid red;
+    height: 210px;
     overflow-y: auto;
     margin-bottom: 0;
   }
+}
+
+#detail-img {
+  display: block;
+  width: 95%;
+  margin: auto;
+  height: auto;
+  border-radius: 6px;
 }
 
 body{
@@ -918,7 +932,6 @@ body{
   background-color: whitesmoke;
   padding-top: 10px;
   padding-bottom: 10px;
-  border: 1px solid green;
 }
 
 .fa-chevron-down {

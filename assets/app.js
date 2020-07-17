@@ -186,7 +186,7 @@ function determineBackCardHeight(elDet, elFind, addHeight) {
             // console.log(childElsHeight)
             // console.log(height/childElsHeight)
             console.log(height/childElsHeight);
-            // childEls[i].style.height = height;
+            childEls[i].style.height = height;
             // console.log(childEls[i].style.height);
         }
 
