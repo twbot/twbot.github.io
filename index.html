@@ -32,9 +32,9 @@
 </head>
 
 <body>
-	<!-- <div id="particles-js"></div> -->
+	<div id="particles-js"></div>
 	<div id="navbar">
-		<a id="logo">
+		<a id="logo" onclick="showPage(event, 'profile', this); return false;">
 			<div class="animation-wrapper">
 				  <div class="sphere-animation">
 				    <svg class="sphere" viewBox="0 0 440 440" stroke="rgba(255,255,255,1)">
@@ -69,11 +69,10 @@
 				    </svg>
 				  </div>
 			</div>
-			<div class="check">Tristan Brodeur</div>
+			<div class="logo-name">Tristan Brodeur</div>
 		</a>
 		<div id="navbar-right">
-			<a class="tab" id="defaultOpen" onclick="showPage(event, 'profile', this); return false;">Profile</a>
-			<a class="tab" onclick="showPage(event, 'work', this); return false;">Work Experience</a>
+			<a class="tab" onclick="showPage(event, 'work', this); return false;">Experience</a>
 			<a class="tab" onclick="showPage(event, 'research', this); return false;">Research</a>
 			<a class="tab" onclick="showPage(event, 'projects', this); return false;">Projects</a>
 			<a class="tab" onclick="showPage(event, 'blog', this); return false;">Blog</a>
@@ -84,8 +83,7 @@
 			</i>
 		</div>
 		<div id="navbar-right-small-menu">
-			<a class="tab" id="defaultPhoneOpen" onclick="showPage(event, 'profile', this); return false;">Profile</a>
-			<a class="tab" onclick="showPage(event, 'work', this); return false;">Work Experience</a>
+			<a class="tab" onclick="showPage(event, 'work', this); return false;">Experience</a>
 			<a class="tab" onclick="showPage(event, 'research', this); return false;">Research</a>
 			<a class="tab" onclick="showPage(event, 'projects', this); return false;">Projects</a>
 			<a class="tab" onclick="showPage(event, 'blog', this); return false;">Blog</a>
@@ -104,10 +102,10 @@
 				<p class="underheader">Minor in Neuroscience</p>
 			</div>
 			<div class="links">
-				<a href="https://github.com/twbot" class="link"><div><i class="fab fa-github-square fa-3x"></i></div></a>
-				<a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" class="link"><div><i class="fab fa-linkedin fa-3x"></i></div></a>
-				<a href="https://twitter.com/twbrodeur" class="link"><div><i class="fab fa-twitter-square fa-3x"></i></div></a>
-				<a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" class="link"><div><i class="fab fa-researchgate fa-3x"></i></div></a>
+				<a href="https://github.com/twbot" class="link"><div><img src="./pics/github.svg"/></div></a>
+				<a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" class="link"><div><img src="./pics/linkedin.svg" /></div></a>
+				<a href="https://twitter.com/twbrodeur" class="link"><div><img src="./pics/twitter.svg" /></div></a>
+				<a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" class="link"><div><img src="./pics/google-scholar-square.svg" /></div></a>
 			</div>
 			<!-- <img src="pics/topo.svg" style="margin-top: -130px"> -->
 		</div>
@@ -574,6 +572,55 @@
 				<div class="research-card">
 					<div class="pdf-parent-section">
 						<div class="pdf-section">
+							<iframe src="./assets/pdfs/Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf" class="pdf"></iframe>
+							<div class="pdf-download" onclick="download('Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf')">
+								<i class="fas fa-file-download fa-3x"></i>
+							</div>
+						</div>
+					</div>
+					<div class="spacer-section">
+					</div>
+					<div class="detail-section-pdf">
+						<p class="paper-title">Analytical Image Stitching in Non-Rigid Multi-Camera WAMI</p>
+						<p class="paper-location">IEEE Sensors Letters</p>
+						<p class="paper-location">Issue 3 • March-2022</p>
+						<p class="paper-authors">H. AliAkbarpour, T. Brodeur, S. Suddarth</p>
+						<p class="paper-materials"><a href="https://twbot.github.io/DHPaperExtras/" target="_blank">Additional Materials</a></p>
+						<p class="paper-code">
+							<!-- <a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
+  								<i class="fab fa-github-square fa-2x"></i>
+  							</a> -->
+						</p>
+						<p class="paper-abstract"> <span class="abstract-style">Abstract</span>: Combining the images of multiple airborne cameras is a common way to achieve a higher scene coverage in Wide Area Motion Imagery (WAMI). This paper proposes a novel approach, named Dynamic Homography (DH), to stitch multiple images of an airborne array of ’non-rigid’ cameras with ’narrow’ overlaps between their FOVs. It estimates the inter-views transformations using their underlying geometry namely the relative angles between their local coordinate systems in 3D. A fast and robust optimization model is used to minimize the errors between the feature correspondenceswhich takes place when a new set of images are acquired from the camera array. The minimum number of required feature correspondences between each adjacent pair of views is only two, which relaxes the need to have a large overlapin their FOVs. Our quantitative and qualitative experiments show the superiority of the proposed method compared to the traditional ones.</p>
+					</div>
+				</div>
+				<div class="research-card">
+					<div class="pdf-parent-section">
+						<div class="pdf-section">
+							<iframe src="./assets/pdfs/Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf" class="pdf"></iframe>
+							<div class="pdf-download" onclick="download('Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf')">
+								<i class="fas fa-file-download fa-3x"></i>
+							</div>
+						</div>
+					</div>
+					<div class="spacer-section">
+					</div>
+					<div class="detail-section-pdf">
+						<p class="paper-title">Point Cloud Object Segmentation Using Multi Elevation-Layer 2D Bounding-Boxes</p>
+						<p class="paper-location">ICCV Workshop on Analysis of Aerial Motion Imagery (WAAMI)</p>
+						<p class="paper-location">Montreal, Canada (Virtual)</p>
+						<p class="paper-authors">T. Brodeur, H. AliAkbarpour, S. Suddarth</p>
+						<p class="paper-code">
+							<!-- <a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
+  								<i class="fab fa-github-square fa-2x"></i>
+  							</a> -->
+						</p>
+						<p class="paper-abstract"> <span class="abstract-style">Abstract</span>: Segmentation   of   point   clouds   is   a   necessary   pre-processing technique when object discrimination is neededfor scene understanding.  In this paper, we propose a seg-mentation  technique  utilizing  2D  bounding-box  data  ob-tained via the orthographic projection of 3D points onto aplane at multiple elevation layers.  Connected componentsis utilized to obtain bounding-box data, and a consistencymetric between bounding-boxes at various elevation layershelps  determine  the  classification  of  the  bounding-box  toan object of the scene.   The merging of point data withineach 2D bounding-box results in an object-segmented pointcloud.  Our method conducts segmentation using only thetopological information of the point data within a dataset,requiring no extra computation of normals, creation of anoctree or k-d tree, nor a dependency on RGB or intensitydata associated with a point. Initial experiments are run ona set of point cloud datasets obtained via photogrammet-ric means, as well as some open-source, LIDAR-generatedpoint clouds,  showing the method to be capture agnostic.Results demonstrate the efficacy of this method in obtaininga distinct set of objects contained within a point cloud.</p>
+					</div>
+				</div>
+				<div class="research-card">
+					<div class="pdf-parent-section">
+						<div class="pdf-section">
 							<iframe src="./assets/pdfs/SearchAndRescue.pdf" class="pdf"></iframe>
 							<div class="pdf-download" onclick="download('SearchAndRescue.pdf')">
 								<i class="fas fa-file-download fa-3x"></i>
@@ -731,6 +778,9 @@
 	<section id="projects" class="content">
 	</section>
 	<section id="blog" class="content">
+		<div class="card">
+
+		</div>
 	</section>
 	<!-- <img src="./pics/topo.svg" id="background"> -->
 </body>

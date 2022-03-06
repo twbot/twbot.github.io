@@ -1,4 +1,4 @@
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 399px) {
   #navbar {
     padding: 20px 10px !important;
   }
@@ -60,6 +60,215 @@
 
   #navbar-right-small > div {
     display: none;
+  }
+
+  .logo-name {
+    font-size: 23px;
+  }
+
+  .links {
+    margin: auto;
+    width: 80%;
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+
+  .links a {
+    margin: 0;
+    display: inline-block;
+    width: 24%;
+  }
+
+  .links a div{
+    text-align: center;
+  }
+
+  #headerVideo {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 25vh;
+    top: 80px;
+  }
+
+  #profileContent {
+    width: 95%;
+    margin-top: 170px;
+  }
+
+  .about-paragraph {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .skill-paragraph {
+    width: 95%;
+  }
+
+  .expand-container-skills {
+    width: 100%;
+    display: block;
+    height: 25px;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .expand-container-skills div{
+    display: inline-block;
+  }
+
+  .skill-card {
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .card-holder {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 130px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    width: 95%;
+    margin: auto;
+    height: 300px;
+    margin-bottom: 350px;
+  }
+
+  .detail-container {
+    /*padding: 15px;*/
+    width: 100%;
+    display: inline-block;
+    height: 200px;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 200px;
+    display: block;
+  }
+
+  .description-container {
+    width: 100%;
+    height: inherit;
+    display: block;
+    vertical-align: top;
+  }
+
+  .info-container {
+    width: 95%;
+    margin: auto;
+    vertical-align: top;
+    display: block;
+    height: 200px;
+    overflow-y: auto;
+  }
+
+  .card-spacer {
+    display: block;
+    visibility: hidden;
+    height: 30px;
+  }
+
+  .detail-container-back {
+    width: 95%;
+    display: block;
+    vertical-align: top;
+    height: 240px;
+    margin: auto;
+    margin-bottom: 0px;
+    background-color: #404040;
+  }
+
+  .info-container-back {
+    width: 95%;
+    vertical-align: top;
+    display: block;
+    height: 260px;
+    overflow-y: auto;
+    margin: auto;
+    margin-bottom: 0;
+  }
+
+  .card-inner {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+  #navbar {
+    padding: 20px 10px !important;
+  }
+
+  #navbar-right-small-menu {
+    display: none;
+    width: 100%;
+    margin-top: 65px;
+  }
+
+  #navbar-right-small-menu a {
+    color: black;
+    text-align: center;
+    padding: 12px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: Ubuntu;
+    float: center;
+    display: block;
+    width: 92%;
+  }
+
+  #navbar #navbar-right-small-menu a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  #navbar #navbar-right-small-menu a.active {
+    background-color: #2d7254;
+    border-radius: 6px; 
+    color: white;
+  }
+
+  #navbar a {
+    color: black;
+    text-align: center;
+    padding: 12px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: Ubuntu;
+    float: left;
+    display: block;
+  }
+
+  #navbar-right {
+    float: none;
+    display: none;
+  }
+
+  #navbar-right-small > i {
+    display: inline;
+  }
+
+  #navbar-right-small > div {
+    display: none;
+  }
+
+  .logo-name {
+    font-size: 30px;
   }
 
   .links {
@@ -221,6 +430,10 @@
     float: right;
   }
 
+  .logo-name {
+    font-size: 40px;
+  }
+
   .links {
     margin: auto;
     width: 40%;
@@ -232,7 +445,7 @@
   .links a {
     margin: 0;
     display: inline-block;
-    width: 24%;
+    width: 23%;
   }
 
   .links a div{
@@ -278,7 +491,7 @@
   }
 
   .card-holder {
-    width: 90%;
+    width: 80%;
     margin: 180px auto;
   }
 
@@ -302,10 +515,11 @@
   }
 
   .description-container {
-    width: 48200px
+    width: 48px;
     height: inherit;
     display: inline-block;
     vertical-align: top;
+
   }
 
   .info-container {
@@ -342,6 +556,18 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgba(35,43,43, 255);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: rgba(240, 241, 242, 255);
+  }
+}
+
 #detail-img {
   display: block;
   width: 95%;
@@ -352,11 +578,19 @@
 
 body{
   margin:0;
-  background: url('../pics/bg.jpg') no-repeat center center fixed; 
+  /* background-color: rgba(240, 241, 242, 255); */
+  /* background: url('../pics/bg.jpg') no-repeat center center fixed;  */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.logo-name{
+  position: relative;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
 }
 
 .noShow {
@@ -365,8 +599,8 @@ body{
 
 .fa-bars {
   float: right;
-  padding-top: 11px;
-  padding-right: 20px;
+  margin-top: 10px;
+  margin-right: 40px;
   color: #2d7254;
   display: inline-block;
   cursor: pointer;
@@ -375,7 +609,7 @@ body{
 #background {
   z-index: -1; 
   bottom: -30px;
-  position: fixed
+  position: fixed;
   opacity: 0.7;
 }
 
@@ -464,13 +698,6 @@ body{
   color: white;
 }
 
-.check{
-  position: relative;
-  height: 40px;
-  display: inline-block;
-  line-height: 40px;
-}
-
 .animation-wrapper {
   vertical-align: top;
   width: 40px;
@@ -552,6 +779,11 @@ body{
 
 .fa-researchgate {
   color: #4c8bf5;
+}
+
+.links a div img {
+  width: 45px;
+  height: 45px;
 }
 
 .link {
@@ -637,7 +869,6 @@ body{
 }
 
 .skill-list-container {
-  border: 1px solid red;
   vertical-align: top;
   display: inline-block;
   height: 226px;
@@ -719,6 +950,7 @@ body{
 
 #work {
   height: auto;
+  width: auto;
 }
 
 /*@keyframes showCards {
@@ -852,7 +1084,7 @@ body{
 }
 
 .description-container-lab {
-  width: 48200px
+  width: 48200px;
   height: inherit;
   display: inline-block;
   vertical-align: top;
@@ -1072,6 +1304,14 @@ body{
   font-family: Ubuntu;
   font-size: 14px;
   color: #000;
+  padding: 5px;
+}
+
+.paper-materials {
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 14px;
+  color: #2d7254;
   padding: 5px;
 }
 

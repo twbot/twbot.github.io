@@ -110,7 +110,7 @@ var pdfState = {
     zoom: 1
 }
 
-var showSubMenu = false;
+var showSubMenu = true;
 
 // document.onreadystatechange = function(e)
 // {
@@ -122,15 +122,14 @@ var showSubMenu = false;
 
 window.onload = function()  {
     if(window.innerWidth < 1000) {
-        this.showSubMenu = !this.showSubMenu;
-        document.getElementById("defaultPhoneOpen").click();
+        document.getElementById("logo").click();
     }
     else {
-        document.getElementById("defaultOpen").click();
+        document.getElementById("logo").click();
     }
     
     sphereAnimation();
-    // particlesJS("particles-js", particlesJSON);
+    // particlesJS("particles-js", particlesJSON); //uncomment to turn on
 };
 
 window.onscroll = function() {scrollFunction()};
@@ -148,16 +147,6 @@ function determineMenu() {
     else {
         document.getElementById("navbar-right").classList.remove('noShow');
         document.getElementById("navbar-right-small").classList.add('noShow');
-    }
-}
-
-function showMenu() {
-    this.showSubMenu = !this.showSubMenu;
-    var x = document.getElementById("navbar-right-small-menu");
-    if (showSubMenu) {
-        x.style.display = "block"
-    } else {
-         x.style.display = "none";
     }
 }
 
@@ -241,6 +230,16 @@ function flipCard(id) {
     }
     setTimeout(styleChange, 225);
     viewable[id] = !viewable[id];
+}
+
+function showMenu() {
+    this.showSubMenu = !this.showSubMenu;
+    var x = document.getElementById("navbar-right-small-menu");
+    if (showSubMenu) {
+        x.style.display = "block"
+    } else {
+         x.style.display = "none";
+    }
 }
 
 function showPage(event, tab) {
@@ -336,7 +335,6 @@ function sphereAnimation() {
 
   var sphereEl = document.querySelector('.sphere-animation');
   var sphereElSVG = document.querySelector('.sphere');
-  console.log(sphereElSVG)
   var spherePathEls = sphereElSVG.querySelectorAll('path');
   var pathLength = spherePathEls.length;
   var hasStarted = false;
