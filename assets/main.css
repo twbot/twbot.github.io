@@ -694,6 +694,7 @@ body{
   /* background-color: #2d7254; */
   border-radius: 6px; 
   color: #2d7254;
+  cursor: pointer;
 }
 
 .animation-wrapper {
