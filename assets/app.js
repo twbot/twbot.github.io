@@ -11,7 +11,7 @@ const particlesJSON = {
             "value": "#2d7254"
         },
         "shape": {
-            "type": "polygon",
+            "type": "circle",
             "stroke": {
                 "width": 2,
                 "color": "#2d7254"
@@ -34,16 +34,16 @@ const particlesJSON = {
             "random": true
         },
         "line_linked": {
-            "enable": false,
+            "enable": true,
             "distance": 200,
-            "color": "#ff5722",
+            "color": "#2d7254",
             "opacity": 0.3,
             "width": 2
         },
         "move": {
             "enable": true,
             "speed": 2,
-            "direction": "bottom",
+            "direction": "random",
             "random": true,
             "straight": false,
             "out_mode": "out",
@@ -59,14 +59,14 @@ const particlesJSON = {
         "detect_on": "canvas",
         "events": {
             "onhover": {
-                "enable": true,
+                "enable": false,
                 "mode": [
                     "grab",
                     "bubble"
                 ]
             },
             "onclick": {
-                "enable": true,
+                "enable": false,
                 "mode": "push"
             },
             "resize": true
@@ -129,7 +129,7 @@ window.onload = function()  {
     }
     
     sphereAnimation();
-    // particlesJS("particles-js", particlesJSON); //uncomment to turn on
+    //particlesJS("particles-js", particlesJSON); //uncomment to turn on
 };
 
 window.onscroll = function() {scrollFunction()};

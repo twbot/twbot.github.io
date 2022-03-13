@@ -201,6 +201,10 @@
   .card-inner {
     height: auto;
   }
+
+  .card-lab {
+    margin-bottom: 50px;
+  }
 }
 
 @media screen and (min-width: 400px) and (max-width: 1000px) {
@@ -404,6 +408,10 @@
   .card-inner {
     height: auto;
   }
+
+  .card-lab {
+    margin-bottom: 100px;
+  }
 }
 
 @media screen and (min-width: 1001px) {
@@ -490,7 +498,7 @@
 
   .card-holder {
     width: 80%;
-    margin: 180px auto;
+    margin: 0px auto;
   }
 
   .card {
@@ -549,6 +557,10 @@
     height: 210px;
     overflow-y: auto;
     margin-bottom: 0;
+  }
+
+  .card-lab {
+    margin-bottom: 100px;
   }
 }
 
@@ -739,10 +751,15 @@ body{
 }
 
 #researchContent {
-  height: 100px;
+  height: auto;
   width: 100%;
   margin-top: 180px;
+  margin-bottom: 100px;
   transition: 0.4s;
+}
+
+#card-lab-inner {
+  padding-bottom: 50px;
 }
 
 .info-sect {
@@ -1121,6 +1138,10 @@ body{
   font-size: 1.4em;
   color: #2d7254;
   vertical-align: top;
+}
+
+.labName {
+  font-size: 0.1em;
 }
 
 .companyNameSmaller {
