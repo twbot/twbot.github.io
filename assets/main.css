@@ -496,11 +496,10 @@
   .card {
     width: 100%;
     height: 200px;
-    margin-bottom: 105px;
+    margin-bottom: 60px;
   }
 
   .detail-container {
-    /*padding: 15px;*/
     width: 48%;
     display: inline-block;
     height: 200px;
@@ -513,11 +512,10 @@
   }
 
   .description-container {
-    width: 48px;
+    width: 48%;
     height: inherit;
     display: inline-block;
     vertical-align: top;
-
   }
 
   .info-container {
