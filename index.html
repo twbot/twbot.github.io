@@ -1,641 +1,661 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Tristan Brodeur</title>
-	<meta charset="utf-8">
+    <title>Tristan Brodeur</title>
+    <meta charset="utf-8">
 
-	<meta name="theme-color" content="#ffffff">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Tristan Brodeur's Portfolio | Tristan Brodeur">
-	<meta name="twitter:description" content="Portfolio site for Tristan Brodeur; Work, Research, & Projects">
-	<meta name="twitter:image" content="./pics/bg.jpg">
-	<meta name="description" content="Portfolio site for Tristan Brodeur; Work, Research, & Projects">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tristan Brodeur's Portfolio | Tristan Brodeur">
+    <meta name="twitter:description" content="Portfolio site for Tristan Brodeur; Work, Research, & Projects">
+    <meta name="twitter:image" content="./noise-light.png">
+    <meta name="description" content="Portfolio site for Tristan Brodeur; Work, Research, & Projects">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" href="pics/Evergreen-Logo.svg">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./assets/images/logos/site/Evergreen-Logo.svg">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-	<!--Stylesheets-->
-	<link href="./assets/fa/css/all.css" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="./assets/main.css" rel="stylesheet">
+    <!--Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/pdfjs/build/pdf.js"></script>
+    <script src="./assets/anime-master/lib/anime.min.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    backdropFilter: {
+                        'grain': 'contrast(120%) brightness(120%)',
+                    },
+                    colors: {
+                        evergreen: "rgba(0, 72, 38,1)"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @layer utilities {
+            .grain-bg {
+                background-image: url("noise-light.png");
+            }
 
-	<!--Scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="./assets/particles/particles.js"></script>
-	<script type="text/javascript" src="./assets/pdfjs/build/pdf.js"></script>
-	<script src="./assets/anime-master/lib/anime.min.js"></script>
-	<script src="./assets/app.js"></script>
+            .rotate {
+                transform: rotateZ(-15deg);
+            }
+        }
+
+        /* sphere */
+        #animation-wrapper {
+            vertical-align: top;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+
+        #sphere-animation {
+            position: relative;
+        }
+
+        #sphere path {
+            fill: url(#sphereGradient);
+            stroke-width: 1px;
+            stroke: rgba(0, 72, 38, 1);
+            backface-visibility: hidden;
+        }
+
+        @media (min-width: 500px) {
+            #sphere path {
+                stroke-width: 3px;
+            }
+        }
+
+        /* card */
+        .card {
+            border-radius: 0.5rem;
+            width: 220px;
+            height: 100px;
+            border: 1px solid rgba(0, 72, 38, 1);
+        }
+
+        /* debug */
+        .debug {
+            border: 1px solid red;
+        }
+    </style>
 </head>
 
-<body>
-	<div id="particles-js"></div>
-	<div id="navbar">
-		<a id="logo" onclick="showPage(event, 'profile', this); return false;">
-			<div class="logo-name">Tristan</div>
-			<div class="animation-wrapper">
-				  <div class="sphere-animation">
-				    <svg class="sphere" viewBox="0 0 440 440" stroke="rgba(255,255,255,1)">
-				      <defs>
-				        <linearGradient id="sphereGradient" x1="5%" x2="5%" y1="0%" y2="15%">
-				          <stop stop-color="#99c2af" offset="0%"/>
-				          <stop stop-color="#4c9573" offset="50%"/>
-				          <stop stop-color="#006837" offset="100%"/>
-				        </linearGradient>
-				      </defs>
-				      <path d="M361.604 361.238c-24.407 24.408-51.119 37.27-59.662 28.727-8.542-8.543 4.319-35.255 28.726-59.663 24.408-24.407 51.12-37.269 59.663-28.726 8.542 8.543-4.319 35.255-28.727 59.662z"/>
-				      <path d="M360.72 360.354c-35.879 35.88-75.254 54.677-87.946 41.985-12.692-12.692 6.105-52.067 41.985-87.947 35.879-35.879 75.254-54.676 87.946-41.984 12.692 12.692-6.105 52.067-41.984 87.946z"/>
-				      <path d="M357.185 356.819c-44.91 44.91-94.376 68.258-110.485 52.149-16.11-16.11 7.238-65.575 52.149-110.485 44.91-44.91 94.376-68.259 110.485-52.15 16.11 16.11-7.239 65.576-52.149 110.486z"/>
-				      <path d="M350.998 350.632c-53.21 53.209-111.579 81.107-130.373 62.313-18.794-18.793 9.105-77.163 62.314-130.372 53.209-53.21 111.579-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z"/>
-				      <path d="M343.043 342.677c-59.8 59.799-125.292 91.26-146.283 70.268-20.99-20.99 10.47-86.483 70.269-146.282 59.799-59.8 125.292-91.26 146.283-70.269 20.99 20.99-10.47 86.484-70.27 146.283z"/>
-				      <path d="M334.646 334.28c-65.169 65.169-136.697 99.3-159.762 76.235-23.065-23.066 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z"/>
-				      <path d="M324.923 324.557c-69.806 69.806-146.38 106.411-171.031 81.76-24.652-24.652 11.953-101.226 81.759-171.032 69.806-69.806 146.38-106.411 171.031-81.76 24.652 24.653-11.953 101.226-81.759 171.032z"/>
-				      <path d="M312.99 312.625c-73.222 73.223-153.555 111.609-179.428 85.736-25.872-25.872 12.514-106.205 85.737-179.428s153.556-111.609 179.429-85.737c25.872 25.873-12.514 106.205-85.737 179.429z"/>
-				      <path d="M300.175 299.808c-75.909 75.909-159.11 115.778-185.837 89.052-26.726-26.727 13.143-109.929 89.051-185.837 75.908-75.908 159.11-115.778 185.837-89.051 26.726 26.726-13.143 109.928-89.051 185.836z"/>
-				      <path d="M284.707 284.34c-77.617 77.617-162.303 118.773-189.152 91.924-26.848-26.848 14.308-111.534 91.924-189.15C265.096 109.496 349.782 68.34 376.63 95.188c26.849 26.849-14.307 111.535-91.923 189.151z"/>
-				      <path d="M269.239 267.989c-78.105 78.104-163.187 119.656-190.035 92.807-26.849-26.848 14.703-111.93 92.807-190.035 78.105-78.104 163.187-119.656 190.035-92.807 26.849 26.848-14.703 111.93-92.807 190.035z"/>
-				      <path d="M252.887 252.52C175.27 330.138 90.584 371.294 63.736 344.446 36.887 317.596 78.043 232.91 155.66 155.293 233.276 77.677 317.962 36.521 344.81 63.37c26.85 26.848-14.307 111.534-91.923 189.15z"/>
-				      <path d="M236.977 236.61C161.069 312.52 77.867 352.389 51.14 325.663c-26.726-26.727 13.143-109.928 89.052-185.837 75.908-75.908 159.11-115.777 185.836-89.05 26.727 26.726-13.143 109.928-89.051 185.836z"/>
-				      <path d="M221.067 220.7C147.844 293.925 67.51 332.31 41.639 306.439c-25.873-25.873 12.513-106.206 85.736-179.429C200.6 53.786 280.931 15.4 306.804 41.272c25.872 25.873-12.514 106.206-85.737 179.429z"/>
-				      <path d="M205.157 204.79c-69.806 69.807-146.38 106.412-171.031 81.76-24.652-24.652 11.953-101.225 81.759-171.031 69.806-69.807 146.38-106.411 171.031-81.76 24.652 24.652-11.953 101.226-81.759 171.032z"/>
-				      <path d="M189.247 188.881c-65.169 65.169-136.696 99.3-159.762 76.235-23.065-23.065 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z"/>
-				      <path d="M173.337 172.971c-59.799 59.8-125.292 91.26-146.282 70.269-20.991-20.99 10.47-86.484 70.268-146.283 59.8-59.799 125.292-91.26 146.283-70.269 20.99 20.991-10.47 86.484-70.269 146.283z"/>
-				      <path d="M157.427 157.061c-53.209 53.21-111.578 81.108-130.372 62.314-18.794-18.794 9.104-77.164 62.313-130.373 53.21-53.209 111.58-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z"/>
-				      <path d="M141.517 141.151c-44.91 44.91-94.376 68.259-110.485 52.15-16.11-16.11 7.239-65.576 52.15-110.486 44.91-44.91 94.375-68.258 110.485-52.15 16.109 16.11-7.24 65.576-52.15 110.486z"/>
-				      <path d="M125.608 125.241c-35.88 35.88-75.255 54.677-87.947 41.985-12.692-12.692 6.105-52.067 41.985-87.947C115.525 43.4 154.9 24.603 167.592 37.295c12.692 12.692-6.105 52.067-41.984 87.946z"/>
-				      <path d="M109.698 109.332c-24.408 24.407-51.12 37.268-59.663 28.726-8.542-8.543 4.319-35.255 28.727-59.662 24.407-24.408 51.12-37.27 59.662-28.727 8.543 8.543-4.319 35.255-28.726 59.663z"/>
-				    </svg>
-				  </div>
-			</div>
-			<div class="logo-name">Brodeur</div>
-		</a>
-		<div id="navbar-right">
-			<a class="tab" onclick="showPage(event, 'work', this); return false;">Experience</a>
-			<a class="tab" onclick="showPage(event, 'research', this); return false;">Research</a>
-			<a class="tab" onclick="showPage(event, 'projects', this); return false;">Projects</a>
-			<a class="tab" onclick="showPage(event, 'blog', this); return false;">Blog</a>
-			<a></a>
-		</div>
-		<div id="navbar-right-small">
-			<i class="fa fa-bars fa-2x" onclick="showMenu(this)">
-			</i>
-		</div>
-		<div id="navbar-right-small-menu">
-			<a class="tab" onclick="showPage(event, 'work', this); return false;">Experience</a>
-			<a class="tab" onclick="showPage(event, 'research', this); return false;">Research</a>
-			<a class="tab" onclick="showPage(event, 'projects', this); return false;">Projects</a>
-			<a class="tab" onclick="showPage(event, 'blog', this); return false;">Blog</a>
-		</div>
-	</div>
-	<section id="profile" class="content">
-		<!-- <video autoplay muted loop id="headerVideo">
-			<source src="./pics/forest.mp4" type="video/mp4">
-		</video> -->
-		<div id="profileContent">
-			<div class="profile-sect">
-				<img src="./pics/tristan2.jpeg" id="profile-img">
-				<p class="header">Tristan Brodeur</p>
-				<p class="underheader">Researcher, Web Developer, & Mountain Biker</p>
-				<p class="underheader">S.B. : Major in Mathematics, Economics</p>
-				<p class="underheader">Minor in Neuroscience</p>
-			</div>
-			<div class="links">
-				<a href="https://github.com/twbot" class="link"><div><img src="./pics/github.svg"/></div></a>
-				<a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" class="link"><div><img src="./pics/linkedin.svg" /></div></a>
-				<a href="https://twitter.com/twbrodeur" class="link"><div><img src="./pics/twitter.svg" /></div></a>
-				<a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" class="link"><div><img src="./pics/google-scholar-square.svg" /></div></a>
-			</div>
-			<!-- <img src="pics/topo.svg" style="margin-top: -130px"> -->
-		</div>
-		<div class="about">
-			<div class="about-paragraph">
-				<div class="about-detail">
-					<h2 class="header">About</h2>
-				</div>
-				<div class="about-detail">
-					<p>
-						Passionate creator of beautiful & functional websites.
-					</p>
-					<p>
-						Published researcher in the fields of robotics & computational neuroscience.
-					</p>
-				</div>
-				<!--<div class="about-learn-more">
-					<p>
-						Click on the segments below to learn more about my beginnings:
-					</p>
-				</div>-->
-				<div class="information-circle">
-					<div class="circle"></div>
-					<div class="circle-evergreen"></div>
-					<div class="rectangle-web" onclick="showText(this,'web')">WEB</div>
-					<div class="rectangle-neuro" onclick="showText(this,'neuro')">NEUROSCIENCE</div>
-					<div class="rectangle-robot" onclick="showText(this,'robotics')">ROBOTICS</div>
-				</div>
-				<div class="about-detail">
-					<p class="about-text" id="web-text">
-						The Plunge into Web Development: My interest in web development initially came from my readings of the textbook "Hacking: The Art of Exploitation" in middle school. The book entranced me, giving me an overall view of networking, cryptology, and exploitation. It was at this point that I started to connect with other "hackers" via online chat rooms. These "confidants" gave me tips on ways to improve my hacking skills, which for a large part included learning technologies such as javascript, SQL, and other common web technologies. It was my learning of these technologies that allowed me to start building out websites for local clients, providing me with job opportunities and allowing me to realise another aspect of web development that I've come to love: design. It's been my goal now to not only provide for my clients a website that's safe from vulnerabilities, but a website that's both functional and beautiful.
-					</p>
-					<p class="about-text" id="robotics-text">
-						The Plunge into Robotics: As a child I would build a variety of scale model machines from Erector Sets I had recieved from holiday gatherings and birthdays. These kits allowed me to understand the inner workings (at least to a minor extent) of common machines including bulldozers, cars, and construction cranes. One particularly defining moment in my pursuit of robotics was the first time I had recieved a Vex Robotics kit, allowing me to build, program, and control a mini robotic rover of my own. Two years later, a group of fellow robotics enthusiasts and I helped start the first FRC (FIRST Robotics Compeitition) & FTC (FIRST Tech Challenge) robotics clubs at my high school, obtaining a Rookie All-Star Award in our first year of the FRC competition. Since then I've done research in path planning for multi-robotic systems, robotic networking, and human-aware navigation.
-					</p>
-					<p class="about-text" id="neuro-text">
-						The Plunge into Neuroscience: The first year of university I'd been dorm-matched with a neuroscience major who was aiming to become a neurosurgeon. He'd converse with me through the night, nearly every night, about the inner workings of the brain, and in return I gave him some insight into robotics and machine intelligence. It was through these conversations that I'd come to realise that, in order to build more intelligent machines, it's necessary I first learn about the source of intelligence of our own species and extrapolate from there. I've since assisted in research papers within the field of computational neuroscience for a neuroscience lab at my university, where we researched gamma & theta wave modulation between the anterior cingulate cortex (ACC) and the hippocampus, assisting the field in its understanding of long-term memory consolidation.
-					</p>
-				</div>
-		</div>
-		<div class="skills">
-			<div class="skill-paragraph">
-				<div class="about-detail">
-					<h2 class="header">Skills At A Glance</h2>
-				</div>
-				<div class="skill-detail">
-					<div class="skill-card">
-						<div class="skill-card-inner card-box-shadow-bottom" id="card-inner-6">
-							<div class="skill-card-front" id="card-front-6">
-								<img src="pics/microcontroller.svg" id="skill-icon">
-								<p class="skill-title">Hardware</p>
-							</div>
-							<div class="skill-card-back" id="card-back-6">
-								<div class="skill-container-back">
-									<p class="skillText">Microcontrollers & Embedded Systems</p>
-									<p class="skillText">Bus Protocols: I2C, SPI, UART</p>
-									<p class="skillText">RTOS and Linux/Unix OS</v>
-									<p class="skillText">Schematic design & PCB layout (EagleCAD, KiCAD)</p>
-									<p class="skillText">Wireless Communication: 802.11 Wi-Fi, ZigBee, BLE</p>
-									<p class="skillText">Programming FPGAs in Verilog</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-								</div>
-							</div>
-							<div class="expand-container-skills" id="expand-6">
-								<div class="col-3">
-								</div>
-								<div class="col-6" onclick="flipCard(6);">
-									<div class="fas fa-chevron-down fa-lg" >
-									</div>
-								</div>
-								<div class="col-3">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="skill-card">
-						<div class="skill-card-inner card-box-shadow-bottom" id="card-inner-7">
-							<div class="skill-card-front" id="card-front-7">
-								<img src="pics/software.svg" id="skill-icon">
-								<p class="skill-title">Software</p>
-							</div>
-							<div class="skill-card-back" id="card-back-7">
-								<div class="skill-container-back">
-									<p class="skillText">Experienced: C, Python, Java</p>
-									<p class="skillText">Proficient: C++, MATLAB</p>
-									<p class="skillText">UNIX/Linux command line</p>
-									<p class="skillText">Network Programming: sockets, TCP/IP</p>
-									<p class="skillText">Version Control: git</p>
-									<p class="skillText">Development Environment: docker</p>
-									<p class="skillText">Design/Layout: AutoDesk Fusion 360, SolidWorks, AutoDesk Revit</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-								</div>
-							</div>
-							<div class="expand-container-skills" id="expand-7">
-								<div class="col-3">
-								</div>
-								<div class="col-6" onclick="flipCard(7);">
-									<div class="fas fa-chevron-down fa-lg" >
-									</div>
-								</div>
-								<div class="col-3">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="skill-card">
-						<div class="skill-card-inner card-box-shadow-bottom" id="card-inner-8">
-							<div class="skill-card-front" id="card-front-8">
-								<img src="pics/web.svg" id="skill-icon">
-								<p class="skill-title">Web</p>
-							</div>
-							<div class="skill-card-back" id="card-back-8">
-								<div class="skill-container-back">
-									<p class="skillText">Front-End Web Frameworks: Angular, React, Django</p>
-									<p class="skillText">Back-End Web Frameworks: Django, Springboot, ExpressJS</p>
-									<p class="skillText">Languages: Javascript/Typescript, Java, Python</p>
-									<p class="skillText">Package Managers: NPM, yarn</li>
-									<p class="skillText">Etcetera: jQuery, CSS, Sass/Less, Webpack, ES6, NodeJS</p>
-									<p class="skillText">DataBase: PostgreSQL, MySQL</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-									<p class="skillText">&nbsp;</p>
-								</div>
-							</div>
-							<div class="expand-container-skills" id="expand-8">
-								<div class="col-3">
-								</div>
-								<div class="col-6" onclick="flipCard(8);">
-									<div class="fas fa-chevron-down fa-lg" >
-									</div>
-								</div>
-								<div class="col-3">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="work" class="content">
-		<div class="card-holder">
-			<div class="card" style="margin-top: 180px;">
-				<div class="card-inner card-box-shadow-bottom" id="card-inner-3">
-					<div class="card-front" id="card-front-3">
-						<div class="detail-container">
-							<div class="img-container">
-								<img src="./pics/TransparentSky.png" class="workImg">
-							</div>
-							<div class="description-container">
-								<p class="companyName">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transparent Sky&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</p>
-								<p class="companyPosition">
-									Research & Development Engineer
-								</p>
-								<p class="companyTime">
-									Aug 2020 - Present
-								</p>
-								<p class="companyLocation">
-									Albuquerque, New Mexico
-								</p>
-							</div>
-						</div>
-						<div class="info-container">
-							<p class="infoText">
-								Transparent Sky is an R&D company that develops advanced real-time imaging applications.  Its main product development is the WAMICam, a small, portable, affordable Wide Area Motion Imaging (WAMI) system that provides geo-registered video-like imagery covering very large areas for long periods of time.  The WAMICam can be strapped into any small aircraft and put into service very quickly. 
-Transparent Sky has built similar systems for small drones and the company has even built its first small spacecraft using its processing capabilities.  The basis of Transparent Sky's work is an in-house developed API called Red River that provides an optimized CPU/GPU system for the entire pipeline including image capture, metadata handling, gimbal control, autopilot guidance, image registration, projection, database generation, distribution, and viewing.  This system can run in real-time and it can also be used in a playback mode for later analysis. 
-Transparent Sky is also in close partnership with the University of Missouri's award-winning technologies in dense 3D reconstruction and automated tracking.  Transparent Sky can provide systems or services to customers seeking the unique situational awareness that comes from seeing an entire large city area in motion.  Possible applications include crowd control, traffic studies, forensic crime solving, emergency response, disaster relief, and major events.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-inner card-box-shadow-bottom" id="card-inner-3">
-					<div class="card-front" id="card-front-3">
-						<div class="detail-container">
-							<div class="img-container">
-								<img src="./pics/terbine.png" class="workImg">
-							</div>
-							<div class="description-container">
-								<p class="companyName">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terbine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</p>
-								<p class="companyPosition">
-									Front End Developer
-								</p>
-								<p class="companyTime">
-									Oct 2017 - Mar 2020
-								</p>
-								<p class="companyLocation">
-									Las Vegas, Nevada
-								</p>
-							</div>
-						</div>
-						<div class="info-container">
-							<p class="infoText">
-								Terbine is evolving the first large-scale exchange for machine-generated data – things like vehicle counters, sound levels, powerline loading, carbon emissions and crop density. Terbine’s highly curated data handling system makes sensor information accessible, actionable, and trustworthy for applications across a broad range of industries including government agencies, and provides for data monetization where applicable. Our initial focus is on Intelligent Transportation and Logistics, with many more to come.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-inner card-box-shadow-bottom" id="card-inner-4">
-					<div class="card-front" id="card-front-4">
-						<div class="detail-container">
-							<div class="img-container">
-								<img src="./pics/HRGIcon.png" class="workImg">
-							</div>
-							<div class="description-container">
-								<p class="companyNameSmaller">
-									Hickory Ridge Group 
-								</p>
-								<p class="companyPosition">
-									Research Analyst
-								</p>
-								<p class="companyTime">
-									Oct 2019 - Dec 2019
-								</p>
-								<p class="companyLocation">
-									Las Vegas, Nevada
-								</p>
-							</div>
-						</div>
-						<div class="info-container">
-							<p class="infoText">
-								Hickory Ridge Group LLC (“HRG”) was founded in 2016 by Dr. Heather Monteiro in Las Vegas, Nevada, and is known for high-quality work, transparency, and integrity. HRG is a woman-owned, certified Disadvantaged Business Enterprise (“DBE”) and performs transportation economics research, focusing on but not limited to freight-related economic impact analysis, benefit-cost analysis, market analysis, and business plan development. Dr. Monteiro has worked for public and private sector clients, and has presented research results to executive oversight committees and public steering committees for MPOs.
-							</p>
-							<p class="infoText">
-								HRG’s research areas include transportation economics, big data analysis, transit topics, intermodal/ multimodal freight, intermodal site selection, behavioral transit studies, transport-specific law enforcement, the relationship between freight data and economic development, and transit industry studies.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-inner card-box-shadow-bottom" id="card-inner-2">
-					<div class="card-front" id="card-front-2">
-						<div class="detail-container">
-							<div class="img-container">
-								<img src="./pics/atlaswhite.png" class="workImg addedBg">
-							</div>
-							<div class="description-container">
-								<p class="companyName">
-									Atlas Group LC
-								</p>
-								<p class="companyPosition">
-									Full Stack Developer
-								</p>
-								<p class="companyTime">
-									Mar 2016 - Jul 2017
-								</p>
-								<p class="companyLocation">
-									Las Vegas, Nevada
-								</p>
-							</div>
-						</div>
-						<div class="info-container">
-							<p class="infoText">
-								Atlas Group specializes in residential property management. Successful landlords rely on us to manage more than 1500 single family homes, townhomes, condominiums, and apartment units throughout Las Vegas, North Las Vegas, and Henderson.
-							</p>
-							<p class="infoText">
-								Since 1995, Atlas Group LC has established itself as one of the pioneers in the Las Vegas property management market. Before you entrust your real estate investments to a Las Vegas property management company, make sure they have the experience and professionalism necessary to reduce your operational risks and protect your real estate assets. Our experienced team will market your property to the most qualified tenants, aggressively collect rents, and ensure that your property is maintained while keeping operating costs under control.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="margin-bottom: 180px;">
-				<div class="card-inner card-box-shadow-bottom" id="card-inner-1">
-					<div class="card-front" id="card-front-1">
-						<div class="detail-container">
-							<div class="img-container">
-								<img src="./pics/wr.png" class="workImg">
-							</div>
-							<div class="description-container">
-								<p class="companyName">
-									White Rabbit
-								</p>
-								<p class="companyPosition">
-									Quality Assurance Engineer
-								</p>
-								<p class="companyTime">
-									Aug 2015 - Feb 2016
-								</p>
-								<p class="companyLocation">
-									Reno, Nevada
-								</p>
-							</div>
-						</div>
-						<div class="info-container">
-							<p class="infoText">
-								White Rabbit is a Full-Service Agency & Venture Studio with a team composed of high-level diversified talent that is necessary to take an idea through development and into scale. We question common beliefs to solve our clients' and partners' toughest challenges. We are thinkers, creators, artists, philosophers, entrepreneurs, innovators, and mind readers that work in all trades and generate results that revolutionize their industries.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="research" class="content">
-		<div id="researchContent">
-			<div class="card-holder">
-				<p class="section-title">Publications</p>
-				<div class="research-card card-box-shadow-bottom ">
-					<div class="pdf-parent-section">
-						<div class="pdf-section">
-							<iframe src="./assets/pdfs/Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf" class="pdf"></iframe>
-							<div class="pdf-download" onclick="download('Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf')">
-								<i class="fas fa-file-download fa-3x"></i>
-							</div>
-						</div>
-					</div>
-					<div class="spacer-section">
-					</div>
-					<div class="detail-section-pdf">
-						<p class="paper-title">Analytical Image Stitching in Non-Rigid Multi-Camera WAMI</p>
-						<p class="paper-location">IEEE Sensors Letters</p>
-						<p class="paper-location">Issue 3 • March-2022</p>
-						<p class="paper-authors">H. AliAkbarpour, T. Brodeur, S. Suddarth</p>
-						<p class="paper-materials"><a href="https://twbot.github.io/DHPaperExtras/" target="_blank">Additional Materials</a></p>
-						<p class="paper-code">
-							<!-- <a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
+<body class="m-0 p-0 overflow-hidden ">
+    <!-- <canvas id="staticCanvas" class="z-[-1]"></canvas> -->
+    <div class="absolute inset-0 overflow-hidden bg-neutral-300 grain-bg mix-blend-overlay" />
+    <div class="absolute inset-7 overflow-hidden bg-transparent border-evergreen border-solid border rounded-2xl" />
+    <div class="absolute inset-7 overflow-hidden bg-transparent flex flex-row">
+        <div class="w-[30%] h-full p-4">
+            <div class="flex flex-row justify-start items-center mb-4">
+                <div class="flex flex-row justify-center gap-2 items-center">
+                    <span class="text-4xl text-evergreen">Tristan</span>
+                    <div id="animation-wrapper">
+                        <div id="sphere-animation">
+                            <svg id="sphere" viewBox="0 0 440 440" stroke="rgba(255,255,255,1)">
+                                <defs>
+                                    <linearGradient id="sphereGradient" x1="5%" x2="5%" y1="0%" y2="15%">
+                                        <stop stop-color="#99c2af" offset="0%" />
+                                        <stop stop-color="#4c9573" offset="50%" />
+                                        <stop stop-color="#006837" offset="100%" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="M361.604 361.238c-24.407 24.408-51.119 37.27-59.662 28.727-8.542-8.543 4.319-35.255 28.726-59.663 24.408-24.407 51.12-37.269 59.663-28.726 8.542 8.543-4.319 35.255-28.727 59.662z" />
+                                <path
+                                    d="M360.72 360.354c-35.879 35.88-75.254 54.677-87.946 41.985-12.692-12.692 6.105-52.067 41.985-87.947 35.879-35.879 75.254-54.676 87.946-41.984 12.692 12.692-6.105 52.067-41.984 87.946z" />
+                                <path
+                                    d="M357.185 356.819c-44.91 44.91-94.376 68.258-110.485 52.149-16.11-16.11 7.238-65.575 52.149-110.485 44.91-44.91 94.376-68.259 110.485-52.15 16.11 16.11-7.239 65.576-52.149 110.486z" />
+                                <path
+                                    d="M350.998 350.632c-53.21 53.209-111.579 81.107-130.373 62.313-18.794-18.793 9.105-77.163 62.314-130.372 53.209-53.21 111.579-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z" />
+                                <path
+                                    d="M343.043 342.677c-59.8 59.799-125.292 91.26-146.283 70.268-20.99-20.99 10.47-86.483 70.269-146.282 59.799-59.8 125.292-91.26 146.283-70.269 20.99 20.99-10.47 86.484-70.27 146.283z" />
+                                <path
+                                    d="M334.646 334.28c-65.169 65.169-136.697 99.3-159.762 76.235-23.065-23.066 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z" />
+                                <path
+                                    d="M324.923 324.557c-69.806 69.806-146.38 106.411-171.031 81.76-24.652-24.652 11.953-101.226 81.759-171.032 69.806-69.806 146.38-106.411 171.031-81.76 24.652 24.653-11.953 101.226-81.759 171.032z" />
+                                <path
+                                    d="M312.99 312.625c-73.222 73.223-153.555 111.609-179.428 85.736-25.872-25.872 12.514-106.205 85.737-179.428s153.556-111.609 179.429-85.737c25.872 25.873-12.514 106.205-85.737 179.429z" />
+                                <path
+                                    d="M300.175 299.808c-75.909 75.909-159.11 115.778-185.837 89.052-26.726-26.727 13.143-109.929 89.051-185.837 75.908-75.908 159.11-115.778 185.837-89.051 26.726 26.726-13.143 109.928-89.051 185.836z" />
+                                <path
+                                    d="M284.707 284.34c-77.617 77.617-162.303 118.773-189.152 91.924-26.848-26.848 14.308-111.534 91.924-189.15C265.096 109.496 349.782 68.34 376.63 95.188c26.849 26.849-14.307 111.535-91.923 189.151z" />
+                                <path
+                                    d="M269.239 267.989c-78.105 78.104-163.187 119.656-190.035 92.807-26.849-26.848 14.703-111.93 92.807-190.035 78.105-78.104 163.187-119.656 190.035-92.807 26.849 26.848-14.703 111.93-92.807 190.035z" />
+                                <path
+                                    d="M252.887 252.52C175.27 330.138 90.584 371.294 63.736 344.446 36.887 317.596 78.043 232.91 155.66 155.293 233.276 77.677 317.962 36.521 344.81 63.37c26.85 26.848-14.307 111.534-91.923 189.15z" />
+                                <path
+                                    d="M236.977 236.61C161.069 312.52 77.867 352.389 51.14 325.663c-26.726-26.727 13.143-109.928 89.052-185.837 75.908-75.908 159.11-115.777 185.836-89.05 26.727 26.726-13.143 109.928-89.051 185.836z" />
+                                <path
+                                    d="M221.067 220.7C147.844 293.925 67.51 332.31 41.639 306.439c-25.873-25.873 12.513-106.206 85.736-179.429C200.6 53.786 280.931 15.4 306.804 41.272c25.872 25.873-12.514 106.206-85.737 179.429z" />
+                                <path
+                                    d="M205.157 204.79c-69.806 69.807-146.38 106.412-171.031 81.76-24.652-24.652 11.953-101.225 81.759-171.031 69.806-69.807 146.38-106.411 171.031-81.76 24.652 24.652-11.953 101.226-81.759 171.032z" />
+                                <path
+                                    d="M189.247 188.881c-65.169 65.169-136.696 99.3-159.762 76.235-23.065-23.065 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z" />
+                                <path
+                                    d="M173.337 172.971c-59.799 59.8-125.292 91.26-146.282 70.269-20.991-20.99 10.47-86.484 70.268-146.283 59.8-59.799 125.292-91.26 146.283-70.269 20.99 20.991-10.47 86.484-70.269 146.283z" />
+                                <path
+                                    d="M157.427 157.061c-53.209 53.21-111.578 81.108-130.372 62.314-18.794-18.794 9.104-77.164 62.313-130.373 53.21-53.209 111.58-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z" />
+                                <path
+                                    d="M141.517 141.151c-44.91 44.91-94.376 68.259-110.485 52.15-16.11-16.11 7.239-65.576 52.15-110.486 44.91-44.91 94.375-68.258 110.485-52.15 16.109 16.11-7.24 65.576-52.15 110.486z" />
+                                <path
+                                    d="M125.608 125.241c-35.88 35.88-75.255 54.677-87.947 41.985-12.692-12.692 6.105-52.067 41.985-87.947C115.525 43.4 154.9 24.603 167.592 37.295c12.692 12.692-6.105 52.067-41.984 87.946z" />
+                                <path
+                                    d="M109.698 109.332c-24.408 24.407-51.12 37.268-59.663 28.726-8.542-8.543 4.319-35.255 28.727-59.662 24.407-24.408 51.12-37.27 59.662-28.727 8.543 8.543-4.319 35.255-28.726 59.663z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="text-4xl text-evergreen">Brodeur</span>
+                </div>
+            </div>
+            <div class="flex flex-col justify-start items-start pl-[2px]">
+                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                    onclick="showPage(event, 'about', this); return false;">About</span>
+                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                    onclick="showPage(event, 'experience', this); return false;">Experience</span>
+                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                    onclick="showPage(event, 'projects', this); return false;">Projects</span>
+                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                    onclick="showPage(event, 'publications', this); return false;">Publications</span>
+                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                    onclick="showPage(event, 'blog', this); return false;">Blog</span>
+            </div>
+        </div>
+        <section class="w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden" id="about">
+            <div class="w-full flex flex-col justify-center items-center text-evergreen gap-2">
+                <div
+                    class="w-full flex flex-col bg-neutral-200/85 backdrop-blur-lg justify-center items-start text-evergreen p-4 rounded-2xl">
+                    <span>Currently building Rekall.</span>
+                    <span>&nbsp;</span>
+                    <span>I build, ride, and rave. If I'm not building or raving, you'll likely catch me shredding the
+                        gnar
+                        on my mountain bike or skis.</span>
+                </div>
+                <div
+                    class="w-full flex flex-col bg-neutral-200/85 backdrop-blur-lg justify-center items-start text-evergreen p-4 rounded-2xl">
+                    <span class="text-lg underline">Bio</span>
+                    <span>Born in the great state of Montana.</span>
+                    <span>Grew up in Las Vegas, Nevada.</span>
+                    <span>Currently reside in Washington D.C.</span>
+                    <span>&nbsp;</span>
+                    <span>I spent my childhood summers on my grandfather's farm in the sun-baked fields of North Dakota.
+                        Those months were more than just a break from school—they were the
+                        formative times that shaped my future.</span>
+                    <span>&nbsp;</span>
+                    <span>As I helped my grandfather repair massive farming machinery, I unknowingly planted the seeds
+                        of my
+                        passion for robotics. The intricate dance of gears, pistons, and circuitry fascinated me, each
+                        component working in harmony to ease the burden of manual labor. Of course, my father's
+                        relentless
+                        enthusiasm for sci-fi novels and movies might have played a role too—it's hard to say
+                        which influence was stronger.</span>
+                    <span>&nbsp;</span>
+                    <span>What I know for certain is that those summers instilled in me a profound appreciation for the
+                        hard
+                        work behind life's essentials. I witnessed firsthand how these machines, these early forms of
+                        automation, weren't just conveniences—they were catalysts for progress. Without them, I
+                        realized,
+                        society might well have found itself at a standstill.
+                        This realization sparked a vision that has driven me ever since: to create machines that can
+                        shoulder the burden of mundane, repetitive tasks. I dream of a world where human creativity and
+                        innovation are unleashed, freed from the shackles of tedious labor.
+                        This is why I fell in love with robotics. It's not just about building cool machines—it's about
+                        crafting a future where automation empowers humanity to reach new heights. Every robot I design,
+                        every line of code I write, is a step towards that vision—a vision born in those sweaty, greasy,
+                        wonderful summers on a North Dakota farm.</span>
+                    <span>&nbsp;</span>
+                    <span>Fast forward to today, and my path has taken an intriguing turn. While still in the robotics
+                        sphere, I'm now focused on developing automated camera systems for 3D video capture. It's a
+                        shift
+                        from alleviating workloads to transforming visual media, but the core principle remains: using
+                        technology to push boundaries. We're in the early stages of this exciting project, with more
+                        details
+                        to be revealed soon. </span>
+                </div>
+            </div>
+        </section>
+        <section class="w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden" id="experience">
+            <div class="flex flex-col justify-center items-center text-evergreen gap-2">
+                <div class="w-full flex flex-row bg-transparent pb-2 px-2">
+                    <span class="text-left text-xl font-semibold">Work Experience</span>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-col justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/idea-entity.png" alt="Idea Entity logo"
+                            class="w-[75px] h-[75px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Idea Entity</p>
+                        <p class="text-start text-md">Software Engineer</p>
+                        <p class="text-start text-sm">Mar 2023 - Jun 2024</p>
+                    </div>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-col justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/jasmine-energy.jpeg" alt="Jasmine Energy logo"
+                            class="w-[75px] h-[75px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Jasmine Energy</p>
+                        <p class="text-start text-md">Principle Engineer & Co-Founder</p>
+                        <p class="text-start text-sm">Jul 2022 - Feb 2023</p>
+                    </div>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-row justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/transparent-sky.png" alt="Transparent Sky logo"
+                            class="w-[75px] h-[75px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Transparent Sky</p>
+                        <p class="text-start text-md">Machine Learning Lead / Research & Development Engineer</p>
+                        <p class="text-start text-sm">Aug 2020 - Jul 2022</p>
+                    </div>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-row justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/terbine.png" alt="Terbine logo"
+                            class="w-[95px] h-[95px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Terbine</p>
+                        <p class="text-start text-md">Front-End Web Developer</p>
+                        <p class="text-start text-sm">Oct 2017 - Mar 2020</p>
+                    </div>
+                </div>
+                <!-- <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-row justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/hickory-ridge-group.png" alt="HRG logo" class="w-[85px] h-[85px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Hickory Ridge Group</p>
+                        <p class="text-start text-md">Research Analyst Intern</p>
+                        <p class="text-start text-sm">Oct 2019 - Dec 2019</p>
+                    </div>
+                </div> -->
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-row justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/atlas-group.png" alt="Atlas Group logo"
+                            class="w-[80px] h-[80px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Atlas Group LC</p>
+                        <p class="text-start text-md">Full Stack Developer</p>
+                        <p class="text-start text-sm">Mar 2016 - Jul 2017</p>
+                    </div>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-row justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/companies/white-rabbit.png" alt="White Rabbit logo"
+                            class="w-[85px] h-[85px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">White Rabbit</p>
+                        <p class="text-start text-md">Quality Assurance Engineer</p>
+                        <p class="text-start text-sm">Aug 2015 - Feb 2016</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center text-evergreen gap-2">
+                <div class="w-full flex flex-row bg-transparent p-4">
+                    <span class="text-left text-xl font-semibold">Research Experience</span>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-col justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/labs/hive-lab.png" alt="Hive Lab logo"
+                            class="w-[75px] h-[75px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Hyman In Vivo Electrophysiology Lab</p>
+                        <p class="text-start text-md">Undergraduate Researcher</p>
+                        <p class="text-start text-sm">Sep 2019 - Nov 2019</p>
+                    </div>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-col justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/labs/nsf.webp" alt="Hive Lab logo" class="w-[75px] h-[75px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Collaborative Human-Robot Interaction Lab</p>
+                        <p class="text-start text-md">Robotics REU Site Participant</p>
+                        <p class="text-start text-sm">Jun 2018 - Aug 2018</p>
+                    </div>
+                </div>
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="flex flex-col justify-center items-center w-[110px] h-full">
+                        <img src="./assets/images/logos/labs/dasl.png" alt="DASL Lab logo" class="w-[85px] h-[85px]" />
+                    </div>
+                    <div class="w-[calc(100%-120px)] h-full overflow-hidden">
+                        <p class="text-start text-lg font-semibold">Drones & Autonomous Systems Laboratory</p>
+                        <p class="text-start text-md">Undergraduate Researcher</p>
+                        <p class="text-start text-sm">Dec 2016 - Feb 2018</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-[70%] h-full bg-transparent p-4 overflow-y-scroll" id="projects">
+            <div class="flex h-auto justify-end items-start flex-wrap gap-2">
+                <!-- (2018) -->
+                <div class="w-[825px] h-[50px] bg-transparent flex flex-row justify-center items-center">
+                    <div
+                        class="w-[200px] h-full z-20 rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex flex-row justify-center items-center">
+                        <span class="w-full text-center text-evergreen text-sm select-none font-semibold">
+                            2018
+                        </span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/nsf-reu/img8.png" alt="Multi-Robot Configuration" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">RSSI Based Multi-Robot
+                            Navigation</span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/dasl/furo/img2.png" alt="Furo Head" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Furo Robot Directory
+                            Navigation
+                        </span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/refurbish/chair/new-chair1.png" alt="Refurbished Patio Chair"
+                            class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Refurbished Patio
+                            Chairs</span>
+                    </div>
+                </div>
+                <!-- (2017) -->
+                <div class="w-[825px] h-[50px] bg-transparent flex flex-row justify-center items-center">
+                    <div
+                        class="w-[200px] h-full z-20 rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex flex-row justify-center items-center">
+                        <span class="w-full text-center text-evergreen text-sm select-none font-semibold">
+                            2017
+                        </span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/dasl/potential-fields/img1.png" alt="Robotino" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Potential Fields
+                            Navigation</span>
+                    </div>
+                </div>
+                <!-- (2016) -->
+                <div class="w-[825px] h-[50px] bg-transparent flex flex-row justify-center items-center">
+                    <div
+                        class="w-[200px] h-full z-20 rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex flex-row justify-center items-center">
+                        <span class="w-full text-center text-evergreen text-sm select-none font-semibold">
+                            2016
+                        </span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/upcycle/shelf/shelf1.png" alt="Upcycled Shelf" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Upcycled Shelf</span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/upcycle/table/table2.JPG" alt="Upcycled Table" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Upcycled Table</span>
+                    </div>
+                </div>
+                <!-- (< 2015) -->
+                <div class="w-[825px] h-[50px] bg-transparent flex flex-row justify-center items-center">
+                    <div
+                        class="w-[200px] h-full z-20 rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex flex-row justify-center items-center">
+                        <span class="w-full text-center text-evergreen text-sm select-none font-semibold">
+                            &le; 2015
+                        </span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/first-robotics-competition/frc-year1-robot.jpg"
+                            alt="FRC Robotics Projects" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">FRC Robotics</span>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                        <img src="./assets/images/projects/architecture-challenge/Revit_1.jpg" alt="architecture"
+                            class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Architecture
+                            Competition</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden" id="publications">
+            <div class="flex flex-col justify-center items-center text-evergreen gap-2">
+                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                        <iframe class="h-[250px] w-[150px] rotate" src="
+                            ./assets/pdfs/Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf"></iframe>
+                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                            onclick="download('Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf')">
+                            <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
+                        </div>
+                    </div>
+                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                        <p class="text-center text-md font-semibold">Analytical Image Stitching in Non-Rigid
+                            Multi-Camera WAMI</p>
+                        <p>&nbsp;</p>
+                        <p class="text-center text-sm">IEEE Sensors Letters</p>
+                        <p class="text-center text-sm">Issue 3 • March-2022</p>
+                        <p class="text-center text-sm">Montreal, Canada (Virtual)</p>
+                        <p class="text-center text-sm">H. AliAkbarpour, T. Brodeur, S. Suddarth</p>
+                        <p class="text-center text-sm underline"><a href="https://twbot.github.io/DHPaperExtras/"
+                                target="_blank">Additional Materials</a></p>
+                        <p class="paper-code">
+                            <!-- <a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
   								<i class="fab fa-github-square fa-2x"></i>
   							</a> -->
-						</p>
-						<p class="paper-abstract"> <span class="abstract-style">Abstract</span>: Combining the images of multiple airborne cameras is a common way to achieve a higher scene coverage in Wide Area Motion Imagery (WAMI). This paper proposes a novel approach, named Dynamic Homography (DH), to stitch multiple images of an airborne array of ’non-rigid’ cameras with ’narrow’ overlaps between their FOVs. It estimates the inter-views transformations using their underlying geometry namely the relative angles between their local coordinate systems in 3D. A fast and robust optimization model is used to minimize the errors between the feature correspondenceswhich takes place when a new set of images are acquired from the camera array. The minimum number of required feature correspondences between each adjacent pair of views is only two, which relaxes the need to have a large overlapin their FOVs. Our quantitative and qualitative experiments show the superiority of the proposed method compared to the traditional ones.</p>
-					</div>
-				</div>
-				<div class="research-card card-box-shadow-bottom">
-					<div class="pdf-parent-section">
-						<div class="pdf-section">
-							<iframe src="./assets/pdfs/Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf" class="pdf"></iframe>
-							<div class="pdf-download" onclick="download('Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf')">
-								<i class="fas fa-file-download fa-3x"></i>
-							</div>
-						</div>
-					</div>
-					<div class="spacer-section">
-					</div>
-					<div class="detail-section-pdf">
-						<p class="paper-title">Point Cloud Object Segmentation Using Multi Elevation-Layer 2D Bounding-Boxes</p>
-						<p class="paper-location">ICCV Workshop on Analysis of Aerial Motion Imagery (WAAMI)</p>
-						<p class="paper-location">2021</p>
-						<p class="paper-location">Montreal, Canada (Virtual)</p>
-						<p class="paper-authors">T. Brodeur, H. AliAkbarpour, S. Suddarth</p>
-						<p class="paper-code">
-							<!-- <a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
+                        </p>
+                        <p>&nbsp;</p>
+                        <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
+                            Combining the images of multiple airborne cameras is a common way to achieve a higher scene
+                            coverage in Wide Area Motion Imagery (WAMI). This paper proposes a novel approach, named
+                            Dynamic Homography (DH), to stitch multiple images of an airborne array of ’non-rigid’
+                            cameras with ’narrow’ overlaps between their FOVs. It estimates the inter-views
+                            transformations using their underlying geometry namely the relative angles between their
+                            local coordinate systems in 3D. A fast and robust optimization model is used to minimize the
+                            errors between the feature correspondenceswhich takes place when a new set of images are
+                            acquired from the camera array. The minimum number of required feature correspondences
+                            between each adjacent pair of views is only two, which relaxes the need to have a large
+                            overlapin their FOVs. Our quantitative and qualitative experiments show the superiority of
+                            the proposed method compared to the traditional ones.</p>
+                    </div>
+                </div>
+                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                        <iframe class="h-[250px] w-[150px] rotate"
+                            src="
+                                ./assets/pdfs/Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf"></iframe>
+                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                            onclick="download('Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf')">
+                            <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
+                        </div>
+                    </div>
+                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                        <p class="text-center text-md font-semibold">Point Cloud Object Segmentation Using Multi
+                            Elevation-Layer 2D
+                            Bounding-Boxes</p>
+                        <p>&nbsp;</p>
+                        <p class="text-center text-sm">ICCV Workshop on Analysis of Aerial Motion Imagery (WAAMI)</p>
+                        <p class="text-center text-sm">2021</p>
+                        <p class="text-center text-sm">Montreal, Canada (Virtual)</p>
+                        <p class="text-center text-sm">T. Brodeur, H. AliAkbarpour, S. Suddarth</p>
+                        <p class="paper-code">
+                            <!-- <a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
   								<i class="fab fa-github-square fa-2x"></i>
   							</a> -->
-						</p>
-						<p class="paper-abstract"> <span class="abstract-style">Abstract</span>: Segmentation   of   point   clouds   is   a   necessary   pre-processing technique when object discrimination is neededfor scene understanding.  In this paper, we propose a seg-mentation  technique  utilizing  2D  bounding-box  data  ob-tained via the orthographic projection of 3D points onto aplane at multiple elevation layers.  Connected componentsis utilized to obtain bounding-box data, and a consistencymetric between bounding-boxes at various elevation layershelps  determine  the  classification  of  the  bounding-box  toan object of the scene.   The merging of point data withineach 2D bounding-box results in an object-segmented pointcloud.  Our method conducts segmentation using only thetopological information of the point data within a dataset,requiring no extra computation of normals, creation of anoctree or k-d tree, nor a dependency on RGB or intensitydata associated with a point. Initial experiments are run ona set of point cloud datasets obtained via photogrammet-ric means, as well as some open-source, LIDAR-generatedpoint clouds,  showing the method to be capture agnostic.Results demonstrate the efficacy of this method in obtaininga distinct set of objects contained within a point cloud.</p>
-					</div>
-				</div>
-				<div class="research-card card-box-shadow-bottom">
-					<div class="pdf-parent-section">
-						<div class="pdf-section">
-							<iframe src="./assets/pdfs/SearchAndRescue.pdf" class="pdf"></iframe>
-							<div class="pdf-download" onclick="download('SearchAndRescue.pdf')">
-								<i class="fas fa-file-download fa-3x"></i>
-							</div>
-						</div>
-					</div>
-					<div class="spacer-section">
-					</div>
-					<div class="detail-section-pdf">
-						<p class="paper-title">Search and Rescue Operations with Mesh Networked Robots</p>
-						<p class="paper-location">IEEE Ubiquitous Computing, Electronics and Mobile Communication Conference (UEMCON)</p>
-						<p class="paper-location">2018</p>
-						<p class="paper-location">Columbia University; New York City, NY</p>
-						<p class="paper-authors">T. Brodeur, P. Regis, D. Feil-Seifer, S. Sengupta</p>
-						<p class="paper-code">
-							<a class="btn btn-lg btn-success" href="https://github.com/twbot/erle_rover_nav">
-  								<i class="fab fa-github-square fa-2x"></i>
-  							</a>
-						</p>
-						<p class="paper-abstract"> <span class="abstract-style">Abstract</span>: Efficient path planning and communication of multirobot systems in the case of a search and rescue operation is a critical issue facing robotics disaster relief efforts. Ensuring all the nodes of a specialized robotic search team are within range, while also covering as much area as possible to guarantee efficient response time, is the goal of this paper. We propose a specialized search-and-rescue model based on a mesh network topology of aerial and ground robots. The proposed model is based on several methods. First, each robot determines its position relative to other robots within the system, using RSSI. Packets are then communicated to other robots in the system detailing important information regarding robot system status, status of the mission, and identification number. The results demonstrate the ability to determine multi-robot navigation with RSSI, allowing low computation costs and increased search-andrescue time efficiency.</p>
-					</div>
-				</div>
-				<div class="research-card card-box-shadow-bottom">
-					<div class="pdf-parent-section">
-						<div class="pdf-section">
-							<embed src="./assets/pdfs/FuroPaper.pdf" class="pdf"/>
-							<div class="pdf-download" onclick="download('FuroPaper.pdf')">
-								<i class="fas fa-file-download fa-3x"></i>
-							</div>
-						</div>
-					</div>
-					<div class="spacer-section">
-					</div>
-					<div class="detail-section-pdf">
-						<p class="paper-title">Directory Navigation with Robotic Assistance</p>
-						<p class="paper-location">IEEE Computing and Communication Workshop and Conference (CCWC)</p>
-						<p class="paper-location">2018</p>
-						<p class="paper-location">University of Nevada, Las Vegas; Las Vegas, NV</p>
-						<p class="paper-authors">T. Brodeur, A. Cater, J. Chagas Vaz, P. Oh</p>
-						<p class="paper-code">
-							<a class="btn btn-lg btn-success" href="https://github.com/twbot/furo_navigation">
-  								<i class="fab fa-github-square fa-2x"></i>
-  							</a>
-						</p>
-						<p class="paper-abstract"><span class="abstract-style">Abstract</span>: Malls are full of retail store and restaurant chains, allowing customers a vast array of destinations to explore. Often, these sites contain a directory of all stores located within the shopping center, allowing customers a top-down view of their current position, and their desired store location. In this paper, we present a customer centric approach to directory navigation using a service robot, where the robot is able to display the directory, and guide customers to needed destinations.</p>
-					</div>
-				</div>
-				<p class="section-title" style="margin-top: 80px;">Research Labs</p>
-				<div class="card-lab">
-					<div class="card-inner card-box-shadow-bottom" id="card-lab-inner">
-						<div class="card-front" id="card-front-3">
-							<div class="detail-container">
-								<div class="img-container">
-									<img src="./pics/hivelab.png" class="workImg">
-								</div>
-								<div class="description-container">
-									<p class="companyName labName">
-										Hyman In Vivo Electrophysiology Lab
-									</p>
-									<p class="companyPosition">
-										Undergraduate Researcher
-									</p>
-									<p class="companyTime">
-										Sep 2019 - Nov 2019
-									</p>
-									<p class="companyLocation">
-										Las Vegas, Nevada
-									</p>
-								</div>
-							</div>
-							<div class="info-container">
-								<p class="infoText">
-									Assisted in research pertaining to long term memory consolidation. Using Matlab, analysed data recorded from tetrodes placed within the anteriror cingulate cortex (ACC) and hippocampal area (CA1) to observe theta band coherence of ACC-CA1 interactions, with ACC-driven theta interactions detected on long retention intervals  modulating CA1 networks.
-								</p>
-								<p class="infoText">
-									Technologies used: Matlab
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card-lab">
-					<div class="card-inner card-box-shadow-bottom" id="card-lab-inner">
-						<div class="card-front" id="card-front-3">
-							<div class="detail-container">
-								<div class="img-container">
-									<img src="./pics/cnl.png" class="workImg">
-								</div>
-								<div class="description-container">
-									<p class="companyName labName">
-										Collaborative Human-Robot Interaction Lab
-									</p>
-									<p class="companyPosition">
-										Undergraduate Researcher
-									</p>
-									<p class="companyTime">
-										Jun 2018 - Aug 2018
-									</p>
-									<p class="companyLocation">
-										Reno, Nevada
-									</p>
-								</div>
-							</div>
-							<div class="info-container">
-								<p class="infoText">
-									Developed scalable multi-robot navigation technique using a single input. Method utilizes a "master" robot which determines appropriate path to take, and "slave" robots basing their behaviour on the recieved signal strength of the next robot in the chain. Primary author for the paper associated with this work presented at 2018 IEEE UEMCON (Ubiquitous Computing, Electronics & Mobile Communication Conference).
-								</p>
-								<p class="infoText">
-									Technologies used: Mesh-network topology, ROS, Python, C++, and OpenCV.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card-lab">
-					<div class="card-inner card-box-shadow-bottom" id="card-lab-inner" >
-						<div class="card-front" id="card-front-3">
-							<div class="detail-container">
-								<div class="img-container">
-									<img src="./pics/dasl.jpg" class="workImg">
-								</div>
-								<div class="description-container">
-									<p class="companyName labName">
-										Drones & Autonomous Systems Laboratory
-									</p>
-									<p class="companyPosition">
-										Undergraduate Researcher
-									</p>
-									<p class="companyTime">
-										Dec 2016 - Feb 2018
-									</p>
-									<p class="companyLocation">
-										Las Vegas, Nevada
-									</p>
-								</div>
-							</div>
-							<div class="info-container">
-								<p class="infoText">
-									Developed human-aware directory navigation robot using the Furo-S platform. Primary author for the paper associated with this work presented at 2018 IEEE CCWC (Computing and Communication Workshop and Conference).
-								</p>
-								<p class="infoText">
-									<a href="https://www.youtube.com/watch?v=jMXnd7SwzVo">Potential fields navigation</a> using Festo's Robotino robot.
-								</p>
-								<p class="infoText">
-									<a href="https://github.com/twbot/AmazonAlexaStockPrice">Alexa Stock Price Skill</a> using Amazon Alexa & Amazon Alexa Skills Kit.
-								</p>
-								<p class="infoText">
-									Technologies used: Festo Robotino, Velodyne VLP-16 LidDAR sensor, Darwin OP, QT Framework, Signal Processing Toolbox (Matlab), Python, C++, OpenCV, Alexa Skills Kit.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="projects" class="content">
-	</section>
-	<section id="blog" class="content">
-		<div class="card">
+                        </p>
+                        <p>&nbsp;</p>
+                        <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
+                            Segmentation of
+                            point
+                            clouds is a necessary pre-processing technique when object discrimination is neededfor scene
+                            understanding. In this paper, we propose a seg-mentation technique utilizing 2D bounding-box
+                            data ob-tained via the orthographic projection of 3D points onto aplane at multiple
+                            elevation layers. Connected componentsis utilized to obtain bounding-box data, and a
+                            consistencymetric between bounding-boxes at various elevation layershelps determine the
+                            classification of the bounding-box toan object of the scene. The merging of point data
+                            withineach 2D bounding-box results in an object-segmented pointcloud. Our method conducts
+                            segmentation using only thetopological information of the point data within a
+                            dataset,requiring no extra computation of normals, creation of anoctree or k-d tree, nor a
+                            dependency on RGB or intensitydata associated with a point. Initial experiments are run ona
+                            set of point cloud datasets obtained via photogrammet-ric means, as well as some
+                            open-source, LIDAR-generatedpoint clouds, showing the method to be capture agnostic.Results
+                            demonstrate the efficacy of this method in obtaininga distinct set of objects contained
+                            within a point cloud.</p>
+                    </div>
+                </div>
+                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                        <iframe class="h-[250px] w-[150px] rotate" src="
+                        ./assets/pdfs/SearchAndRescue.pdf"></iframe>
+                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                            onclick="download('SearchAndRescue.pdf')">
+                            <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
+                        </div>
+                    </div>
+                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                        <p class="text-center text-md font-semibold">Search and Rescue Operations with Mesh Networked
+                            Robots</p>
+                        <p>&nbsp;</p>
+                        <p class="text-center text-sm">IEEE Ubiquitous Computing, Electronics and Mobile Communication
+                            Conference (UEMCON)</p>
+                        <p class="text-center text-sm">2018</p>
+                        <p class="text-center text-sm">Columbia University; New York City, NY</p>
+                        <p class="text-center text-sm">T. Brodeur, P. Regis, D. Feil-Seifer, S. Sengupta</p>
+                        <p class="flex flex-row justify-center items-center cursor-pointer">
+                            <a class="pt-2" href="https://github.com/twbot/erle_rover_nav" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="./assets/images/logos/social/github.svg" alt="git repo"
+                                    class="w-[30px] h-[30px]" />
+                            </a>
+                        </p>
+                        <p>&nbsp;</p>
+                        <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
+                            Efficient path planning and communication of multirobot systems in the case of a search and
+                            rescue operation is a critical issue facing robotics disaster relief efforts. Ensuring all
+                            the nodes of a specialized robotic search team are within range, while also covering as much
+                            area as possible to guarantee efficient response time, is the goal of this paper. We propose
+                            a specialized search-and-rescue model based on a mesh network topology of aerial and ground
+                            robots. The proposed model is based on several methods. First, each robot determines its
+                            position relative to other robots within the system, using RSSI. Packets are then
+                            communicated to other robots in the system detailing important information regarding robot
+                            system status, status of the mission, and identification number. The results demonstrate the
+                            ability to determine multi-robot navigation with RSSI, allowing low computation costs and
+                            increased search-andrescue time efficiency.</p>
+                    </div>
+                </div>
+                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                        <iframe class="h-[250px] w-[150px] rotate" src="
+                        ./assets/pdfs/FuroPaper.pdf"></iframe>
+                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                            onclick="download('FuroPaper.pdf')">
+                            <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
+                        </div>
+                    </div>
+                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                        <p class="text-center text-md font-semibold">Directory Navigation with Robotic Assistance</p>
+                        <p>&nbsp;</p>
+                        <p class="text-center text-sm">IEEE Computing and Communication Workshop and Conference (CCWC)
+                        </p>
+                        <p class="text-center text-sm">2018</p>
+                        <p class="text-center text-sm">University of Nevada, Las Vegas; Las Vegas, NV</p>
+                        <p class="text-center text-sm">T. Brodeur, A. Cater, J. Chagas Vaz, P. Oh</p>
+                        <p class="flex flex-row justify-center items-center cursor-pointer">
+                            <a class="pt-2" href="https://github.com/twbot/furo_navigation" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="./assets/images/logos/social/github.svg" alt="git repo"
+                                    class="w-[30px] h-[30px]" />
+                            </a>
+                        </p>
+                        <p>&nbsp;</p>
+                        <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
+                            Malls are full of retail store and restaurant chains, allowing customers a vast array of
+                            destinations to explore. Often, these sites contain a directory of all stores located within
+                            the shopping center, allowing customers a top-down view of their current position, and their
+                            desired store location. In this paper, we present a customer centric approach to directory
+                            navigation using a service robot, where the robot is able to display the directory, and
+                            guide customers to needed destinations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-[70%] h-full bg-transparent border-evergreen border-solid border rounded-2xl p-4 hidden"
+            id="blog">
 
-		</div>
-	</section>
-	<!-- <img src="./pics/topo.svg" id="background"> -->
+        </section>
+        <div class="absolute bottom-0 overflow-hidden bg-transparent h-[40px]">
+            <div class="flex flex-row justify-start items-center gap-2 py-[5px] p-4">
+                <a href="https://github.com/twbot" target="_blank" rel="noopener noreferrer" class="w-[30px] h-[30px]">
+                    <div><img src="./assets/images/logos/social/github.svg" /></div>
+                </a>
+                <a href="https://twitter.com/twbrodeur" target="_blank" rel="noopener noreferrer"
+                    class="w-[30px] h-[30px]">
+                    <div><img src="./assets/images/logos/social/twitter.svg" /></div>
+                </a>
+                <a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" target="_blank"
+                    rel="noopener noreferrer" class="w-[30px] h-[30px]">
+                    <div><img src="./assets/images/logos/social/google-scholar-square.svg" /></div>
+                </a>
+                <a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" target="_blank"
+                    rel="noopener noreferrer" class="w-[30px] h-[30px]">
+                    <div><img src="./assets/images/logos/social/linkedin.svg" /></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
+
 </html>

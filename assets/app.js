@@ -164,22 +164,22 @@ function scrollFunction() {
 
 
 function determineBackCardHeight(elDet, elFind, addHeight) {
-    if(window.innerWidth < 1000) {
-        var height = elDet.offsetHeight;
-        height = height + addHeight.offsetHeight;
-        console.log(height);
-        let childEls = elFind.children;
-        let childElsHeight = childEls.length;
-        for (var i = 0; i < childElsHeight; i++) {
-            // console.log(childEls[i]);
-            // console.log(childElsHeight)
-            // console.log(height/childElsHeight)
-            console.log(height/childElsHeight);
-            childEls[i].style.height = height;
-            // console.log(childEls[i].style.height);
-        }
-
-    }
+    // if(window.innerWidth < 1000) {
+    //     var height = elDet.offsetHeight;
+    //     height = height + addHeight.offsetHeight;
+    //     console.log(height);
+    //     let childEls = elFind.children;
+    //     let childElsHeight = childEls.length;
+    //     for (var i = 0; i < childElsHeight; i++) {
+    //         // console.log(childEls[i]);
+    //         // console.log(childElsHeight)
+    //         // console.log(height/childElsHeight)
+    //         console.log(height/childElsHeight);
+    //         childEls[i].style.height = height;
+    //         // console.log(childEls[i].style.height);
+    //     }
+    //
+    // }
 }
 
 function flipCard(id) {
@@ -194,8 +194,7 @@ function flipCard(id) {
     var cardIdClassList = document.getElementById(cardId).classList;
     var expandEl = document.getElementById(expand);
 
-    this.determineBackCardHeight(frontCard, backCard, expandEl);
-
+    // this.determineBackCardHeight(frontCard, backCard, expandEl);
 
     if(viewable[id]) {
         viewBack = 'block';
@@ -206,11 +205,6 @@ function flipCard(id) {
         viewFront = 'block';
         dir = 'rotateX(0deg)';
     }
-    
-    if(window.innerWidth < 1000) {
-        let height = frontCard.height;
-
-    }
 
     document.getElementById(cardId).style.transform = dir;
     function styleChange() {
@@ -218,7 +212,7 @@ function flipCard(id) {
         expandEl.style.transform = dir;
         frontCard.style.display = viewFront;
         backCard.style.display = viewBack;
-        // backCard.style.height = '230px';
+        backCard.style.height = '238px';
         backCard.style.position = 'relative';
         if(viewable[id]) {
             cardIdClassList.remove('card-box-shadow-top');
