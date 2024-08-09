@@ -1,115 +1,15 @@
-const particlesJSON = {
-    "particles": {
-        "number": {
-            "value": 12,
-            "density": {
-                "enable": true,
-                "value_area": 500
-            }
-        },
-        "color": {
-            "value": "#2d7254"
-        },
-        "shape": {
-            "type": "circle",
-            "stroke": {
-                "width": 2,
-                "color": "#2d7254"
-            },
-            "polygon": {
-                "nb_sides": 7
-            },
-            "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
-            }
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": true
-        },
-        "size": {
-            "value": 10,
-            "random": true
-        },
-        "line_linked": {
-            "enable": true,
-            "distance": 200,
-            "color": "#2d7254",
-            "opacity": 0.3,
-            "width": 2
-        },
-        "move": {
-            "enable": true,
-            "speed": 2,
-            "direction": "random",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-            }
-        }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": false,
-                "mode": [
-                    "grab",
-                    "bubble"
-                ]
-            },
-            "onclick": {
-                "enable": false,
-                "mode": "push"
-            },
-            "resize": true
-        },
-        "modes": {
-            "grab": {
-                "distance": 400,
-                "line_linked": {
-                    "opacity": 0.7
-                }
-            },
-            "bubble": {
-                "distance": 600,
-                "size": 12,
-                "duration": 1,
-                "opacity": 0.8,
-                "speed": 2
-            },
-            "repulse": {
-                "distance": 400,
-                "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 20
-            },
-            "remove": {
-                "particles_nb": 10
-            }
-        }
-    },
-    "retina_detect": true
-}
-
 var pdfState = {
     pdf: null,
     currentPage: 1,
     zoom: 1
 }
 
-var currentActiveTab = "about";
+var currentActiveTab = "projects";
+var currentActiveProjectCard = null;
 
 window.onload = function () {
     sphereAnimation();
+    // particleBuilders();
     // static();
 };
 
@@ -136,6 +36,34 @@ function download(file) {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.dispatchEvent(new MouseEvent('click'));
+}
+
+function onClickProjectCard(cardName) {
+    var id = cardName + '-card';
+    currentActiveProjectCard = id
+    const projectCardContainer = document.getElementById('project-card-container');
+    projectCardContainer.classList.remove('hidden');
+    projectCardContainer.classList.add('block');
+    const projectsContainer = document.getElementById('projects-container');
+    projectsContainer.classList.add('hidden');
+    projectsContainer.classList.remove('block');
+    const projectCard = document.getElementById(id);
+    projectCard.classList.add('block');
+    projectCard.classList.remove('hidden');
+}
+
+function closeProjectCard() {
+    const projectCardContainer = document.getElementById('project-card-container');
+    projectCardContainer.classList.remove('block');
+    projectCardContainer.classList.add('hidden');
+    const projectsContainer = document.getElementById('projects-container');
+    projectsContainer.classList.add('block');
+    projectsContainer.classList.remove('hidden');
+    const projectCard = document.getElementById(currentActiveProjectCard);
+    projectCard.classList.add('hidden');
+    projectCard.classList.remove('block');
+    currentActiveProjectCard = null;
+    return null;
 }
 
 function fitElementToParent(el, padding) {
@@ -225,36 +153,139 @@ function sphereAnimation() {
 
 }
 
-function static() {
-    const canvas = document.getElementById('staticCanvas');
+function particleBuilders() {
+    const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
+
+    class Particle {
+        constructor(x, y, radius, angle) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.angle = angle;
+            this.targetX = x;
+            this.targetY = y;
+            this.originalX = x;
+            this.originalY = y;
+            this.breatheDepth = Math.random() * 20 + 10;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 72, 38, 1)';
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        update(time, state) {
+            if (state === 'initial' || state === 'return') {
+                const breathe = Math.sin(time / 1000) * this.breatheDepth;
+                this.targetX = this.originalX + Math.cos(this.angle) * breathe;
+                this.targetY = this.originalY + Math.sin(this.angle) * breathe;
+            }
+
+            this.x += (this.targetX - this.x) * 0.1;
+            this.y += (this.targetY - this.y) * 0.1;
+
+            this.draw();
+        }
+    }
+
+    let particles = [];
+    let animationState = 'initial';
+    const numParticles = 200;
+
+    function createParticles() {
+        particles = [];
+        const centerX = 200;
+        const centerY = (canvas.height / 2) + 100; // Position above the bottom div
+        const donutRadius = 60;
+
+        for (let i = 0; i < numParticles; i++) {
+            const angle = (i / numParticles) * Math.PI * 2;
+            const x = centerX + Math.cos(angle) * donutRadius;
+            const y = centerY + Math.sin(angle) * donutRadius;
+            particles.push(new Particle(x, y, 4, angle));
+        }
+    }
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        createParticles();
     }
 
-    function createStatic() {
-        const imageData = ctx.createImageData(canvas.width, canvas.height);
-        const data = imageData.data;
+    function animate(time) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        for (let i = 0; i < data.length; i += 4) {
-            const randomValue = Math.floor(Math.random() * 256);
-            data[i] = randomValue; // Red
-            data[i + 1] = randomValue; // Green
-            data[i + 2] = randomValue; // Blue
-            data[i + 3] = 255; // Alpha
-        }
+        particles.forEach(particle => particle.update(time, animationState));
 
-        ctx.putImageData(imageData, 0, 0);
-    }
-
-    function animate() {
-        createStatic();
         requestAnimationFrame(animate);
     }
 
+    function moveToBorder() {
+        const container = document.getElementById('project-card-container');
+        const blogRect = container.getBoundingClientRect();
+        const centerX = blogRect.left + blogRect.width / 2;
+        const centerY = blogRect.top + blogRect.height / 2;
+        const width = blogRect.width;
+        const height = blogRect.height;
+        const cornerRadius = 10;
+
+        particles.forEach((particle, index) => {
+            const t = index / particles.length;
+            let x, y;
+
+            if (t < 0.25) { // Top edge
+                x = centerX - width / 2 + cornerRadius + t * 4 * (width - 2 * cornerRadius);
+                y = centerY - height / 2;
+            } else if (t < 0.5) { // Right edge
+                x = centerX + width / 2;
+                y = centerY - height / 2 + cornerRadius + (t - 0.25) * 4 * (height - 2 * cornerRadius);
+            } else if (t < 0.75) { // Bottom edge
+                x = centerX + width / 2 - cornerRadius - (t - 0.5) * 4 * (width - 2 * cornerRadius);
+                y = centerY + height / 2;
+            } else { // Left edge
+                x = centerX - width / 2;
+                y = centerY + height / 2 - cornerRadius - (t - 0.75) * 4 * (height - 2 * cornerRadius);
+            }
+
+            // Adjust for rounded corners
+            if (t < 0.0625 || (t >= 0.25 && t < 0.3125) ||
+                (t >= 0.5 && t < 0.5625) || (t >= 0.75 && t < 0.8125)) {
+                const cornerT = (t % 0.25) * 4;
+                const cornerAngle = cornerT * Math.PI / 2;
+                x += cornerRadius * Math.sin(cornerAngle);
+                y -= cornerRadius * (1 - Math.cos(cornerAngle));
+            } else if (t < 0.25 || (t >= 0.3125 && t < 0.5) ||
+                (t >= 0.5625 && t < 0.75) || t >= 0.8125) {
+                const cornerT = ((t + 0.1875) % 0.25) * 4;
+                const cornerAngle = cornerT * Math.PI / 2;
+                x += cornerRadius * Math.cos(cornerAngle);
+                y += cornerRadius * Math.sin(cornerAngle);
+            }
+
+            particle.targetX = x;
+            particle.targetY = y;
+        });
+    }
+
+    // Add click event to the card
+    document.getElementById('project-card').addEventListener('click', () => {
+        animationState = 'move';
+        moveToBorder();
+
+        setTimeout(() => {
+            animationState = 'return';
+            particles.forEach(particle => {
+                particle.targetX = particle.originalX;
+                particle.targetY = particle.originalY;
+            });
+        }, 1000); // Wait for 3 seconds before returning
+    });
+
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-    animate();
+    animate(0);
 }

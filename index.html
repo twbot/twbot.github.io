@@ -17,12 +17,15 @@
     <link rel="icon" type="image/png" href="./assets/images/logos/site/Evergreen-Logo.svg">
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="./assets/highlight/styles/default.min.css">
 
     <!--Scripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/pdfjs/build/pdf.js"></script>
+    <script type="text/javascript" src="./assets/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script src="./assets/anime-master/lib/anime.min.js"></script>
     <script type="text/javascript" src="./index.js"></script>
     <script>
@@ -91,11 +94,11 @@
 </head>
 
 <body class="m-0 p-0 overflow-hidden ">
-    <!-- <canvas id="staticCanvas" class="z-[-1]"></canvas> -->
+    <canvas id="particleCanvas" class="w-full h-full z-40"></canvas>
     <div class="absolute inset-0 overflow-hidden bg-neutral-300 grain-bg mix-blend-overlay" />
     <div class="absolute inset-7 overflow-hidden bg-transparent border-evergreen border-solid border rounded-2xl" />
     <div class="absolute inset-7 overflow-hidden bg-transparent flex flex-row">
-        <div class="w-[30%] h-full p-4">
+        <div class="w-[300px] min-w-[300px] md:w-[30%] h-full p-4 overflow-hidden">
             <div class="flex flex-row justify-start items-center mb-4">
                 <div class="flex flex-row justify-center gap-2 items-center">
                     <span class="text-4xl text-evergreen">Tristan</span>
@@ -170,13 +173,15 @@
                     onclick="showPage(event, 'blog', this); return false;">Blog</span>
             </div>
         </div>
-        <section class="w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll" id="about">
+        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden"
+            id="about">
             <div class="w-full flex flex-col justify-center items-center text-evergreen gap-2">
                 <div
                     class="w-full flex flex-col bg-neutral-200/85 backdrop-blur-lg justify-center items-start text-evergreen p-4 rounded-2xl">
                     <span>Currently building Rekall.</span>
                     <span>&nbsp;</span>
-                    <span>I build, ride, and rave. If I'm not building or raving, you'll likely catch me shredding the
+                    <span>I build, ride, and rave. If I'm not building or raving, you'll likely catch me shredding
+                        the
                         gnar
                         on my mountain bike or skis.</span>
                 </div>
@@ -187,43 +192,55 @@
                     <span>Grew up in Las Vegas, Nevada.</span>
                     <span>Currently reside in Washington D.C.</span>
                     <span>&nbsp;</span>
-                    <span>I spent my childhood summers on my grandfather's farm in the sun-baked fields of North Dakota.
+                    <span>I spent my childhood summers on my grandfather's farm in the sun-baked fields of North
+                        Dakota.
                         Those months were more than just a break from school—they were the
                         formative times that shaped my future.</span>
                     <span>&nbsp;</span>
-                    <span>As I helped my grandfather repair massive farming machinery, I unknowingly planted the seeds
+                    <span>As I helped my grandfather repair massive farming machinery, I unknowingly planted the
+                        seeds
                         of my
-                        passion for robotics. The intricate dance of gears, pistons, and circuitry fascinated me, each
+                        passion for robotics. The intricate dance of gears, pistons, and circuitry fascinated me,
+                        each
                         component working in harmony to ease the burden of manual labor. Of course, my father's
                         relentless
                         enthusiasm for sci-fi novels and movies might have played a role too—it's hard to say
                         which influence was stronger.</span>
                     <span>&nbsp;</span>
-                    <span>What I know for certain is that those summers instilled in me a profound appreciation for the
+                    <span>What I know for certain is that those summers instilled in me a profound appreciation for
+                        the
                         hard
-                        work behind life's essentials. I witnessed firsthand how these machines, these early forms of
+                        work behind life's essentials. I witnessed firsthand how these machines, these early forms
+                        of
                         automation, weren't just conveniences—they were catalysts for progress. Without them, I
                         realized,
                         society might well have found itself at a standstill.
                         This realization sparked a vision that has driven me ever since: to create machines that can
-                        shoulder the burden of mundane, repetitive tasks. I dream of a world where human creativity and
+                        shoulder the burden of mundane, repetitive tasks. I dream of a world where human creativity
+                        and
                         innovation are unleashed, freed from the shackles of tedious labor.
-                        This is why I fell in love with robotics. It's not just about building cool machines—it's about
-                        crafting a future where automation empowers humanity to reach new heights. Every robot I design,
-                        every line of code I write, is a step towards that vision—a vision born in those sweaty, greasy,
+                        This is why I fell in love with robotics. It's not just about building cool machines—it's
+                        about
+                        crafting a future where automation empowers humanity to reach new heights. Every robot I
+                        design,
+                        every line of code I write, is a step towards that vision—a vision born in those sweaty,
+                        greasy,
                         wonderful summers on a North Dakota farm.</span>
                     <span>&nbsp;</span>
-                    <span>Fast forward to today, and my path has taken an intriguing turn. While still in the robotics
+                    <span>Fast forward to today, and my path has taken an intriguing turn. While still in the
+                        robotics
                         sphere, I'm now focused on developing automated camera systems for 3D video capture. It's a
                         shift
-                        from alleviating workloads to transforming visual media, but the core principle remains: using
+                        from alleviating workloads to transforming visual media, but the core principle remains:
+                        using
                         technology to push boundaries. We're in the early stages of this exciting project, with more
                         details
                         to be revealed soon. </span>
                 </div>
             </div>
         </section>
-        <section class="w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden" id="experience">
+        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden"
+            id="experience">
             <div class="flex flex-col justify-center items-center text-evergreen gap-2">
                 <div class="w-full flex flex-row bg-transparent pb-2 px-2">
                     <span class="text-left text-xl font-semibold">Work Experience</span>
@@ -342,8 +359,8 @@
                 </div>
             </div>
         </section>
-        <section class="w-[70%] h-full bg-transparent p-4 overflow-y-scroll hidden" id="projects">
-            <div class="flex h-auto justify-end items-start flex-wrap gap-2">
+        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent p-4 overflow-y-scroll" id="projects">
+            <div class="flex h-auto justify-end items-start flex-wrap gap-2" id="projects-container">
                 <!-- (2018) -->
                 <div class="w-[825px] h-[50px] bg-transparent flex flex-row justify-center items-center">
                     <div
@@ -353,7 +370,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group" onclick="">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/nsf-reu/img8.png" alt="Multi-Robot Configuration" class="" />
@@ -363,8 +380,15 @@
                         <span class="w-full text-center text-evergreen text-sm select-none">RSSI Based Multi-Robot
                             Navigation</span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('furo-robot')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/dasl/furo/img2.png" alt="Furo Head" class="" />
@@ -375,8 +399,15 @@
                             Navigation
                         </span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('refurbished-patio-chairs')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/refurbish/chair/new-chair1.png" alt="Refurbished Patio Chair"
@@ -386,6 +417,12 @@
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">Refurbished Patio
                             Chairs</span>
+                    </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
                     </div>
                 </div>
                 <!-- (2017) -->
@@ -397,7 +434,8 @@
                         </span>
                     </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('potential-fields')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/dasl/potential-fields/img1.png" alt="Robotino" class="" />
@@ -407,16 +445,29 @@
                         <span class="w-full text-center text-evergreen text-sm select-none">Potential Fields
                             Navigation</span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('alexa-stocks-skill')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
-                        <img src="./assets/images/projects/dasl/alexa/hello-world/img1.png" alt="Alexa" class="" />
+                        <img src="./assets/images/projects/dasl/alexa/img1.png" alt="Alexa" class="" />
                     </div>
                     <div
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">Alexa "Stock Price"
-                            Tutorial</span>
+                            Skill</span>
+                    </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
                     </div>
                 </div>
                 <!-- (2016) -->
@@ -428,18 +479,26 @@
                         </span>
                     </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('alexa-hello-world')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
-                        <img src="./assets/images/projects/dasl/alexa/hello-world/img1.png" alt="Alexa" class="" />
+                        <img src="./assets/images/projects/dasl/alexa/img1.png" alt="Alexa" class="" />
                     </div>
                     <div
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">Alexa "Hello World"
                             Tutorial</span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('upcycled-shelf')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/upcycle/shelf/shelf1.png" alt="Upcycled Shelf" class="" />
@@ -448,8 +507,33 @@
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">Upcycled Shelf</span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('aws-lambda')" id="project-card">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/dasl/alexa/aws-lambda.png" alt="AWS Lambda" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">AWS Lambda
+                            Tutorial</span>
+                    </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('upcycled-table')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/upcycle/table/table2.JPG" alt="Upcycled Table" class="" />
@@ -457,6 +541,12 @@
                     <div
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">Upcycled Table</span>
+                    </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
                     </div>
                 </div>
                 <!-- (< 2015) -->
@@ -468,7 +558,8 @@
                         </span>
                     </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('frc-robotics')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/first-robotics-competition/frc-year1-robot.jpg"
@@ -478,8 +569,15 @@
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">FRC Robotics</span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('architecture')" id="project-card">
                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
                         <img src="./assets/images/projects/architecture-challenge/Revit_1.jpg" alt="architecture"
                             class="" />
@@ -489,10 +587,877 @@
                         <span class="w-full text-center text-evergreen text-sm select-none">Architecture
                             Competition</span>
                     </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="project-card-container"
+                class="w-full h-full bg-neutral-200/85 backdrop-blur-lg rounded-2xl p-4 z-30 overflow-hidden hidden">
+                <div class="w-full h-full flex flex-col">
+                    <div class="w-full h-auto flex flex-row justify-end items-center">
+                        <div onclick="closeProjectCard()"
+                            class="flex flex-row justify-center cursor-pointer items-center rounded-full p-2 bg-neutral-300 w-auto h-auto">
+                            <img src="./assets/images/close.svg" alt="close" class="w-[20px] h-[20px] z-50" />
+                        </div>
+                    </div>
+                    <div id="furo-robot-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Furo Robot Directory
+                            Navigation</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/furo/img2.png" alt="furo1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="furo-robot2-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/dasl/furo/mov5.MOV" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[375px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/furo/img3.png" alt="robot3"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[375px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/furo/img4.png" alt="robot3"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="furo-robot2-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/dasl/furo/mov4.MOV" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="furo-robot3-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/dasl/furo/mov3.MOV" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/furo/img1.png" alt="furo1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[210px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="furo-robot1-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/dasl/furo/mov1.MOV" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>Potential Fields is a concept that comes from the
+                                    fundamentals
+                                    of electricity and
+                                    magnetism. A charge with high potential (positive) will repel the electric field
+                                    away
+                                    from it, while a charge with low potential (negative) will attract the electric
+                                    field.
+                                    With many of these attractive or repulsive points present in the electric field, a
+                                    field
+                                    of vectors is created representing all of the forces at each point in the field.
+                                    This
+                                    vector field can be navigated by following each vector at each present location,
+                                    leading
+                                    towards the point of lowest potential in the field (global minimum).
+                                </span>
+                                <span class="my-2"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="potential-fields-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Potential Fields Navigation with Festo's
+                            Robotino</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[250px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[200px] h-[250px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="potential-fields-movie" class="w-full h-full">
+                                            <source
+                                                src="./assets/images/projects/dasl/potential-fields/potential-fields.MOV"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[200px] h-[250px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/potential-fields/img1.png"
+                                            alt="potential-fields-img" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>Potential Fields is a concept that comes from the
+                                    fundamentals
+                                    of electricity and
+                                    magnetism. A charge with high potential (positive) will repel the electric field
+                                    away
+                                    from it, while a charge with low potential (negative) will attract the electric
+                                    field.
+                                    With many of these attractive or repulsive points present in the electric field, a
+                                    field
+                                    of vectors is created representing all of the forces at each point in the field.
+                                    This
+                                    vector field can be navigated by following each vector at each present location,
+                                    leading
+                                    towards the point of lowest potential in the field (global minimum).
+                                </span>
+                                <span class="my-2"></span>
+                                <span>
+                                    This can be applied to robotics by creating a field where obstacles are repulsive
+                                    points, and the target is an attractive point. The robot moves along the gradient of
+                                    the
+                                    combined potential field.</span>
+                                <span class="my-2"></span>
+                                <span>
+                                    This project implements an advanced potential fields navigation system for the Festo
+                                    Robotino, a versatile omnidirectional mobile robot platform, integrated with a
+                                    Hokuyo LIDAR scanner for real-time obstacle detection. The system demonstrates
+                                    autonomous navigation in dynamic environments, skillfully avoiding obstacles while
+                                    pursuing a predefined goal. At its core, the project combines three key components:
+                                    the Festo Robotino for mobility and odometry, the Hokuyo LIDAR for environmental
+                                    sensing, and a custom-implemented potential fields algorithm for intelligent path
+                                    planning. The system architecture is built upon a robust integration of Robotino
+                                    control interfaces, LIDAR data processing, and the navigation algorithm itself. In
+                                    operation, an arbitrary point is set as the goal within the robot's coordinate
+                                    system. The LIDAR continuously scans the environment at a rate of 10Hz, with each
+                                    detected point treated as a potential obstacle. The navigation algorithm then
+                                    calculates a potential field, balancing an attractive force towards the goal against
+                                    repulsive forces from the detected obstacles. This resultant vector determines the
+                                    robot's velocity and direction, enabling smooth and continuous movement. The main
+                                    program loop cycles through position updates, LIDAR scans, potential field
+                                    calculations, and movement commands at a consistent 10Hz until the goal is reached.
+                                    This project showcases several key features, including real-time obstacle avoidance,
+                                    smooth goal-oriented movement, adaptability to changing environments, and seamless
+                                    integration of complex robotic systems. However, it also presented significant
+                                    challenges, such as efficient processing of large volumes of LIDAR data in
+                                    real-time, ensuring proper alignment between the Robotino's coordinate system and
+                                    the LIDAR data, and fine-tuning the balance between attractive and repulsive forces
+                                    for optimal navigation. Looking forward, there's potential for further enhancements,
+                                    including the implementation of more sophisticated path planning algorithms for
+                                    complex environments, integration of localization techniques like SLAM for improved
+                                    positional accuracy, incorporation of additional sensors for more comprehensive
+                                    environmental awareness, and development of a user-friendly interface for real-time
+                                    monitoring and control. This project stands as a practical demonstration of advanced
+                                    robotic navigation techniques, effectively combining hardware integration with
+                                    algorithmic implementation to achieve autonomous movement in real-world scenarios.
+                                    Below is the code: </span>
+                                <div class="flex flex-row justify-center items-center m-4 mb-10">
+                                    <div class="w-[95%]">
+                                        <pre><code class="language-cpp rounded-2xl">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+#include &lt;chrono&gt;
+#include &lt;thread&gt;
+#include &lt;rec/robotino/api2/all.h&gt;
+#include &lt;boost/asio.hpp&gt;
+
+struct Point
+{
+    double x, y;
+    Point(double x = 0, double y = 0) : x(x), y(y) {}
+};
+
+class HokuyoURG
+{
+private:
+    boost::asio::io_service io;
+    boost::asio::serial_port serial;
+    std::vector&lt;uint32_t&gt; distances;
+
+public:
+    HokuyoURG(const std::string &port, unsigned int baud_rate)
+        : serial(io, port)
+    {
+        serial.set_option(boost::asio::serial_port_base::baud_rate(baud_rate));
+    }
+
+    bool initialize()
+    {
+        write("SCIP2.0\n");
+        std::string response = read();
+        return response.find("SCIP2.0") != std::string::npos;
+    }
+
+    std::vector&lt;Point&gt; scan()
+    {
+        write("GD0000108000\n"); // Request scan from step 0 to step 1080
+        std::string response = read();
+
+        std::vector&lt;Point&gt; scan_points;
+
+        // Check if the response starts with "GD"
+        if (response.substr(0, 2) != "GD")
+        {
+            std::cerr &lt;&lt; "Invalid response from LIDAR" &lt;&lt; std::endl;
+            return scan_points;
+        }
+
+        // Skip header (first two lines)
+        size_t data_start = response.find('\n');
+        data_start = response.find('\n', data_start + 1);
+        data_start++; // Move past the newline
+
+        // Parse the data
+        const double STEP_ANGLE = 0.25 * M_PI / 180.0;    // 0.25 degrees in radians
+        const double START_ANGLE = -135.0 * M_PI / 180.0; // -135 degrees in radians
+
+        for (size_t i = 0; i &lt; 1081; ++i)
+        {
+            if (data_start + 3 > response.length())
+                break;
+
+            // Extract 3 characters for each measurement
+            std::string encoded_dist = response.substr(data_start, 3);
+            data_start += 3;
+
+            // Decode the distance
+            int distance = (encoded_dist[0] - 0x30) &lt;&lt; 12 | (encoded_dist[1] - 0x30) &lt;&lt; 6 | (encoded_dist[2] - 0x30);
+
+            // Skip invalid measurements
+            if (distance == 0)
+                continue;
+
+            // Convert polar coordinates to Cartesian
+            double angle = START_ANGLE + i * STEP_ANGLE;
+            double x = distance * cos(angle) / 1000.0; // Convert to meters
+            double y = distance * sin(angle) / 1000.0; // Convert to meters
+
+            scan_points.emplace_back(x, y);
+        }
+
+        return scan_points;
+    }
+
+private:
+    void write(const std::string &data)
+    {
+        boost::asio::write(serial, boost::asio::buffer(data));
+    }
+
+    std::string read()
+    {
+        char c;
+        std::string result;
+        while (boost::asio::read(serial, boost::asio::buffer(&c, 1)))
+        {
+            if (c == '\n')
+                break;
+            result += c;
+        }
+        return result;
+    }
+};
+
+class RobotinoRobot : public rec::robotino::api2::Com
+{
+private:
+    rec::robotino::api2::OmniDrive omniDrive;
+    rec::robotino::api2::Odometry odometry;
+    HokuyoURG *lidar;
+    Point goal;
+    std::vector&lt;Point&gt; obstacles;
+    double attractiveConst = 1.0;
+    double repulsiveConst = 100.0;
+    double influenceRange = 0.5; // in meters
+    double maxVelocity = 0.2;    // in m/s
+
+public:
+    RobotinoRobot(const std::string &hostname, Point goal, HokuyoURG *lidar)
+        : goal(goal), lidar(lidar)
+    {
+        setAddress(hostname.c_str());
+    }
+
+    void updateLidarData()
+    {
+        obstacles = lidar->scan();
+    }
+
+    Point calculateAttractivePotential()
+    {
+        float x, y, phi;
+        odometry.readings(&x, &y, &phi);
+        double dx = goal.x - x;
+        double dy = goal.y - y;
+        double distance = std::sqrt(dx * dx + dy * dy);
+        return Point(attractiveConst * dx / distance, attractiveConst * dy / distance);
+    }
+
+    Point calculateRepulsivePotential()
+    {
+        Point total(0, 0);
+        float robot_x, robot_y, robot_phi;
+        odometry.readings(&robot_x, &robot_y, &robot_phi);
+
+        for (const auto &obstacle : obstacles)
+        {
+            double dx = robot_x - obstacle.x;
+            double dy = robot_y - obstacle.y;
+            double distance = std::sqrt(dx * dx + dy * dy);
+
+            if (distance &lt; influenceRange)
+            {
+                double magnitude = repulsiveConst * (1 / distance - 1 / influenceRange) / (distance * distance);
+                total.x += magnitude * dx / distance;
+                total.y += magnitude * dy / distance;
+            }
+        }
+        return total;
+    }
+
+    void move()
+    {
+        updateLidarData();
+        Point attractive = calculateAttractivePotential();
+        Point repulsive = calculateRepulsivePotential();
+
+        double vx = attractive.x + repulsive.x;
+        double vy = attractive.y + repulsive.y;
+
+        // Normalize and scale velocity
+        double magnitude = std::sqrt(vx * vx + vy * vy);
+        if (magnitude > maxVelocity)
+        {
+            vx = (vx / magnitude) * maxVelocity;
+            vy = (vy / magnitude) * maxVelocity;
+        }
+
+        // Robotino uses a different coordinate system, so we need to adjust
+        omniDrive.setVelocity(vy, -vx, 0); // x and y are swapped, and x is negated
+
+        float x, y, phi;
+        odometry.readings(&x, &y, &phi);
+        std::cout &lt;&lt; "Robot at (" &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; "), φ = " &lt;&lt; phi &lt;&lt; std::endl;
+    }
+
+    bool reachedGoal()
+    {
+        float x, y, phi;
+        odometry.readings(&x, &y, &phi);
+        double dx = goal.x - x;
+        double dy = goal.y - y;
+        return std::sqrt(dx * dx + dy * dy) &lt; 0.1;
+    }
+
+    void errorEvent(const char *errorString) override
+    {
+        std::cerr &lt;&lt; "Error: " &lt;&lt; errorString &lt;&lt; std::endl;
+    }
+
+    void connectedEvent() override
+    {
+        std::cout &lt;&lt; "Connected to Robotino" &lt;&lt; std::endl;
+    }
+
+    void connectionClosedEvent() override
+    {
+        std::cout &lt;&lt; "Connection to Robotino closed" &lt;&lt; std::endl;
+    }
+};
+
+int main()
+{
+    HokuyoURG lidar("/dev/ttyACM0", 115200);
+    if (!lidar.initialize())
+    {
+        std::cerr &lt;&lt; "Failed to initialize LIDAR" &lt;&lt; std::endl;
+        return 1;
+    }
+
+    RobotinoRobot robot("172.26.1.1", Point(10, 15), &lidar); // Replace IP with your Robotino's IP
+
+    if (!robot.connect())
+    {
+        std::cerr &lt;&lt; "Failed to connect to Robotino" &lt;&lt; std::endl;
+        return 1;
+    }
+
+    while (!robot.reachedGoal())
+    {
+        robot.move();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // 10 Hz update rate
+    }
+
+    robot.omniDrive.setVelocity(0, 0, 0); // Stop the robot
+    std::cout &lt;&lt; "Goal reached!" &lt;&lt; std::endl;
+
+    robot.disconnect();
+    return 0;
+}
+                                    </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="aws-lambda-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">AWS Lambda Tutorial</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[125px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[125px] h-[125px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="rounded-2xl w-full h-full overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/alexa/aws-lambda.png" alt="aws-lambda"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>As part of a tutorial series on integrating speech recognition into robotics
+                                    applications, I created a series of tutorials on developing Amazon Alexa Skills.
+                                    Part of
+                                    this process includes setting up a serverless compute service (in this case we used
+                                    AWS
+                                    Lambda as it provides easy integration with the Alexa Skills Kit) to run functions
+                                    in
+                                    response to events.</span>
+                                <span class="my-2"></span>
+                                <span>You can read through the tutorial and follow along in the tutorial series here:
+                                    <a href="https://www.daslhub.org/unlv/wiki/doku.php?id=using_lambda" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <span class="underline decoration-solid">Link</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="alexa-stocks-skill-card"
+                        class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Alexa "Stock Price" Skill</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/alexa/img1.png" alt="alexa"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>For this project, I developed a custom Alexa skill that provides users with
+                                    real-time
+                                    stock market information. The skill enables users to query Alexa for current stock
+                                    prices, as well as daily highs and lows for specific companies. To implement this
+                                    functionality, I leveraged the Beautiful Soup Python package to perform web scraping
+                                    on
+                                    Yahoo Finance pages, extracting up-to-date stock data based on company ticker
+                                    symbols.
+                                    While the skill's scope was initially limited to a predefined dictionary of major
+                                    tech
+                                    firms and their corresponding ticker symbols, it successfully demonstrated the
+                                    concept
+                                    and functionality for these high-profile stocks. The project showcased my abilities
+                                    in
+                                    voice user interface design, API integration, web scraping techniques, and working
+                                    with
+                                    Amazon's Alexa Skills Kit.</span>
+                                <span class="my-2"></span>
+                                <span>You can grab the code and follow along in the tutorial series here:
+                                    <a href="https://www.daslhub.org/unlv/wiki/doku.php?id=echo_stock_price"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <span class="underline decoration-solid">Link</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="alexa-hello-world-card"
+                        class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Alexa "Hello World" Tutorial</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/dasl/alexa/img1.png" alt="alexa"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>For this project, I created an Alexa "Hello World" tutorial to walk a developer
+                                    through the process of creating skills for Amazon's Alexa.</span>
+                                <span class="my-2"></span>
+                                <span>You can follow the tutorial here:
+                                    <a href="https://www.daslhub.org/unlv/wiki/doku.php?id=echo_hello_world&do="
+                                        target="_blank" rel="noopener noreferrer">
+                                        <span class="underline decoration-solid">Link</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="architecture-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Architecture Competition</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/architecture-challenge/Revit_1.jpg"
+                                            alt="arch1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/architecture-challenge/Revit_2.jpg"
+                                            alt="arch2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4"">
+                                <span>During my high school years, I attended a magnet school that offered specialized
+                                    programs, and I was enrolled in the 'Engineering & Design' track. This program
+                                    exposed
+                                    us to a diverse range of engineering projects, including CADD, civil engineering,
+                                    architecture, and digital electronics. In our senior year civil engineering class,
+                                    we
+                                    had the opportunity to participate in an AIA Las Vegas architecture competition. The
+                                    challenge was to design a building based on specifications for what would become the
+                                    'Container Park' in downtown Las Vegas. The key requirements included:</span>
+                                    <span class=" my-2"></span>
+                                <ul class=" list-inside list-disc">
+                                    <li>creating an outdoor area for events, socialization, and dining</li>
+                                    <li>incorporating sustainable design elements</li>
+                                    <li>combining both retail and housing within the structure</li>
+                                </ul>
+                                <span class="my-2"></span>
+                                <span>For my submission to the architecture competition, I designed a unique complex
+                                    using
+                                    AutoDesk Revit. The design featured two buildings arranged in an "LV" formation,
+                                    symbolizing Las Vegas. The "L" building was designated for housing, while the "V"
+                                    building housed retail spaces. A distinctive feature of my design was the
+                                    incorporation
+                                    of two waterfalls in the outdoor area, with water cascading down glass walls beneath
+                                    a
+                                    glass walkway connecting the retail and housing buildings. This created a visually
+                                    striking and immersive environment. The outdoor space also included dining areas on
+                                    the
+                                    ground floor of the "L" building, enhancing the social aspect of the complex. To
+                                    address
+                                    the harsh Las Vegas climate, I integrated a shaded outdoor area beneath the "V"
+                                    building, providing a comfortable space for activities protected from the intense
+                                    sun.
+                                    This design not only met the competition's criteria but also aimed to create a
+                                    functional, aesthetically pleasing, and climate-responsive urban space.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="frc-robotics-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">FRC Robotics</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/frc-year1-robot.jpg"
+                                            alt="robot1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/frc-year2-robot.jpg"
+                                            alt="robot2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/frc-year2-robot2.jpg"
+                                            alt="robot3" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[160px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/team.jpg"
+                                            alt="robot4" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/frc-year2-robot3.jpg"
+                                            alt="robot5" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/frc-year3-robot.jpg"
+                                            alt="robot6" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/first-robotics-competition/frc-vex.jpg"
+                                            alt="robot7" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="upcycled-shelf-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Upcycled Shelf</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[275px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/upcycle/shelf/shelf1.png" alt="shelf"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>For this project, I repurposed leftover plywood and 2x4's to create a leaning wall
+                                    bookshelf for the robotics lab, building upon knowledge gained from a previous
+                                    upcycled
+                                    coffee table project. </span>
+                                <span class="my-2"></span>
+                                <span>The process began with a quick sketch of the desired design, followed by cutting
+                                    the
+                                    2x4's to specifications. I angled both ends of each 2x4 to ensure proper alignment
+                                    with
+                                    the floor and wall. Using a countersink bit, I created recesses for screw heads at
+                                    each
+                                    shelf position, ensuring a flush finish. Four plywood shelves were cut to the
+                                    specified
+                                    dimensions, then sanded and lightly stained. After the initial staining, I secured
+                                    each
+                                    shelf to the 2x4 frame using two screws on each side. To achieve a consistent
+                                    appearance, I applied a final coat of stain to the entire assembled piece. This
+                                    project
+                                    effectively utilized surplus materials while incorporating improvements based on
+                                    lessons
+                                    learned from previous work, resulting in a functional and aesthetically pleasing
+                                    bookshelf for the lab.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="upcycled-table-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Upcycled Table</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/upcycle/table/table1.JPG" alt="table1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/upcycle/table/table2.JPG" alt="table2"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>For this project, I took a stockpile of wood planks, 2x4's, and 4x4's that were
+                                    left
+                                    over
+                                    from a previous project to create a
+                                    coffee table for the robotics lab. This was my first time doing any sort of
+                                    woodworking,
+                                    so I had to learn the basics.</span>
+                                <span class="my-2"></span>
+                                <span>I started off with an overall design in Solidworks, using the dimensions of the
+                                    kitchen, requirements for the coffee table, and constraints as a basis. The coffee
+                                    table
+                                    needed to be able to hold a certain amount of kitchen equipment, with a preferred
+                                    L-shape design. The
+                                    constraints include the materials I was provided (leftover wood from previous
+                                    projects)
+                                    and the area allowance in the kitchen.</span>
+                                <span class="my-2"></span>
+                                <span>After the design was set, I began individually cleaning and sanding the wood
+                                    pieces in
+                                    order to prepare the surface for painting/staining. After I painted/sanded the
+                                    individual pieces, I
+                                    assembled the individual pieces together. The table consisted of three core parts:
+                                </span>
+                                <ul class="list-inside list-disc">
+                                    <li>Tabletop</li>
+                                    <li>Backsplash</li>
+                                    <li>Legs</li>
+                                </ul>
+                                <span class="my-2"></span>
+                                <span>For the tabletop, I began by arranging wood planks on the floor to match the
+                                    intended
+                                    dimensions. Using a marker and ruler, I traced the L-shape design onto the
+                                    arrangement.
+                                    To join the planks, I secured metal plates along the top and bottom of each
+                                    neighboring
+                                    plank on one side. I then cut along the marked pattern with a saw to achieve the
+                                    desired
+                                    L-shape. After cutting, I re-stained the wood to ensure an even finish across all
+                                    pieces. To create a border for the tabletop, I used 2x4s, routing a groove in the
+                                    center
+                                    of the 4-inch side to match the depth of the planks. These routed 2x4s were then
+                                    applied
+                                    to the straight edges of the tabletop, forming a polished border that frames the
+                                    piece.
+                                </span>
+                                <span class="my-2"></span>
+                                <span>To create the backsplash, I repurposed an old wood lattice fence, cutting it to
+                                    match
+                                    the length of the tabletop's longest side. For a polished look and secure fit, I
+                                    fashioned a border using a 2x4, routing a groove along the center of its 4-inch face
+                                    to
+                                    a depth matching the lattice thickness. This routed 2x4 serves as the top border,
+                                    into
+                                    which the lattice panel is inserted. To ensure stability and integrate the
+                                    backsplash
+                                    with the tabletop, I added another 2x4, connecting it to the ends of both the
+                                    backsplash
+                                    and tabletop. This backsplash complements the overall design of the
+                                    table while also preventing any materials from getting onto the wall it was situated
+                                    on.
+                                </span>
+                                <span class="my-2"></span>
+                                <span>The table legs were crafted from 4x4 lumber, cut to a length that accounted for
+                                    the
+                                    required table height minus the thickness of the wood planks used for the tabletop.
+                                    These legs were painted black to conceal potential shoe marks and other stains,
+                                    enhancing their durability and appearance. I attached the legs to the tabletop using
+                                    L-brackets for secure fastening. To ensure stability on various surfaces, I fitted
+                                    the
+                                    bottom of each leg with adjustable rubber feet, allowing for easy leveling of the
+                                    finished table.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="refurbished-patio-chairs-card"
+                        class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Refurbished Patio Chairs</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[175px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[275px] h-[175px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/refurbish/chair/old-chair1.png"
+                                            alt="oldchair1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[175px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/refurbish/chair/new-chair1.png"
+                                            alt="newchair1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[175px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/refurbish/chair/old-chair2.png"
+                                            alt="oldchair2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/refurbish/chair/new-chair2.png"
+                                            alt="newchair2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>For this project, I undertook the task of refurbishing old patio chairs that had
+                                    been
+                                    deteriorated by sun exposure. </span>
+                                <span class="my-2"></span>
+                                <span>These chairs feature a classic sling/sling-rail design, where the sling-rail holds
+                                    the
+                                    sling taut using a channel in its midsection. I began by detaching both the top and
+                                    bottom slings from each rail, then removed the screws connecting the rails to the
+                                    chair
+                                    base. Next, I thoroughly sanded down the aluminum chair base and sling-rails to
+                                    remove
+                                    the existing paint and rust caused by years of weathering. After sanding, I applied
+                                    a
+                                    fresh coat of paint to each piece and topped it with a weather-resistant sealant to
+                                    ensure long-lasting protection against the elements. </span>
+                                <span class="my-2"></span>
+                                <span>To create new slings, I purchased burlap from a fabric store and cut it to the
+                                    chair's
+                                    specifications, allowing extra length and width for hemming and attachment. I
+                                    prepared
+                                    multiple layers for each sling to enhance durability. After sewing the layers
+                                    together
+                                    along the edges and hemming them to prevent fraying, I had four new slings ready -
+                                    two
+                                    for the back and two for the seat. Finally, I inserted these new slings into the
+                                    refurbished sling rails and reattached the rails to the chair base using the
+                                    original
+                                    screws, effectively restoring the chairs to their former functionality and an
+                                    improved
+                                    appearance.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden" id="publications">
+        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden"
+            id="publications">
             <div class="flex flex-col justify-center items-center text-evergreen gap-2">
                 <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
                     <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
@@ -520,16 +1485,19 @@
                         </p>
                         <p>&nbsp;</p>
                         <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
-                            Combining the images of multiple airborne cameras is a common way to achieve a higher scene
+                            Combining the images of multiple airborne cameras is a common way to achieve a higher
+                            scene
                             coverage in Wide Area Motion Imagery (WAMI). This paper proposes a novel approach, named
                             Dynamic Homography (DH), to stitch multiple images of an airborne array of ’non-rigid’
                             cameras with ’narrow’ overlaps between their FOVs. It estimates the inter-views
                             transformations using their underlying geometry namely the relative angles between their
-                            local coordinate systems in 3D. A fast and robust optimization model is used to minimize the
+                            local coordinate systems in 3D. A fast and robust optimization model is used to minimize
+                            the
                             errors between the feature correspondenceswhich takes place when a new set of images are
                             acquired from the camera array. The minimum number of required feature correspondences
                             between each adjacent pair of views is only two, which relaxes the need to have a large
-                            overlapin their FOVs. Our quantitative and qualitative experiments show the superiority of
+                            overlapin their FOVs. Our quantitative and qualitative experiments show the superiority
+                            of
                             the proposed method compared to the traditional ones.</p>
                     </div>
                 </div>
@@ -548,7 +1516,8 @@
                             Elevation-Layer 2D
                             Bounding-Boxes</p>
                         <p>&nbsp;</p>
-                        <p class="text-center text-sm">ICCV Workshop on Analysis of Aerial Motion Imagery (WAAMI)</p>
+                        <p class="text-center text-sm">ICCV Workshop on Analysis of Aerial Motion Imagery (WAAMI)
+                        </p>
                         <p class="text-center text-sm">2021</p>
                         <p class="text-center text-sm">Montreal, Canada (Virtual)</p>
                         <p class="text-center text-sm">T. Brodeur, H. AliAkbarpour, S. Suddarth</p>
@@ -561,18 +1530,24 @@
                         <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
                             Segmentation of
                             point
-                            clouds is a necessary pre-processing technique when object discrimination is neededfor scene
-                            understanding. In this paper, we propose a seg-mentation technique utilizing 2D bounding-box
+                            clouds is a necessary pre-processing technique when object discrimination is neededfor
+                            scene
+                            understanding. In this paper, we propose a seg-mentation technique utilizing 2D
+                            bounding-box
                             data ob-tained via the orthographic projection of 3D points onto aplane at multiple
                             elevation layers. Connected componentsis utilized to obtain bounding-box data, and a
                             consistencymetric between bounding-boxes at various elevation layershelps determine the
                             classification of the bounding-box toan object of the scene. The merging of point data
-                            withineach 2D bounding-box results in an object-segmented pointcloud. Our method conducts
+                            withineach 2D bounding-box results in an object-segmented pointcloud. Our method
+                            conducts
                             segmentation using only thetopological information of the point data within a
-                            dataset,requiring no extra computation of normals, creation of anoctree or k-d tree, nor a
-                            dependency on RGB or intensitydata associated with a point. Initial experiments are run ona
+                            dataset,requiring no extra computation of normals, creation of anoctree or k-d tree, nor
+                            a
+                            dependency on RGB or intensitydata associated with a point. Initial experiments are run
+                            ona
                             set of point cloud datasets obtained via photogrammet-ric means, as well as some
-                            open-source, LIDAR-generatedpoint clouds, showing the method to be capture agnostic.Results
+                            open-source, LIDAR-generatedpoint clouds, showing the method to be capture
+                            agnostic.Results
                             demonstrate the efficacy of this method in obtaininga distinct set of objects contained
                             within a point cloud.</p>
                     </div>
@@ -587,10 +1562,12 @@
                         </div>
                     </div>
                     <div class="w-[calc(70%)] h-full overflow-y-scroll">
-                        <p class="text-center text-md font-semibold">Search and Rescue Operations with Mesh Networked
+                        <p class="text-center text-md font-semibold">Search and Rescue Operations with Mesh
+                            Networked
                             Robots</p>
                         <p>&nbsp;</p>
-                        <p class="text-center text-sm">IEEE Ubiquitous Computing, Electronics and Mobile Communication
+                        <p class="text-center text-sm">IEEE Ubiquitous Computing, Electronics and Mobile
+                            Communication
                             Conference (UEMCON)</p>
                         <p class="text-center text-sm">2018</p>
                         <p class="text-center text-sm">Columbia University; New York City, NY</p>
@@ -604,16 +1581,24 @@
                         </p>
                         <p>&nbsp;</p>
                         <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
-                            Efficient path planning and communication of multirobot systems in the case of a search and
-                            rescue operation is a critical issue facing robotics disaster relief efforts. Ensuring all
-                            the nodes of a specialized robotic search team are within range, while also covering as much
-                            area as possible to guarantee efficient response time, is the goal of this paper. We propose
-                            a specialized search-and-rescue model based on a mesh network topology of aerial and ground
+                            Efficient path planning and communication of multirobot systems in the case of a search
+                            and
+                            rescue operation is a critical issue facing robotics disaster relief efforts. Ensuring
+                            all
+                            the nodes of a specialized robotic search team are within range, while also covering as
+                            much
+                            area as possible to guarantee efficient response time, is the goal of this paper. We
+                            propose
+                            a specialized search-and-rescue model based on a mesh network topology of aerial and
+                            ground
                             robots. The proposed model is based on several methods. First, each robot determines its
                             position relative to other robots within the system, using RSSI. Packets are then
-                            communicated to other robots in the system detailing important information regarding robot
-                            system status, status of the mission, and identification number. The results demonstrate the
-                            ability to determine multi-robot navigation with RSSI, allowing low computation costs and
+                            communicated to other robots in the system detailing important information regarding
+                            robot
+                            system status, status of the mission, and identification number. The results demonstrate
+                            the
+                            ability to determine multi-robot navigation with RSSI, allowing low computation costs
+                            and
                             increased search-andrescue time efficiency.</p>
                     </div>
                 </div>
@@ -627,9 +1612,11 @@
                         </div>
                     </div>
                     <div class="w-[calc(70%)] h-full overflow-y-scroll">
-                        <p class="text-center text-md font-semibold">Directory Navigation with Robotic Assistance</p>
+                        <p class="text-center text-md font-semibold">Directory Navigation with Robotic Assistance
+                        </p>
                         <p>&nbsp;</p>
-                        <p class="text-center text-sm">IEEE Computing and Communication Workshop and Conference (CCWC)
+                        <p class="text-center text-sm">IEEE Computing and Communication Workshop and Conference
+                            (CCWC)
                         </p>
                         <p class="text-center text-sm">2018</p>
                         <p class="text-center text-sm">University of Nevada, Las Vegas; Las Vegas, NV</p>
@@ -644,35 +1631,39 @@
                         <p>&nbsp;</p>
                         <p class="text-left text-sm"> <span class="font-medium">Abstract</span>:
                             Malls are full of retail store and restaurant chains, allowing customers a vast array of
-                            destinations to explore. Often, these sites contain a directory of all stores located within
-                            the shopping center, allowing customers a top-down view of their current position, and their
-                            desired store location. In this paper, we present a customer centric approach to directory
+                            destinations to explore. Often, these sites contain a directory of all stores located
+                            within
+                            the shopping center, allowing customers a top-down view of their current position, and
+                            their
+                            desired store location. In this paper, we present a customer centric approach to
+                            directory
                             navigation using a service robot, where the robot is able to display the directory, and
                             guide customers to needed destinations.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="w-[70%] h-full bg-transparent border-evergreen border-solid border rounded-2xl p-4 hidden"
+        <section
+            class="w-[100%-600px] h-full debug bg-transparent border-evergreen border-solid border rounded-2xl p-4 hidden"
             id="blog">
 
         </section>
         <div class="absolute bottom-0 overflow-hidden bg-transparent h-[40px]">
             <div class="flex flex-row justify-start items-center gap-2 py-[5px] p-4">
                 <a href="https://github.com/twbot" target="_blank" rel="noopener noreferrer" class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/github.svg" /></div>
+                    <div><img src="./assets/images/logos/social/github.svg" alt="github" /></div>
                 </a>
                 <a href="https://twitter.com/twbrodeur" target="_blank" rel="noopener noreferrer"
                     class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/twitter.svg" /></div>
+                    <div><img src="./assets/images/logos/social/twitter.svg" alt="twitter/x" /></div>
                 </a>
                 <a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" target="_blank"
                     rel="noopener noreferrer" class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/google-scholar-square.svg" /></div>
+                    <div><img src="./assets/images/logos/social/google-scholar-square.svg" alt="google scholar" /></div>
                 </a>
                 <a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" target="_blank"
                     rel="noopener noreferrer" class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/linkedin.svg" /></div>
+                    <div><img src="./assets/images/logos/social/linkedin.svg" alt="linkedin" /></div>
                 </a>
             </div>
         </div>
