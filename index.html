@@ -673,22 +673,79 @@
                             </div>
                             <div
                                 class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
-                                <span>Potential Fields is a concept that comes from the
-                                    fundamentals
-                                    of electricity and
-                                    magnetism. A charge with high potential (positive) will repel the electric field
-                                    away
-                                    from it, while a charge with low potential (negative) will attract the electric
-                                    field.
-                                    With many of these attractive or repulsive points present in the electric field, a
-                                    field
-                                    of vectors is created representing all of the forces at each point in the field.
-                                    This
-                                    vector field can be navigated by following each vector at each present location,
-                                    leading
-                                    towards the point of lowest potential in the field (global minimum).
+                                <span>The code for this project can be found here:<a
+                                        href="https://github.com/twbot/furo_navigation/tree/master" target="_blank"
+                                        rel="noopener noreferrer" class="underline decoration-solid">Github Link</a>
                                 </span>
                                 <span class="my-2"></span>
+                                <span>In this project, Alex and I were tasked with developing a system enabling a robot
+                                    to navigate a kitchen area and perform specific tasks. We utilized an existing
+                                    differential drive robot, the Furo-S, for testing. Our approach divided the project
+                                    into three primary objectives:</span>
+
+                                <ul class="list-inside list-disc">
+                                    <li>Area navigation</li>
+                                    <li>Object detection</li>
+                                    <li>Manipulation</li>
+                                </ul>
+
+                                <span class="my-2"></span>
+
+                                <span class="underline text-md">Navigation</span>
+                                <span>Given time constraints and the static nature of the environment, we opted for an
+                                    efficient solution. We created a scaled digital map of the kitchen based on precise
+                                    measurements. Using OpenCV, we analyzed pixel intensity to identify obstacles, which
+                                    were then incorporated into our map generation method. This process produced a
+                                    configuration space for the robot, accounting for the Furo-S's wheelbase diameter by
+                                    establishing boundary limits around obstacles. We implemented a modified A*
+                                    algorithm, introducing a parameter p(n) to represent the number of turns in the
+                                    robot's path. This adaptation optimized travel time by penalizing excessive turns
+                                    while still finding an efficient route.</span>
+
+                                <span class="my-2"></span>
+
+                                <span>To facilitate human interaction, we designed an intuitive user interface using the
+                                    QT framework. This interface featured a grid of icons representing various kitchen
+                                    locations and associated tasks. During testing, as demonstrated in the videos, users
+                                    could select an icon to view the robot's planned path on the kitchen map, as
+                                    determined by our modified A* algorithm.</span>
+
+                                <span class="my-2"></span>
+
+                                <span class="underline text-md">Object Detection</span>
+                                <span>Upon reaching its destination, the robot needed to identify objects relevant to
+                                    the selected task. We leveraged the Furo-S's existing USB camera to obtain a live
+                                    video feed of its surroundings. For object recognition, we implemented a
+                                    straightforward QR code detection system using OpenCV. This method allowed for easy
+                                    identification of objects tagged with QR codes, as shown in the last video
+                                    above.</span>
+
+                                <span class="my-2"></span>
+
+                                <span class="underline text-md">Manipulation</span>
+                                <span>Due to the Furo-S platform's lack of end-effectors, we couldn't fully implement
+                                    the manipulation functionalities required for our overarching goal. However, I
+                                    gained valuable experience working on manipulation tasks using the <a
+                                        href="https://www.unlv.edu/news/article/darpa-robotics-challenge-finals"
+                                        target="_blank" rel="noopener noreferrer"
+                                        class="underline decoration-solid">Hubo</a> platform, albeit within the
+                                    constraints of its gantry system.</span>
+
+                                <span class="my-4"></span>
+
+                                <span class="underline decoration-double text-md">Challenges</span>
+                                <span>We encountered several obstacles during the project. A significant issue arose
+                                    when one of the wheel motor encoders malfunctioned. Despite our efforts, including
+                                    using the lab's oscilloscope to analyze the encoder's output signals, we couldn't
+                                    detect any signal from the encoder's wires.</span>
+
+                                <span class="my-4"></span>
+
+                                <span>To address this, we integrated a COTS encoder from Adafruit, connecting it to an
+                                    Arduino mounted on the Furo-S. This setup transmitted data to the Furo-S's main
+                                    computer via serial communication. However, we later discovered that the encoder
+                                    failure might have been symptomatic of a more serious power issue, as one of the
+                                    motors unexpectedly caught fire after several days of testing.</span>
                             </div>
                         </div>
                     </div>
@@ -1017,7 +1074,7 @@ int main()
     robot.disconnect();
     return 0;
 }
-                                    </code></pre>
+                                        </code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -1147,7 +1204,8 @@ int main()
                                     </div>
                                 </div>
                             </div>
-                            <div class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4"">
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
                                 <span>During my high school years, I attended a magnet school that offered specialized
                                     programs, and I was enrolled in the 'Engineering & Design' track. This program
                                     exposed
@@ -1157,8 +1215,8 @@ int main()
                                     had the opportunity to participate in an AIA Las Vegas architecture competition. The
                                     challenge was to design a building based on specifications for what would become the
                                     'Container Park' in downtown Las Vegas. The key requirements included:</span>
-                                    <span class=" my-2"></span>
-                                <ul class=" list-inside list-disc">
+                                <span class="my-2"></span>
+                                <ul class="list-inside list-disc">
                                     <li>creating an outdoor area for events, socialization, and dining</li>
                                     <li>incorporating sustainable design elements</li>
                                     <li>combining both retail and housing within the structure</li>
@@ -1242,7 +1300,7 @@ int main()
                             </div>
                             <div
                                 class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
-
+                                <span>LFKJALKDJFLSKJF</span>
                             </div>
                         </div>
                     </div>

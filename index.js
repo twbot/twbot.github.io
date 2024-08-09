@@ -4,7 +4,7 @@ var pdfState = {
     zoom: 1
 }
 
-var currentActiveTab = "projects";
+var currentActiveTab = "about";
 var currentActiveProjectCard = null;
 
 window.onload = function () {
