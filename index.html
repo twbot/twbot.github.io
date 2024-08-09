@@ -369,7 +369,8 @@
                         </span>
                     </div>
                 </div>
-                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group" onclick="">
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('rssi-nav')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
                         <img src="./assets/images/projects/nsf-reu/img8.png" alt="Multi-Robot Configuration" class="" />
@@ -416,6 +417,24 @@
                         class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
                         <span class="w-full text-center text-evergreen text-sm select-none">Refurbished Patio
                             Chairs</span>
+                    </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('nasa-return-challenge')" id="project-card">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/udacity-robotics/img1.png" alt="NASA Return Challenge"
+                            class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">NASA Return Challenge</span>
                     </div>
                     <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
                         <div
@@ -601,6 +620,157 @@
                         <div onclick="closeProjectCard()"
                             class="flex flex-row justify-center cursor-pointer items-center rounded-full p-2 bg-neutral-300 w-auto h-auto">
                             <img src="./assets/images/close.svg" alt="close" class="w-[20px] h-[20px] z-50" />
+                        </div>
+                    </div>
+                    <div id="nasa-return-challenge-card"
+                        class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">NASA Return Challenge</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="rssi-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/udacity-robotics/RoverSim.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/udacity-robotics/img1.png" alt="rssi1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="rssi-nav-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">RSSI Based Multi-Robot
+                            Navigation</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/nsf-reu/img8.png" alt="rssi1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="rssi-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/nsf-reu/mov5.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="rssi-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/nsf-reu/mov4.MOV" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="rssi-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/nsf-reu/mov1.MOV" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[300px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/nsf-reu/img2.JPG" alt="rssi1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[350px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/nsf-reu/img3.png" alt="rssi1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[350px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/nsf-reu/img4.png" alt="rssi1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[350px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/nsf-reu/img5.png" alt="rssi1"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <span>I was fortunate to be selected as a participant in a National Science Foundation
+                                    Research Experiences for Undergraduates (NSF REU) program. This 3-month summer
+                                    program supports active research participation by undergraduate students in areas
+                                    funded by the National Science Foundation. Our host university was an active site
+                                    participant for robotics, offering tracks in machine learning, networking, and
+                                    human-robot interaction. Each participant was assigned to a specific track and
+                                    paired with a graduate researcher and professor for daily and weekly project
+                                    updates. I was placed in the networking track, tasked with working on networking for
+                                    robotics applications.
+                                </span>
+                                <span class="my-2"></span>
+                                <span>The program began with an introduction and specialized classes for each track. One
+                                    of our first hands-on tasks involved hacking a robot to modify its actions. We then
+                                    explored various networking aspects before being asked to develop project ideas
+                                    within our assigned tracks.
+                                </span>
+                                <span class="my-2"></span>
+                                <span>Intrigued by the potential of signal data in robot orientation, I proposed a
+                                    project to orient an array of robots using network signals. After extensive research
+                                    into networking protocols and textbooks, I discovered the Zigbee protocol, which was
+                                    the standard for IoT devices at the time (now believed to be superseded by Z-wave).
+                                    My concept involved attaching Zigbee modules to an array of Unmanned Ground Vehicles
+                                    (UGVs) and Unmanned Aerial Vehicles (UAVs) to achieve a low computational cost
+                                    solution for multi-robot navigation by monitoring the signal strength of each node
+                                    in the mesh network.
+                                </span>
+                                <span class="my-2"></span>
+                                <span>I had access to two UGVs and one UAV. I sourced Zigbee-compatible modules called
+                                    X-Bee, which had a functional API and could communicate easily with Raspberry Pi's
+                                    on the vehicles over I2C. I developed several key components:</span>
+                                <ol class="list-inside list-decimal">
+                                    <li>A script for sending and receiving data packets between modules</li>
+                                    <li>Tests to check signal strength (as demonstrated in the video above)</li>
+                                    <li>Control loops based on the received signal strength</li>
+                                </ol>
+                                <span class="my-2"></span>
+                                <span>For a comprehensive technical report on the methodology, please refer to the
+                                    published paper: <a
+                                        href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fJzDPGsAAAAJ&citation_for_view=fJzDPGsAAAAJ:u-x6o8ySG0sC"
+                                        target="_blank" rel="noopener noreferrer" class="underline">Link</a></span>
+                                <span>The project code is available on GitHub: <a
+                                        href="https://github.com/twbot/Search-and-Rescue-Operations-with-Mesh-Networked-Robots"
+                                        target="_blank" rel="noopener noreferrer" class="underline">Link</a></span>
+                                <span class="my-2"></span>
+                                <span>Beyond the technical project, the REU program was designed to enhance our
+                                    skills as researchers and academics. We participated in weekly classes and
+                                    reviews of our current papers, which significantly improved our research
+                                    capabilities. This experience not only advanced our technical knowledge but also
+                                    provided an opportunity to make lifelong friends among fellow participants.
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div id="furo-robot-card" class="w-full h-[calc(100%-28px)] pb-4 px-4 overflow-hidden hidden">
@@ -1299,7 +1469,7 @@ int main()
                             </div>
                             <div
                                 class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
-                                <span>LFKJALKDJFLSKJF</span>
+                                <span></span>
                             </div>
                         </div>
                     </div>
@@ -1703,7 +1873,7 @@ int main()
         <section
             class="w-[100%-300px] md:w-[70%] h-full bg-transparent border border-evergreen rounded-2xl p-4 overflow-y-scroll hidden"
             id="blog">
-            <span>Nothing here yet.</span>
+            <span class="text-evergreen">Nothing here yet.</span>
         </section>
         <div class="absolute bottom-0 overflow-hidden bg-transparent h-[40px]">
             <div class="flex flex-row justify-start items-center gap-2 py-[5px] p-4">
