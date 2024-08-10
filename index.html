@@ -97,9 +97,9 @@
     <canvas id="particleCanvas" class="w-full h-full z-40"></canvas>
     <div class="absolute inset-0 overflow-hidden bg-neutral-300 grain-bg mix-blend-overlay" />
     <div class="absolute inset-7 overflow-hidden bg-transparent border-evergreen border-solid border rounded-2xl" />
-    <div class="absolute inset-7 overflow-hidden bg-transparent flex flex-row">
-        <div class="w-[300px] min-w-[300px] md:w-[30%] h-full p-4 overflow-hidden">
-            <div class="flex flex-row justify-start items-center mb-4">
+    <div class="absolute inset-7 overflow-hidden bg-transparent flex flex-col md:flex-row">
+        <div class="w-full md:w-[30%] md:min-w-[300px] h-auto md:h-full px-2 pb-4 md:p-4 overflow-hidden">
+            <div class="flex flex-row justify-center md:justify-start items-center mb-4">
                 <div class="flex flex-row justify-center gap-2 items-center">
                     <span class="text-4xl text-evergreen">Tristan</span>
                     <div id="animation-wrapper">
@@ -160,25 +160,31 @@
                     <span class="text-4xl text-evergreen">Brodeur</span>
                 </div>
             </div>
-            <div class="flex flex-col justify-start items-start pl-[2px]">
-                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+            <div
+                class="flex flex-row md:flex-col justify-center md:justify-start justify-center md:items-start md:pl-[2px] gap-4 md:gap-0">
+                <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
                     onclick="showPage(event, 'about', this); return false;">About</span>
-                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
                     onclick="showPage(event, 'experience', this); return false;">Experience</span>
-                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
                     onclick="showPage(event, 'projects', this); return false;">Projects</span>
-                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
                     onclick="showPage(event, 'publications', this); return false;">Publications</span>
-                <span class="text-xl text-evergreen mb-2 cursor-pointer"
+                <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
                     onclick="showPage(event, 'blog', this); return false;">Blog</span>
+                <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
+                    onclick="showPage(event, 'cv', this); return false;">CV</span>
             </div>
         </div>
-        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll" id="about">
+        <section class="w-full md:w-[70%] h-full bg-transparent rounded-2xl p-2 md:p-4 overflow-y-scroll" id="about">
             <div class="w-full flex flex-col justify-center items-center text-evergreen gap-2">
                 <div
                     class="w-full flex flex-col bg-neutral-200/85 backdrop-blur-lg justify-center items-start text-evergreen p-4 rounded-2xl">
+                    <span><img src="./assets/images/me.jpg" alt="picture of me"
+                            class="rounded-full w-[95px] h-[95px]" /></span>
+                    <span class="my-2"></span>
                     <span>Currently building Rekall.</span>
-                    <span>&nbsp;</span>
+                    <span class="my-2"></span>
                     <span>I build, ride, and rave. If I'm not building or raving, you'll likely catch me shredding
                         the
                         gnar
@@ -190,12 +196,12 @@
                     <span>Born in the great state of Montana.</span>
                     <span>Grew up in Las Vegas, Nevada.</span>
                     <span>Currently reside in Washington D.C.</span>
-                    <span>&nbsp;</span>
+                    <span class="my-2"></span>
                     <span>I spent my childhood summers on my grandfather's farm in the sun-baked fields of North
                         Dakota.
                         Those months were more than just a break from school—they were the
                         formative times that shaped my future.</span>
-                    <span>&nbsp;</span>
+                    <span class="my-2"></span>
                     <span>As I helped my grandfather repair massive farming machinery, I unknowingly planted the
                         seeds
                         of my
@@ -205,7 +211,7 @@
                         relentless
                         enthusiasm for sci-fi novels and movies might have played a role too—it's hard to say
                         which influence was stronger.</span>
-                    <span>&nbsp;</span>
+                    <span class="my-2"></span>
                     <span>What I know for certain is that those summers instilled in me a profound appreciation for
                         the
                         hard
@@ -225,7 +231,7 @@
                         every line of code I write, is a step towards that vision—a vision born in those sweaty,
                         greasy,
                         wonderful summers on a North Dakota farm.</span>
-                    <span>&nbsp;</span>
+                    <span class="my-2"></span>
                     <span>Fast forward to today, and my path has taken an intriguing turn. While still in the
                         robotics
                         sphere, I'm now focused on developing automated camera systems for 3D video capture. It's a
@@ -238,13 +244,13 @@
                 </div>
             </div>
         </section>
-        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden"
+        <section class="w-full md:w-[70%] h-full bg-transparent rounded-2xl p-2 md:p-4 overflow-y-scroll hidden"
             id="experience">
             <div class="flex flex-col justify-center items-center text-evergreen gap-2">
                 <div class="w-full flex flex-row bg-transparent pb-2 px-2">
                     <span class="text-left text-xl font-semibold">Work Experience</span>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-col justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/companies/idea-entity.png" alt="Idea Entity logo"
                             class="w-[75px] h-[75px]" />
@@ -255,7 +261,7 @@
                         <p class="text-start text-sm">Mar 2023 - Jun 2024</p>
                     </div>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-col justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/companies/jasmine-energy.jpeg" alt="Jasmine Energy logo"
                             class="w-[75px] h-[75px]" />
@@ -266,7 +272,7 @@
                         <p class="text-start text-sm">Jul 2022 - Feb 2023</p>
                     </div>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-row justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/companies/transparent-sky.png" alt="Transparent Sky logo"
                             class="w-[75px] h-[75px]" />
@@ -277,7 +283,7 @@
                         <p class="text-start text-sm">Aug 2020 - Jul 2022</p>
                     </div>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-row justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/companies/terbine.png" alt="Terbine logo"
                             class="w-[95px] h-[95px]" />
@@ -298,7 +304,7 @@
                         <p class="text-start text-sm">Oct 2019 - Dec 2019</p>
                     </div>
                 </div> -->
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-row justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/companies/atlas-group.png" alt="Atlas Group logo"
                             class="w-[80px] h-[80px]" />
@@ -309,7 +315,7 @@
                         <p class="text-start text-sm">Mar 2016 - Jul 2017</p>
                     </div>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-row justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/companies/white-rabbit.png" alt="White Rabbit logo"
                             class="w-[85px] h-[85px]" />
@@ -325,7 +331,7 @@
                 <div class="w-full flex flex-row bg-transparent p-4">
                     <span class="text-left text-xl font-semibold">Research Experience</span>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-col justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/labs/hive-lab.png" alt="Hive Lab logo"
                             class="w-[75px] h-[75px]" />
@@ -336,7 +342,7 @@
                         <p class="text-start text-sm">Sep 2019 - Nov 2019</p>
                     </div>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-col justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/labs/nsf.webp" alt="Hive Lab logo" class="w-[75px] h-[75px]" />
                     </div>
@@ -346,7 +352,7 @@
                         <p class="text-start text-sm">Jun 2018 - Aug 2018</p>
                     </div>
                 </div>
-                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                <div class="w-full h-[120px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-2 md:p-4">
                     <div class="flex flex-col justify-center items-center w-[110px] h-full">
                         <img src="./assets/images/logos/labs/dasl.png" alt="DASL Lab logo" class="w-[85px] h-[85px]" />
                     </div>
@@ -358,7 +364,7 @@
                 </div>
             </div>
         </section>
-        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent p-4 overflow-y-scroll hidden" id="projects">
+        <section class="w-full md:w-[70%] h-full bg-transparent p-2 md:p-4 overflow-y-scroll hidden" id="projects">
             <div class="flex h-auto justify-end items-start flex-wrap gap-2" id="projects-container">
                 <!-- (2018) -->
                 <div class="w-[825px] h-[50px] bg-transparent flex flex-row justify-center items-center">
@@ -657,7 +663,7 @@
                             Navigation</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -697,21 +703,21 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="w-[350px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    class="w-[350px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
                                         <img src="./assets/images/projects/nsf-reu/img3.png" alt="rssi1"
                                             class="w-full h-full object-cover" />
                                     </div>
                                 </div>
                                 <div
-                                    class="w-[350px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    class="w-[350px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
                                         <img src="./assets/images/projects/nsf-reu/img4.png" alt="rssi1"
                                             class="w-full h-full object-cover" />
                                     </div>
                                 </div>
                                 <div
-                                    class="w-[350px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    class="w-[350px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
                                         <img src="./assets/images/projects/nsf-reu/img5.png" alt="rssi1"
                                             class="w-full h-full object-cover" />
@@ -778,7 +784,7 @@
                             Navigation</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -923,7 +929,7 @@
                             Robotino</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[250px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[250px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[200px] h-[250px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1253,7 +1259,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">AWS Lambda Tutorial</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[125px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[125px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[125px] h-[125px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="rounded-2xl w-full h-full overflow-hidden">
@@ -1287,7 +1293,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">Alexa "Stock Price" Skill</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1330,7 +1336,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">Alexa "Hello World" Tutorial</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1357,7 +1363,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">Architecture Competition</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1416,7 +1422,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">FRC Robotics</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1477,7 +1483,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">Upcycled Shelf</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[275px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[275px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[275px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1517,7 +1523,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">Upcycled Table</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[200px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[200px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1615,7 +1621,7 @@ int main()
                         <span class="text-evergreen text-lg font-semibold">Refurbished Patio Chairs</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
-                                class="sticky top-0 z-10 w-full flex h-[175px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                class="sticky top-0 z-10 w-full flex h-[175px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll overflow-y-hidden">
                                 <div
                                     class="w-[275px] h-[175px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
@@ -1683,19 +1689,21 @@ int main()
                 </div>
             </div>
         </section>
-        <section class="w-[100%-300px] md:w-[70%] h-full bg-transparent rounded-2xl p-4 overflow-y-scroll hidden"
+        <section class="w-full md:w-[70%] h-full bg-transparent rounded-2xl p-2 md:p-4 overflow-y-scroll hidden"
             id="publications">
             <div class="flex flex-col justify-center items-center text-evergreen gap-2">
-                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
-                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                <div
+                    class="w-full h-auto lg:h-[300px] rounded-2xl flex flex-col lg:flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div
+                        class="group flex flex-row justify-center items-center w-full lg:w-[calc(30%)] h-full mt-4 lg:mt-0">
                         <iframe class="h-[250px] w-[150px] rotate" src="
                             ./assets/pdfs/Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf"></iframe>
-                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                        <div class="absolute left-1/2 lg:left-[100px] -translate-x-1/2 lg:translate-x-0 w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
                             onclick="download('Multi_Camera_WAMI_Dynamic_Stitching__IEEE_Sensor_Letters.pdf')">
                             <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
                         </div>
                     </div>
-                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                    <div class="w-full lg:w-[calc(70%)] h-auto overflow-y-scroll mt-6 lg:mt-0">
                         <p class="text-center text-md font-semibold">Analytical Image Stitching in Non-Rigid
                             Multi-Camera WAMI</p>
                         <p>&nbsp;</p>
@@ -1728,17 +1736,19 @@ int main()
                             the proposed method compared to the traditional ones.</p>
                     </div>
                 </div>
-                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
-                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                <div
+                    class="w-full h-auto lg:h-[300px] rounded-2xl flex flex-col lg:flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div
+                        class="group flex flex-row justify-center items-center w-full lg:w-[calc(30%)] h-full mt-4 lg:mt-0">
                         <iframe class="h-[250px] w-[150px] rotate"
                             src="
                                 ./assets/pdfs/Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf"></iframe>
-                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                        <div class="absolute left-1/2 lg:left-[100px] -translate-x-1/2 lg:translate-x-0 w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
                             onclick="download('Point_Cloud_Object_Segmentation_Using_Multi_Elevation_Layer_2D_Bounding_Boxes.pdf')">
                             <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
                         </div>
                     </div>
-                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                    <div class="w-full lg:w-[calc(70%)] h-auto overflow-y-scroll mt-6 lg:mt-0">
                         <p class="text-center text-md font-semibold">Point Cloud Object Segmentation Using Multi
                             Elevation-Layer 2D
                             Bounding-Boxes</p>
@@ -1779,16 +1789,18 @@ int main()
                             within a point cloud.</p>
                     </div>
                 </div>
-                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
-                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                <div
+                    class="w-full h-auto lg:h-[300px] rounded-2xl flex flex-col lg:flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div
+                        class="group flex flex-row justify-center items-center w-full lg:w-[calc(30%)] h-full mt-4 lg:mt-0">
                         <iframe class="h-[250px] w-[150px] rotate" src="
                         ./assets/pdfs/SearchAndRescue.pdf"></iframe>
-                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                        <div class="absolute left-1/2 lg:left-[100px] -translate-x-1/2 lg:translate-x-0 w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
                             onclick="download('SearchAndRescue.pdf')">
                             <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
                         </div>
                     </div>
-                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                    <div class="w-full lg:w-[calc(70%)] h-auto overflow-y-scroll mt-6 lg:mt-0">
                         <p class="text-center text-md font-semibold">Search and Rescue Operations with Mesh
                             Networked
                             Robots</p>
@@ -1829,16 +1841,18 @@ int main()
                             increased search-andrescue time efficiency.</p>
                     </div>
                 </div>
-                <div class="w-full h-[300px] rounded-2xl flex flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
-                    <div class="group flex flex-row justify-center items-center w-[calc(30%)] h-full">
+                <div
+                    class="w-full h-auto lg:h-[300px] rounded-2xl flex flex-col lg:flex-row bg-neutral-200/85 backdrop-blur-lg p-4">
+                    <div
+                        class="group flex flex-row justify-center items-center w-full lg:w-[calc(30%)] h-full mt-4 lg:mt-0">
                         <iframe class="h-[250px] w-[150px] rotate" src="
                         ./assets/pdfs/FuroPaper.pdf"></iframe>
-                        <div class="absolute top-[100px] left-[100px] w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
+                        <div class="absolute left-1/2 lg:left-[100px] -translate-x-1/2 lg:translate-x-0 w-[100px] h-[100px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80"
                             onclick="download('FuroPaper.pdf')">
                             <img src="./assets/images/download.svg" alt="download" class="w-[50px] h-[50px]" />
                         </div>
                     </div>
-                    <div class="w-[calc(70%)] h-full overflow-y-scroll">
+                    <div class="w-full lg:w-[calc(70%)] h-auto overflow-y-scroll mt-6 lg:mt-0">
                         <p class="text-center text-md font-semibold">Directory Navigation with Robotic Assistance
                         </p>
                         <p>&nbsp;</p>
@@ -1875,26 +1889,30 @@ int main()
             id="blog">
             <span class="text-evergreen">Nothing here yet.</span>
         </section>
-        <div class="absolute bottom-0 overflow-hidden bg-transparent h-[40px]">
-            <div class="flex flex-row justify-start items-center gap-2 py-[5px] p-4">
-                <a href="https://github.com/twbot" target="_blank" rel="noopener noreferrer" class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/github.svg" alt="github" /></div>
-                </a>
-                <a href="https://twitter.com/twbrodeur" target="_blank" rel="noopener noreferrer"
-                    class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/twitter.svg" alt="twitter/x" /></div>
-                </a>
-                <a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" target="_blank"
-                    rel="noopener noreferrer" class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/google-scholar-square.svg" alt="google scholar" /></div>
-                </a>
-                <a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" target="_blank"
-                    rel="noopener noreferrer" class="w-[30px] h-[30px]">
-                    <div><img src="./assets/images/logos/social/linkedin.svg" alt="linkedin" /></div>
-                </a>
-            </div>
-        </div>
+        <section class="w-full md:w-[70%] h-full bg-transparent rounded-2xl p-2 md:p-4  overflow-y-scroll hidden"
+            id="cv">
+            <iframe class="h-full w-full rounded-2xl" src="./assets/pdfs/BrodeurTristanCV.pdf"></iframe>
+        </section>
     </div>
+    </div>
+    <div
+        class="fixed bottom-[10px] left-1/2 md:left-[48px] -translate-x-1/2 md:translate-x-0 overflow-hidden bg-transparent h-[40px]">
+        <div class="bg-neutral-300 grain-bg flex flex-row justify-center items-center gap-2 py-[5px] p-4 ">
+            <a href="https://github.com/twbot" target="_blank" rel="noopener noreferrer" class="w-[30px] h-[30px]">
+                <div><img src="./assets/images/logos/social/github.svg" alt="github" /></div>
+            </a>
+            <a href="https://twitter.com/twbrodeur" target="_blank" rel="noopener noreferrer" class="w-[30px] h-[30px]">
+                <div><img src="./assets/images/logos/social/twitter.svg" alt="twitter/x" /></div>
+            </a>
+            <a href="https://scholar.google.com/citations?user=fJzDPGsAAAAJ&hl=en" target="_blank"
+                rel="noopener noreferrer" class="w-[30px] h-[30px]">
+                <div><img src="./assets/images/logos/social/google-scholar-square.svg" alt="google scholar" /></div>
+            </a>
+            <a href="https://www.linkedin.com/in/tristan-brodeur-a7987896/" target="_blank" rel="noopener noreferrer"
+                class="w-[30px] h-[30px]">
+                <div><img src="./assets/images/logos/social/linkedin.svg" alt="linkedin" /></div>
+            </a>
+        </div>
     </div>
 </body>
 
