@@ -96,8 +96,9 @@
 <body class="m-0 p-0 overflow-hidden ">
     <canvas id="particleCanvas" class="w-full h-full z-40"></canvas>
     <div class="absolute inset-0 overflow-hidden bg-neutral-300 grain-bg mix-blend-overlay" />
-    <div class="absolute inset-7 overflow-hidden bg-transparent border-evergreen border-solid border rounded-2xl" />
-    <div class="absolute inset-7 overflow-hidden bg-transparent flex flex-col md:flex-row">
+    <div
+        class="absolute inset-2 lg:inset-7 overflow-hidden bg-transparent border-evergreen border-solid border rounded-2xl" />
+    <div class="absolute inset-2 lg:inset-7 overflow-hidden bg-transparent flex flex-col md:flex-row">
         <div class="w-full md:w-[30%] md:min-w-[300px] h-auto md:h-full px-2 pb-4 md:p-4 overflow-hidden">
             <div class="flex flex-row justify-center md:justify-start items-center mb-4">
                 <div class="flex flex-row justify-center gap-2 items-center">
@@ -161,7 +162,7 @@
                 </div>
             </div>
             <div
-                class="flex flex-row md:flex-col justify-center md:justify-start justify-center md:items-start md:pl-[2px] gap-4 md:gap-0">
+                class="flex flex-row md:flex-col justify-center md:justify-start justify-center md:items-start md:pl-[2px] gap-4 md:gap-0 overflow-x-scroll">
                 <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
                     onclick="showPage(event, 'about', this); return false;">About</span>
                 <span class="text-sm md:text-xl text-evergreen mb-2 cursor-pointer"
