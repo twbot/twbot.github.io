@@ -86,6 +86,11 @@
             border: 1px solid rgba(0, 72, 38, 1);
         }
 
+        .rotated-text {
+            transform: rotate(-90deg);
+            white-space: nowrap;
+        }
+
         /* debug */
         .debug {
             border: 1px solid red;
@@ -704,11 +709,171 @@
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
                             <div
                                 class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <!-- Live3D -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300 overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">Live3D / Textured Meshes</p>
+                                    </div>
+                                </div>
+                                <div class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 relative cursor-pointer"
+                                    onclick="window.open('https://youtu.be/cVossGAk9BQ?si=1N65MugEyU3qduiv', '_blank')">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/relighting/live3D_screenshot.png"
+                                            alt="Video Thumbnail" class="w-full h-full object-cover" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div
+                                                class="rounded-full bg-evergreen w-[64px] h-[64px] flex items-center justify-center opacity-100">
+                                                <img src="./assets/images/play.svg" alt="Play"
+                                                    class="w-[32px] h-[32px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 relative cursor-pointer"
+                                    onclick="window.open('https://youtu.be/HvWTFLt_hwI?si=8QNmUMuZ6kI5_DvV', '_blank')">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/relighting/viewer_screenshot.png"
+                                            alt="Video Thumbnail" class="w-full h-full object-cover" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div
+                                                class="rounded-full bg-evergreen w-[64px] h-[64px] flex items-center justify-center opacity-100">
+                                                <img src="./assets/images/play.svg" alt="Play"
+                                                    class="w-[32px] h-[32px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 relative cursor-pointer"
+                                    onclick="window.open('https://youtu.be/W04g6iN_Ovs?si=XwmSLzdDAo0wsGON', '_blank')">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/relighting/viewer_la_screenshot.png"
+                                            alt="Video Thumbnail" class="w-full h-full object-cover" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div
+                                                class="rounded-full bg-evergreen w-[64px] h-[64px] flex items-center justify-center opacity-100">
+                                                <img src="./assets/images/play.svg" alt="Play"
+                                                    class="w-[32px] h-[32px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[270px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/textured_mesh_2.png"
+                                            alt="textured_mesh_2" class="w-full h-full" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[270px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/textured_mesh_1.png"
+                                            alt="textured_mesh_1" class="w-full h-full" />
+                                    </div>
+                                </div>
+                                <!-- Machine Learning -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">Machine Learning</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[800px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/shadow_removal_1.png"
+                                            alt="shadow_removal_1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[800px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/shadow_removal_2.png"
+                                            alt="shadow_removal_2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/shadow_detection.png"
+                                            alt="shadow_detection" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[600px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/super_resolution.png"
+                                            alt="super_resolution" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <!-- Software -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">3D Viewing Software</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="tsky-platform-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/live3D/software/platform.MOV"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
                                 <div
                                     class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
-                                        <video controls alt="rssi-movie" class="w-full h-full">
-                                            <source src="./assets/images/projects/live3D/relighting/Live3DOpenGL.mp4"
+                                        <img src="./assets/images/projects/live3D/software/platform_1.png"
+                                            alt="platform_1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/platform_2.png"
+                                            alt="platform_2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/software/platform_3.png"
+                                            alt="platform_3" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <!-- HARDWARE -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">Hardware</p>
+                                    </div>
+                                </div>
+                                <div class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 relative cursor-pointer"
+                                    onclick="window.open('https://youtu.be/BLr2fuowoFQ', '_blank')">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/hardware/flight_testing.png"
+                                            alt="Video Thumbnail" class="w-full h-full object-cover" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div
+                                                class="rounded-full bg-evergreen w-[64px] h-[64px] flex items-center justify-center opacity-100">
+                                                <img src="./assets/images/play.svg" alt="Play"
+                                                    class="w-[32px] h-[32px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="mike-wazowski-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/live3D/hardware/mike_wazowski.MOV"
                                                 type="video/mp4">
                                         </video>
                                     </div>
@@ -716,13 +881,148 @@
                                 <div
                                     class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
                                     <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
-                                        <img src="./assets/images/projects/live3D/mesh/initial_mesh.jpeg" alt="rssi1"
-                                            class="w-full h-full object-cover" />
+                                        <img src="./assets/images/projects/live3D/hardware/mechatronics_1.jpeg"
+                                            alt="mechatronics_1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/hardware/mechatronics_2.PNG"
+                                            alt="mechatronics_2" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/hardware/cam_system.jpeg"
+                                            alt="cam_system" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <!-- RANDOM -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">Random</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[250px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/other/myself.jpeg" alt="myself"
+                                            class="w-full h-full" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/other/drone_flying.png"
+                                            alt="drone_flight" class="w-full h-full" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/live3D/other/paper_writing.jpeg"
+                                            alt="paper_writing" class="w-full h-full object-cover" />
                                     </div>
                                 </div>
                             </div>
                             <div
                                 class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <h2 class="text-xl font-bold mb-2">Project Overview</h2>
+                                <span>During my time at Transparent Sky, I worked on several projects focused on 3D data
+                                    processing, machine learning, and visualization
+                                    technologies.</span>
+                                <h2 class="text-xl font-bold my-2">Live3D</h2>
+                                <span>I led the development of our Live3D technology, which
+                                    enhanced the way we process and visualize surveillance data:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Engineered 3D reconstruction algorithms capable of producing
+                                        high-quality meshes of entire cities in just 3 minutes.</li>
+                                    <li>Created a comprehensive in-house library of algorithms for point-cloud
+                                        processing, mesh processing, and 3D geometry processing tasks.</li>
+                                    <li>Implemented cutting-edge techniques such as 3D temporal differencing,
+                                        point-cloud segmentation, Kd-tree & octree creation, level-of-detail (LOD)
+                                        operations, reconstruction, texture-mapping, and ray-tracing.</li>
+                                    <li>Utilized and expanded upon industry-standard libraries like Point Cloud Library
+                                        (PCL) and Cloud Compare Core Library (CCCoreLib) to enhance our processing
+                                        capabilities.</li>
+                                </ul>
+                                <h2 class="text-xl font-bold my-2">Machine Learning</h2>
+                                <h3 class="text-lg font-semibold my-2">Shadow Removal/Detection</h3>
+                                <span>I led the research team in developing machine learning approaches for
+                                    shadow removal and detection in aerial imagery:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Designed and implemented neural network architectures specifically tailored for
+                                        identifying and eliminating shadows in various lighting conditions.</li>
+                                    <li>Developed a novel algorithm that combined spectral and spatial information to
+                                        accurately differentiate between shadows and actual dark objects in the scene.
+                                    </li>
+                                    <li>Created a large-scale dataset of aerial images with annotated shadows to train
+                                        and validate our models.</li>
+                                </ul>
+                                <span>Our shadow removal and detection algorithms greatly enhanced the quality and
+                                    usability of aerial imagery for surveillance applications, while also improving the
+                                    output quality of our meshes.</span>
+                                <h3 class="text-lg font-semibold my-2">Super-Resolution</h3>
+                                <span>I led the development of super-resolution techniques for
+                                    both single-image and multi-image scenarios:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Implemented and fine-tuned deep learning models such as SRCNN, ESRGAN, and DBPN
+                                        for single-image super-resolution.</li>
+                                    <li>Developed a novel multi-image super-resolution approach that leveraged temporal
+                                        information from video sequences to achieve unprecedented levels of detail.</li>
+                                    <li>Optimized our super-resolution pipeline for real-time processing, enabling
+                                        on-the-fly enhancement of live video feeds.</li>
+                                </ul>
+                                <span>Our super-resolution technology significantly improved the quality of
+                                    low-resolution imagery, allowing for more detailed analysis and interpretation of
+                                    aerial data.</span>
+
+                                <h2 class="text-xl font-bold my-2">3D Viewing Software</h2>
+                                <span>I took the lead in designing and developing a web-based UI for
+                                    viewing and interacting with 3D mesh and point-cloud data:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Utilized Chromium Embedded Framework (CEF) to create a high-performance,
+                                        cross-platform application that combined the power of C++ with the flexibility
+                                        of JavaScript.</li>
+                                    <li>Implemented advanced rendering techniques to handle large-scale 3D datasets
+                                        efficiently, including level-of-detail (LOD) management and out-of-core
+                                        rendering.</li>
+                                    <li>Designed an intuitive user interface that allowed for seamless navigation,
+                                        measurement, and annotation of 3D models.</li>
+                                    <li>Leveraged CesiumJS to incorporate accurate 3D representations of global terrain
+                                        features:</li>
+                                    <ul class="list-inside list-none ml-6 my-2">
+                                        <li>- Implemented high-resolution digital elevation models (DEMs) from CesiumJS
+                                            to
+                                            render
+                                            realistic mountains, valleys, and other topographical features.</li>
+                                        <li>- Utilized Cesium's globe rendering capabilities to seamlessly integrate our
+                                            custom 3D models with worldwide terrain data.</li>
+                                        <li>- Optimized the integration of large-scale terrain data with our own 3D
+                                            models
+                                            to maintain high performance across various zoom levels and viewpoints.</li>
+                                    </ul>
+                                    <li>Implemented the Live3D relighting system within the 3D viewer:</li>
+                                    <ul class="list-inside list-none ml-6 my-2">
+                                        <li>- Developed a robust integration system to import our custom 3D meshes onto
+                                            the Cesium terrain at precise geographic locations.</li>
+                                        <li>- Created a real-time image projection pipeline that could handle multiple
+                                            live feeds from planes, drones, and other aerial platforms.</li>
+                                        <li>- Implemented advanced GPU-based rendering techniques to ensure smooth
+                                            performance even with high-resolution imagery and complex 3D models.</li>
+                                        <li>- Developed a user-friendly interface for controlling and adjusting the
+                                            camera
+                                            view, connecting to streaming sources, sending macros to aerial platforms,
+                                            and viewing metadata about incoming frames, meshes, etc.</li>
+                                    </ul>
+                                </ul>
+                                <span>Our 3D viewing software set a new standard in the industry for interactive
+                                    visualization of complex 3D datasets, greatly enhancing our clients' ability to
+                                    analyze and interpret spatial data.</span>
                             </div>
                         </div>
                     </div>
