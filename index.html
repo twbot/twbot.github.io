@@ -404,6 +404,23 @@
                     </div>
                 </div>
                 <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
+                    onclick="onClickProjectCard('jasmine')" id="project-card">
+                    <div
+                        class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
+                        <img src="./assets/images/projects/jasmine/jasmine_platform.png" alt="jasmine" class="" />
+                    </div>
+                    <div
+                        class="absolute rounded-full bottom-2 inset-x-2 w-auto h-auto z-20 bg-neutral-300/90 grain-bg flex flex-row justify-start items-center p-2">
+                        <span class="w-full text-center text-evergreen text-sm select-none">Jasmine Energy dApp</span>
+                    </div>
+                    <div class="z-20 absolute w-full h-full flex flex-row justify-center items-center">
+                        <div
+                            class="w-[75px] h-[75px] transition opacity-0 rounded-full flex flex-row justify-center items-center bg-evergreen group-hover:cursor-pointer group-hover:opacity-80">
+                            <img src="./assets/images/expand.svg" alt="expand" class="w-[35px] h-[35px]" />
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[275px] h-[150px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg group"
                     onclick="onClickProjectCard('pool-robot-v2')" id="project-card">
                     <div
                         class="absolute rounded-2xl w-full h-full z-10 overflow-hidden flex justify-center items-center">
@@ -704,6 +721,192 @@
                             <img src="./assets/images/close.svg" alt="close" class="w-[20px] h-[20px] z-50" />
                         </div>
                     </div>
+                    <div id="jasmine-card" class="w-full h-[calc(100%-28px)] pb-4 px-1 md:px-4  overflow-hidden hidden">
+                        <span class="text-evergreen text-lg font-semibold">Jasmine Energy dApp</span>
+                        <div class="relative h-full overflow-y-auto overflow-x-hidden">
+                            <div
+                                class="sticky top-0 z-10 w-full flex h-[270px] justify-start items-start flex-row gap-2 my-4 overflow-x-scroll">
+                                <!-- dApp V1 -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">dApp V1</p>
+                                    </div>
+                                </div>
+                                <div class="w-[500px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 relative cursor-pointer"
+                                    onclick="window.open('https://youtu.be/Cjm8dsiVCOQ', '_blank')">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/jasmine/jasmine_platform.png"
+                                            alt="Video Thumbnail" class="w-full h-full object-cover" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div
+                                                class="rounded-full bg-evergreen w-[64px] h-[64px] flex items-center justify-center opacity-100">
+                                                <img src="./assets/images/play.svg" alt="Play"
+                                                    class="w-[32px] h-[32px]" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- dApp V2 -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">dApp V2</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="jasmine-dApp-alpha-platform-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/jasmine/jasmine_platform_alpha.mov"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <!-- dApp Final -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">dApp Final</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="jasmine-dApp-final-platform-movie" class="w-full h-full">
+                                            <source
+                                                src="./assets/images/projects/jasmine/jasmine_platform_demo_final.mov"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <!-- Random -->
+                                <div
+                                    class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
+                                    <div
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
+                                        <p class="text-evergreen rotated-text">Random</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[400px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <video controls alt="jasmine-times-square-movie" class="w-full h-full">
+                                            <source src="./assets/images/projects/jasmine/jasmine_times_square.MP4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-[270px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0">
+                                    <div class="absolute rounded-2xl w-full h-full z-10 overflow-hidden">
+                                        <img src="./assets/images/projects/jasmine/jasmine_dApp_under_construction_page.png"
+                                            alt="platform_1" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative z-20 w-full flex flex-col text-evergreen rounded-2xl text-md p-4 bg-neutral-200/85 backdrop-blur-lg mb-4">
+                                <h2 class="text-xl font-bold mb-2">Project Overview</h2>
+                                <span>As a Co-Founder and Senior Software Engineer at Jasmine Energy, I led the
+                                    development of a blockchain-based platform for trading Energy Attribute Certificates
+                                    (EACs), modernizing processes in a $10B market previously reliant on manual
+                                    operations.</span>
+
+                                <h2 class="text-xl font-bold my-2">Platform Development</h2>
+                                <span>I spearheaded the development of our decentralized application (dApp) on the
+                                    Ethereum blockchain:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Architected and implemented the core smart contract infrastructure for
+                                        tokenizing Renewable Energy Certificates (RECs).</li>
+                                    <li>Developed a permissionless trading system enabling instant settlement of EAC
+                                        transactions, replacing weeks-long manual processes.</li>
+                                    <li>Created an automated regulatory compliance system that handles required filings
+                                        and auditing when tokenized EACs are retired.</li>
+                                    <li>Implemented real-time price discovery mechanisms to enhance market transparency
+                                        and efficiency.</li>
+                                </ul>
+
+                                <h2 class="text-xl font-bold my-2">Technical Stack</h2>
+                                <span>Designed and implemented a comprehensive full-stack architecture:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Frontend Development:</li>
+                                    <ul class="list-inside list-none ml-6 my-2">
+                                        <li>- Built with TypeScript and Node.js for type-safe, maintainable code</li>
+                                        <li>- Integrated Web3.js for blockchain interaction and smart contract
+                                            integration</li>
+                                        <li>- Implemented comprehensive wallet support including MetaMask, Coinbase
+                                            Wallet, and WalletConnect</li>
+                                        <li>- Developed real-time transaction monitoring and state management systems
+                                        </li>
+                                    </ul>
+                                    <li>Backend Infrastructure:</li>
+                                    <ul class="list-inside list-none ml-6 my-2">
+                                        <li>- Created Python-based worker services for automated REC registration and
+                                            processing</li>
+                                        <li>- Developed event listeners for blockchain state changes and automated
+                                            responses</li>
+                                        <li>- Implemented secure API endpoints for interaction with various REC
+                                            registries</li>
+                                        <li>- Built automated systems for regulatory compliance and reporting</li>
+                                    </ul>
+                                    <li>Blockchain Integration:</li>
+                                    <ul class="list-inside list-none ml-6 my-2">
+                                        <li>- Developed and deployed Ethereum smart contracts for EAC tokenization</li>
+                                        <li>- Created custom libraries for handling complex blockchain transactions</li>
+                                        <li>- Implemented gas optimization strategies for cost-effective contract
+                                            deployment</li>
+                                        <li>- Built robust error handling and transaction recovery systems</li>
+                                    </ul>
+                                </ul>
+
+                                <h2 class="text-xl font-bold my-2">Technical Achievements</h2>
+                                <span>Led the technical implementation of several key platform features:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Designed and implemented the blockchain bridging system for converting
+                                        traditional RECs into tokenized EACs.</li>
+                                    <li>Developed smart contract architecture ensuring proper tracking and prevention of
+                                        double-counting issues.</li>
+                                    <li>Implemented a comprehensive audit trail system for tracking energy consumption
+                                        and certificate ownership.</li>
+                                </ul>
+
+                                <h2 class="text-xl font-bold my-2">Business Impact</h2>
+                                <span>Our approach led to measurable improvements in the EAC market:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Reduced transaction settlement time from days to seconds through blockchain
+                                        implementation.</li>
+                                    <li>Decreased market costs by eliminating up to 30% middleman fees.</li>
+                                    <li>Improved market efficiency by 25% through implementation of transparent pricing
+                                        mechanisms.</li>
+                                    <li>Reduced instances of double counting via on-chain token retirement tracking .
+                                    </li>
+                                    <li>Secured $2.1 million in seed funding after presenting our MVP at Y Combinator
+                                        demo day.</li>
+                                </ul>
+
+                                <h2 class="text-xl font-bold my-2">Environmental Impact</h2>
+                                <span>The platform contributes to climate action by:</span>
+                                <ul class="list-inside list-disc my-2">
+                                    <li>Facilitating faster and more efficient financing of renewable energy projects
+                                        through improved market liquidity.</li>
+                                    <li>Creating transparent price discovery mechanisms that help properly value
+                                        renewable energy investments.</li>
+                                    <li>Enabling new DeFi instruments that incentivize additional investment in
+                                        renewable energy infrastructure.</li>
+                                    <li>Supporting the global transition to clean energy by making EAC trading more
+                                        accessible and efficient.</li>
+                                </ul>
+
+                                <h2 class="text-xl font-bold my-2">Cool Stuff</h2>
+                                <span>Look in the "Random" section of the gallery above to see Jasmine Energy in
+                                    Times Square!</span>
+                            </div>
+                        </div>
+                    </div>
                     <div id="live3D-card" class="w-full h-[calc(100%-28px)] pb-4 px-1 md:px-4  overflow-hidden hidden">
                         <span class="text-evergreen text-lg font-semibold">Live3D</span>
                         <div class="relative h-full overflow-y-auto overflow-x-hidden">
@@ -713,7 +916,7 @@
                                 <div
                                     class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
                                     <div
-                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300 overflow-hidden flex flex-row justify-center items-center">
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
                                         <p class="text-evergreen rotated-text">Live3D / Textured Meshes</p>
                                     </div>
                                 </div>
@@ -777,7 +980,7 @@
                                 <div
                                     class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
                                     <div
-                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
                                         <p class="text-evergreen rotated-text">Machine Learning</p>
                                     </div>
                                 </div>
@@ -813,7 +1016,7 @@
                                 <div
                                     class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
                                     <div
-                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
                                         <p class="text-evergreen rotated-text">3D Viewing Software</p>
                                     </div>
                                 </div>
@@ -851,7 +1054,7 @@
                                 <div
                                     class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
                                     <div
-                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
                                         <p class="text-evergreen rotated-text">Hardware</p>
                                     </div>
                                 </div>
@@ -903,7 +1106,7 @@
                                 <div
                                     class="w-[75px] h-[270px] rounded-2xl bg-neutral-200/85 backdrop-blur-lg flex-shrink-0 border border-evergreen border-1">
                                     <div
-                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300  overflow-hidden flex flex-row justify-center items-center">
+                                        class="absolute rounded-2xl w-full h-full z-10 bg-neutral-300/90 grain-bg overflow-hidden flex flex-row justify-center items-center">
                                         <p class="text-evergreen rotated-text">Random</p>
                                     </div>
                                 </div>
